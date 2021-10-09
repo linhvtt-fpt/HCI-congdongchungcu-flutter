@@ -4,6 +4,7 @@ class User {
   final String email;
   final String phoneNumber;
   final String address;
+  final String note;
 
   const User({
     required this.imagePath,
@@ -11,5 +12,7 @@ class User {
     required this.email,
     required this.phoneNumber,
     required this.address,
+    required this.note
 });
+
 }

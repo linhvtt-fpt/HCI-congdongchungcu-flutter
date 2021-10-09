@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:test_flutter_template/json/product_model.dart';
+import 'package:test_flutter_template/pages/checkout_page.dart';
 import 'package:test_flutter_template/theme/colors.dart';
 
 class Cart extends StatefulWidget {
@@ -202,7 +203,11 @@ class _CartState extends State<Cart> {
             SizedBox(
               width: 150,
               child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                     Route route = MaterialPageRoute(
+                            builder: (context) => CheckoutPage(_cart));
+                        Navigator.push(context, route);
+                  },
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(Colors.red),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -210,10 +215,6 @@ class _CartState extends State<Cart> {
                               borderRadius: BorderRadius.zero))),
                   child: Column(
                     children: [
-                      // Image.asset(
-                      //      "assets/images/buy-button.png",
-                      //       width: 28,
-                      //     ),
                       SizedBox(
                         height: 18,
                       ),

@@ -7,5 +7,6 @@ class UserPreferences{
         address: 'Topaz Home apartment, Block 3',
         email: 'erenYeager@gmail.com',
         phoneNumber: '1900 6789',
+        note: ""
     );
 }

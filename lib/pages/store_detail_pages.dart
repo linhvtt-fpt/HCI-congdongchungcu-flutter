@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:test_flutter_template/json/cart_product_json.dart';
+import 'package:test_flutter_template/json/product_checkout_json.dart';
 import 'package:test_flutter_template/json/product_data_json.dart';
 import 'package:test_flutter_template/json/product_model.dart';
 import 'package:test_flutter_template/theme/colors.dart';
@@ -10,6 +11,7 @@ import 'package:test_flutter_template/json/home_page_json.dart';
 import 'package:test_flutter_template/theme/styles.dart';
 
 import 'cart_page.dart';
+import 'checkout_page.dart';
 import 'home_page.dart';
 
 class StoreDetailPage extends StatefulWidget {
@@ -363,7 +365,6 @@ class _StoreDetailPageState extends State<StoreDetailPage> {
                         color: Colors.red,
                       ),
                       Text(
-                          // "Muốn uống trà sữa hãy để Baba Tea lo nhé!!!",
                           widget.product.description),
                     ],
                   ),
@@ -468,6 +469,12 @@ class _StoreDetailPageState extends State<StoreDetailPage> {
         else{
         cartList.add(widget.product);
         }
+      }
+      else{
+        productCheckout.add(widget.product);
+        Route route = MaterialPageRoute(
+                            builder: (context) => CheckoutPage(productCheckout));
+                        Navigator.push(context, route);
       }
     });
   }
