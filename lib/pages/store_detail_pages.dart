@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:intl/intl.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:test_flutter_template/json/cart_product_json.dart';
 import 'package:test_flutter_template/json/product_data_json.dart';
@@ -179,7 +180,7 @@ class _StoreDetailPageState extends State<StoreDetailPage> {
                       Container(
                         child: Container(
                           child: Text(
-                            widget.product.price.toString(),
+                            NumberFormat.decimalPattern().format(widget.product.price),
                             style: TextStyle(fontSize: 22, color: Colors.red),
                           ),
                         ),

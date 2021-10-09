@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:intl/intl.dart';
 import 'package:test_flutter_template/json/home_page_json.dart';
 import 'package:test_flutter_template/json/product_data_json.dart';
 import 'package:test_flutter_template/json/product_model.dart';
@@ -221,7 +222,7 @@ class _HomePageState extends State<HomePage> {
                                       color: Colors.red,
                                     ),
                                     Text(
-                                      allProduct[index].price.toString(),
+                                       NumberFormat.decimalPattern().format(allProduct[index].price),
                                       style: TextStyle(
                                           fontSize: 16,
                                           color: Colors.red,
