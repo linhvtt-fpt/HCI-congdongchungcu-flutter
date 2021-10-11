@@ -117,7 +117,7 @@ class _RootAppState extends State<RootApp> {
               top: BorderSide(width: 2, color: black.withOpacity(0.06)))),
       child: Padding(
         padding:
-            const EdgeInsets.only(left: 20, right: 20, bottom: 0, top: 10),
+            const EdgeInsets.only(left: 30, right: 30, bottom: 0, top: 10),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

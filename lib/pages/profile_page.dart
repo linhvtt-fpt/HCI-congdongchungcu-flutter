@@ -1,5 +1,7 @@
+import 'package:flutter_svg/svg.dart';
 import 'package:test_flutter_template/json/user_model.dart';
 import 'package:test_flutter_template/json/user_preferences.dart';
+import 'package:test_flutter_template/theme/colors.dart';
 import 'package:test_flutter_template/widgets/appbar_widget.dart';
 import 'package:test_flutter_template/widgets/profile_widget.dart';
 import 'package:flutter/cupertino.dart';
@@ -13,17 +15,29 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  int pageIndex = 0;
   @override
   Widget build(BuildContext context) {
     final user = UserPreferences.myUser;
 
+    List bottomItems = [
+      Icons.my_library_books_sharp,
+      Icons.card_giftcard,
+      Icons.stars
+    ];
+    List textItems = ["Chờ xác nhận", "Giao hàng", "Đánh giá"];
+
     return Scaffold(
         // appBar: buildAppBar(context),
 
-        body: ListView(
+      body: ListView(
       physics: BouncingScrollPhysics(),
       children: [
-        SizedBox(height: 10),
+        SizedBox(
+          height: 150, 
+          child: Column(
+            children: [
+              SizedBox(height: 10,),
         ProfileWidget(
           imagePath: user.imagePath,
           //hieu ung mo
@@ -33,10 +47,95 @@ class _ProfilePageState extends State<ProfilePage> {
             );
           },
         ),
+                
         SizedBox(height: 10),
         buildName(user),
-        SizedBox(height: 10),
-        _heading("Thông tin cá nhân"),
+            ],
+          ),
+        ),
+
+        SizedBox(height: 30),
+        Column(
+          children: [
+            Row(
+              children: [
+                SizedBox(width: 20,),
+                Icon(Icons.list_alt, color: Colors.blue[900],size: 30,),
+                SizedBox(width: 10,),
+                Text("Đơn mua", style: TextStyle( fontSize: 18),)
+              ],
+            ),
+            Container(
+      width: double.infinity,
+      height: 60,
+      decoration: BoxDecoration(
+              color: white,
+              border: Border(
+                  top: BorderSide(width: 2, color: black.withOpacity(0.06)),
+                  bottom: BorderSide(width: 2, color: black.withOpacity(0.06)))
+                  ),
+      child: Padding(
+            padding:
+                const EdgeInsets.only(left: 30, right: 30, bottom: 0, top: 10),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: List.generate(textItems.length, (index) {
+                return InkWell(
+                    onTap: () {
+                      selectedTab(index);
+                    },
+                    child: Column(
+                      children: [
+                        Icon(
+                          bottomItems[index],
+                          size: 22,
+                          color: Colors.black
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          textItems[index],
+                          style: TextStyle(
+                              fontSize: 15,
+                              color: black),
+                        ),
+                      ],
+                    ));
+              }),
+            ),
+      ),
+    ),
+          ],
+        ),
+        SizedBox(height: 30),
+        Row(
+          children: [
+            _heading("Thông tin cá nhân"),
+            SizedBox(
+              width: 150,
+              height: 30,
+              child: ElevatedButton(
+                  onPressed: () {},
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.red),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8))),
+                  ),
+                  child: Row(
+                    children: [
+                      Icon(Icons.storefront, size: 20,),
+                      SizedBox(width: 10,),
+                      Text("Shop của tôi")
+                    ],
+                  ),
+              )
+            )
+          ],
+        ),
+        
         SizedBox(
           height: 5,
         ),
@@ -68,7 +167,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
   Widget _heading(String heading) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.80, //80% of width
+      width: MediaQuery.of(context).size.width * 0.60, //80% of width
       padding: EdgeInsets.only(left: 20),
       child: Text(
         heading,
@@ -201,13 +300,20 @@ class _ProfilePageState extends State<ProfilePage> {
         ));
   }
 
+  
+  selectedTab(index) {
+    setState(() {
+      pageIndex = index;
+    });
+  }
+
   Widget _btnLogout() {
     return InkWell(
       onTap: () {},
       child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(5)),
-            color: Colors.blue,
+            color: Color.fromRGBO(240, 103, 103, 1),
           ),
           margin: EdgeInsets.symmetric(horizontal: 12),
           child: Padding(

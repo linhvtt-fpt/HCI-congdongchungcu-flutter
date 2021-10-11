@@ -213,7 +213,7 @@ class _StoreDetailPageState extends State<StoreDetailPage> {
                               size: 17,
                             ),
                             Icon(
-                              Icons.star,
+                              Icons.star_half,
                               color: Colors.orange[300],
                               size: 17,
                             ),
@@ -296,11 +296,15 @@ class _StoreDetailPageState extends State<StoreDetailPage> {
                                     Border.all(color: Colors.orange.shade700),
                               ),
                               child: Center(
-                                child: Text(
-                                  "Xem shop",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.orange.shade700),
+                                child: ElevatedButton(
+                                  onPressed: (){},
+                                  style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.white)),
+                                  child: Text(
+                                    "Xem shop",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                        color: Colors.orange.shade700),
+                                  ),
                                 ),
                               ),
                             )

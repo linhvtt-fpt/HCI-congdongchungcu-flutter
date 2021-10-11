@@ -39,8 +39,8 @@ class ProfileWidget extends StatelessWidget {
           child: Ink.image(
               image: image,
               fit: BoxFit.cover,
-              width: 128,
-              height: 128,
+              width: 100,
+              height: 100,
               child: InkWell(onTap: onClicked,)
           ),
         )
@@ -49,14 +49,14 @@ class ProfileWidget extends StatelessWidget {
 
   Widget buildEditIcon(Color color) => buildCircle(
     color: Colors.white,
-    all: 3,
+    all: 2,
     child: buildCircle(
       color: color,
       all: 8,
       child: Icon(
           isEdit ? Icons.add_a_photo : Icons.edit,
         color: Colors.white,
-        size: 20,
+        size: 15,
       ),
     ),
   );

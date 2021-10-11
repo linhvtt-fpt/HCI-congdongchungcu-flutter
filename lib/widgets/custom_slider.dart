@@ -81,12 +81,17 @@ class _CustomSliderWidgetState extends State<CustomSliderWidget> {
                 builder: (BuildContext context) {
                   return Stack(
                     children: <Widget>[
-                      Container(
-                          width: MediaQuery.of(context).size.width,
-                          child: Image(
-                            image: AssetImage(item),
-                            fit: BoxFit.cover,
-                          )),
+                      GestureDetector(
+                        onTap: () {
+                                    print("hello");
+                                  },
+                        child: Container(
+                            width: MediaQuery.of(context).size.width,
+                            child: Image(
+                              image: AssetImage(item),
+                              fit: BoxFit.cover,
+                            )),
+                      ),
                     ],
                   );
                 },
