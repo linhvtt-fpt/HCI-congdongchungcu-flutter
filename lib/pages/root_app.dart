@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:test_flutter_template/json/product_data_json.dart';
 // import 'package:test_flutter_template/pages/filter_list_page.dart';
 import 'package:test_flutter_template/pages/home_page.dart';
+import 'package:test_flutter_template/pages/notification_page.dart';
 import 'package:test_flutter_template/pages/profile_page.dart';
 import 'package:test_flutter_template/theme/colors.dart';
 
@@ -45,7 +46,7 @@ class _RootAppState extends State<RootApp> {
       //           ),
       //         ),
       //         backgroundColor: Color.fromRGBO(240, 103, 103, 1),
-      //   actions: <Widget>[    
+      //   actions: <Widget>[
       //     Padding(
       //       padding: const EdgeInsets.all(10.0),
       //       child: Container(
@@ -77,14 +78,9 @@ class _RootAppState extends State<RootApp> {
     List<Widget> pages = [
       HomePage(),
       // FilterListPage(),
-    
-      Center(
-        child: Text(
-          "Notification Page",
-          style: TextStyle(
-              fontSize: 20, fontWeight: FontWeight.bold, color: black),
-        ),
-      ),
+
+      NotificationPage(),
+
       Center(
         child: Text(
           "Fee Page",
@@ -107,7 +103,7 @@ class _RootAppState extends State<RootApp> {
       "assets/images/house-value.svg",
       "assets/images/account_icon.svg"
     ];
-    List textItems = ["Trang chủ", "Thông báo", "Phí quản lí" ,"Tôi"];
+    List textItems = ["Trang chủ", "Thông báo", "Phí quản lí", "Tôi"];
     return Container(
       width: double.infinity,
       height: 60,
@@ -116,8 +112,7 @@ class _RootAppState extends State<RootApp> {
           border: Border(
               top: BorderSide(width: 2, color: black.withOpacity(0.06)))),
       child: Padding(
-        padding:
-            const EdgeInsets.only(left: 30, right: 30, bottom: 0, top: 10),
+        padding: const EdgeInsets.only(left: 30, right: 30, bottom: 0, top: 10),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -152,11 +147,10 @@ class _RootAppState extends State<RootApp> {
     );
   }
 
-
-
   selectedTab(index) {
     setState(() {
       pageIndex = index;
+      if (pageIndex == 1) {}
     });
   }
 }
