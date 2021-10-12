@@ -1,6 +1,9 @@
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:test_flutter_template/Fake_Data/fake_data.dart';
+import 'package:test_flutter_template/model/notificationDetail.dart';
+import 'package:test_flutter_template/pages/notification_page_detail.dart';
 import 'package:test_flutter_template/theme/colors.dart';
 
 class ActiveDot extends StatelessWidget {
@@ -58,6 +61,7 @@ class _CustomSliderWidgetState extends State<CustomSliderWidget> {
     });
   }
 
+  NotificationDetail noti = FAKE_NOTIFICATION[0];
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -83,8 +87,13 @@ class _CustomSliderWidgetState extends State<CustomSliderWidget> {
                     children: <Widget>[
                       GestureDetector(
                         onTap: () {
-                                    print("hello");
-                                  },
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => NotificationPageDetail(
+                                        notificationDetail: noti,
+                                      )));
+                        },
                         child: Container(
                             width: MediaQuery.of(context).size.width,
                             child: Image(

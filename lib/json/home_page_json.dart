@@ -13,10 +13,10 @@ const List categories = [
   // {"img": "assets/images/responsive.png", "name": "Technology"},
   // {"img": "assets/images/book.png", "name": "Book"},
   // {"img": "assets/images/images.png", "name": "More"},
-  {"img": "assets/images/diet.png", "name": "Thực phẩm"},
-    {"img": "assets/images/fast-food.png", "name": "Ăn vặt"},
-  {"img": "assets/images/fashion.png", "name": "Thời trang"},
-  {"img": "assets/images/electronics.png", "name": "Điện tử"},
+  {"img": "assets/images/diet.png", "name": "Thực phẩm", "id": "1"},
+  {"img": "assets/images/fast-food.png", "name": "Ăn vặt", "id": "2"},
+  {"img": "assets/images/fashion.png", "name": "Thời trang", "id": "3"},
+  {"img": "assets/images/electronics.png", "name": "Điện tử", "id": "4"},
   {"img": "assets/images/menu.png", "name": "Khác"},
 ];
 const List firstMenu = [
@@ -32,8 +32,7 @@ const List firstMenu = [
 ];
 const List exploreMenu = [
   {
-    "img":
-        "https://cf.shopee.vn/file/435d7bbfad159966b7c6aa1b3614ec9b_tn",
+    "img": "https://cf.shopee.vn/file/435d7bbfad159966b7c6aa1b3614ec9b_tn",
     "is_liked": true,
     "name": "Set nguyên liệu pha trà sữa",
     "description": "Trà sữa trân châu, thái xanh, truyền thống",
@@ -71,8 +70,7 @@ const List exploreMenu = [
     "nameShop": "Baba Tea"
   },
   {
-    "img":
-        "https://toplist.vn/images/800px/cau-dat-farm-375871.jpg",
+    "img": "https://toplist.vn/images/800px/cau-dat-farm-375871.jpg",
     "is_liked": true,
     "name": "Trái cây & rau củ sấy",
     "description": "Trái cây sấy, rau củ sấy",
@@ -84,8 +82,7 @@ const List exploreMenu = [
     "nameShop": "Baba Tea"
   },
   {
-    "img":
-        "http://cuatiemnho.vn/uploads/product/2019_04/beauty-care.jpg",
+    "img": "http://cuatiemnho.vn/uploads/product/2019_04/beauty-care.jpg",
     "is_liked": true,
     "name": "Sữa tắm",
     "description": "Sữa tắm thái lan",
@@ -146,7 +143,6 @@ const List exploreMenu = [
     "imgShop": "assets/images/3.jpg",
     "nameShop": "Baba Tea"
   },
-
 ];
 
 const List popluarNearYou = [
