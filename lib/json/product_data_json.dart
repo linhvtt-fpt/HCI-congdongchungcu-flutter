@@ -73,44 +73,44 @@ final allProduct = <Product>[
       categoryId: 1),
 
   // Ăn Vặt
-  Product(
-      urlImage:
-          "https://gacobap.com/wp-content/uploads/2018/04/kinh-doanh-do-an-vat-2.jpg",
-      name: "Bánh tráng trộng siêu cấp",
-      description: "bánh tráng phơi sương, muối",
-      price: 35000,
-      imgShop: "assets/images/3.jpg",
-      nameShop: "Baba Tea",
-      rate: "4",
-      rate_number: "155",
-      quantity: 1,
-      categoryId: 2),
+  // Product(
+  //     urlImage:
+  //         "https://gacobap.com/wp-content/uploads/2018/04/kinh-doanh-do-an-vat-2.jpg",
+  //     name: "Bánh tráng trộng siêu cấp",
+  //     description: "bánh tráng phơi sương, muối",
+  //     price: 35000,
+  //     imgShop: "assets/images/3.jpg",
+  //     nameShop: "Baba Tea",
+  //     rate: "4",
+  //     rate_number: "155",
+  //     quantity: 1,
+  //     categoryId: 2),
 
-  Product(
-      urlImage:
-          "https://gacobap.com/wp-content/uploads/2018/04/kinh-doanh-do-an-vat-2.jpg",
-      name: "Bánh tráng trộng siêu cấp",
-      description: "bánh tráng phơi sương, muối",
-      price: 35000,
-      imgShop: "assets/images/3.jpg",
-      nameShop: "Baba Tea",
-      rate: "4",
-      rate_number: "155",
-      quantity: 1,
-      categoryId: 2),
+  // Product(
+  //     urlImage:
+  //         "https://gacobap.com/wp-content/uploads/2018/04/kinh-doanh-do-an-vat-2.jpg",
+  //     name: "Bánh tráng trộng siêu cấp",
+  //     description: "bánh tráng phơi sương, muối",
+  //     price: 35000,
+  //     imgShop: "assets/images/3.jpg",
+  //     nameShop: "Baba Tea",
+  //     rate: "4",
+  //     rate_number: "155",
+  //     quantity: 1,
+  //     categoryId: 2),
 
-  Product(
-      urlImage:
-          "https://gacobap.com/wp-content/uploads/2018/04/kinh-doanh-do-an-vat-2.jpg",
-      name: "Bánh tráng trộng siêu cấp",
-      description: "bánh tráng phơi sương, muối",
-      price: 35000,
-      imgShop: "assets/images/3.jpg",
-      nameShop: "Baba Tea",
-      rate: "4",
-      rate_number: "155",
-      quantity: 1,
-      categoryId: 2),
+  // Product(
+  //     urlImage:
+  //         "https://gacobap.com/wp-content/uploads/2018/04/kinh-doanh-do-an-vat-2.jpg",
+  //     name: "Bánh tráng trộng siêu cấp",
+  //     description: "bánh tráng phơi sương, muối",
+  //     price: 35000,
+  //     imgShop: "assets/images/3.jpg",
+  //     nameShop: "Baba Tea",
+  //     rate: "4",
+  //     rate_number: "155",
+  //     quantity: 1,
+  //     categoryId: 2),
 
   //Thời Trang
   Product(
