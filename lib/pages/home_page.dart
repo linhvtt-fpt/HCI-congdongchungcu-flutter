@@ -9,6 +9,7 @@ import 'package:intl/intl.dart';
 import 'package:test_flutter_template/json/home_page_json.dart';
 import 'package:test_flutter_template/json/product_data_json.dart';
 import 'package:test_flutter_template/json/product_model.dart';
+import 'package:test_flutter_template/list_view/girdViewListItemPage.dart';
 import 'package:test_flutter_template/pages/cart_page.dart';
 import 'package:test_flutter_template/pages/store_detail_pages.dart';
 import 'package:test_flutter_template/theme/colors.dart';
@@ -17,7 +18,6 @@ import 'package:test_flutter_template/widgets/custom_slider.dart';
 import 'package:test_flutter_template/json/cart_product_json.dart';
 
 class HomePage extends StatefulWidget {
-
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -52,13 +52,16 @@ class _HomePageState extends State<HomePage> {
                 onTap: () {},
                 child: Stack(
                   children: <Widget>[
-                     IconButton(
+                    IconButton(
                       onPressed: () {
                         Route route = MaterialPageRoute(
                             builder: (context) => Cart(cartList));
                         Navigator.push(context, route);
                       },
-                      icon: Icon(Icons.shopping_cart_sharp, size: 28,),
+                      icon: Icon(
+                        Icons.shopping_cart_sharp,
+                        size: 28,
+                      ),
                       color: Colors.white,
                     ),
                     if (cartList.length > 0)
@@ -123,24 +126,33 @@ class _HomePageState extends State<HomePage> {
                     margin: EdgeInsets.only(left: 20),
                     child: Row(
                         children: List.generate(categories.length, (index) {
-                      return Padding(
-                        padding: const EdgeInsets.only(right: 30),
-                        child: Column(
-                          children: [
-                            Image.asset(
-                              categories[index]['img'],
-                              width: 35,
-                              height: 40,
-                              color: Colors.orange[800],
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              categories[index]['name'],
-                              style: customContent,
-                            )
-                          ],
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      GridViewListItemPage()));
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(right: 30),
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                categories[index]['img'],
+                                width: 35,
+                                height: 40,
+                                color: Colors.orange[800],
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                categories[index]['name'],
+                                style: customContent,
+                              )
+                            ],
+                          ),
                         ),
                       );
                     })),
@@ -222,7 +234,8 @@ class _HomePageState extends State<HomePage> {
                                       color: Colors.red,
                                     ),
                                     Text(
-                                       NumberFormat.decimalPattern().format(allProduct[index].price),
+                                      NumberFormat.decimalPattern()
+                                          .format(allProduct[index].price),
                                       style: TextStyle(
                                           fontSize: 16,
                                           color: Colors.red,
