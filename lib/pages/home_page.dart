@@ -132,8 +132,9 @@ class _HomePageState extends State<HomePage> {
                           context,
                           MaterialPageRoute(
                               builder: (context) => GridViewListItemPage(
-                                    categoryId: categories[index]['id'],
-                                  )));
+                                  categoryId: categories[index]['id'],
+                                  categoryName: categories[index]['name'])
+                                  ));
                     },
                     child: Padding(
                       padding: const EdgeInsets.only(right: 30),
