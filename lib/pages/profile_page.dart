@@ -1,13 +1,10 @@
-import 'package:flutter_svg/svg.dart';
 import 'package:test_flutter_template/json/user_model.dart';
 import 'package:test_flutter_template/json/user_preferences.dart';
-import 'package:test_flutter_template/pages/cho_xac_nhan_page.dart';
 import 'package:test_flutter_template/theme/colors.dart';
-import 'package:test_flutter_template/widgets/appbar_widget.dart';
 import 'package:test_flutter_template/widgets/profile_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'cho_xac_nhan_page.dart';
 import 'edit_profile_page.dart';
 import 'myshop_page.dart';
 
@@ -27,7 +24,7 @@ class _ProfilePageState extends State<ProfilePage> {
       Icons.card_giftcard,
       Icons.stars
     ];
-    List textItems = ["Chờ xác nhận", "Giao hàng", "Đánh giá"];
+    List textItems = ["Chờ xác nhận", "Đã xác nhận", "Đánh giá"];
 
     return Scaffold(
         // appBar: buildAppBar(context),
@@ -311,10 +308,7 @@ class _ProfilePageState extends State<ProfilePage> {
     setState(() {
       pageIndex = index;
       if(pageIndex == 0){
-        Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => WaitAcceptPage()),
-            );
-        print("helo");
+        Navigator.push(context, MaterialPageRoute(builder: (_) => WaitAcceptPage()));
       }
     });
   }
