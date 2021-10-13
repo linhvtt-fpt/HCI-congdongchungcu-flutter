@@ -1,6 +1,7 @@
 import 'package:flutter_svg/svg.dart';
 import 'package:test_flutter_template/json/user_model.dart';
 import 'package:test_flutter_template/json/user_preferences.dart';
+import 'package:test_flutter_template/pages/cho_xac_nhan_page.dart';
 import 'package:test_flutter_template/theme/colors.dart';
 import 'package:test_flutter_template/widgets/appbar_widget.dart';
 import 'package:test_flutter_template/widgets/profile_widget.dart';
@@ -309,6 +310,12 @@ class _ProfilePageState extends State<ProfilePage> {
   selectedTab(index) {
     setState(() {
       pageIndex = index;
+      if(pageIndex == 0){
+        Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => WaitAcceptPage()),
+            );
+        print("helo");
+      }
     });
   }
 
