@@ -2,9 +2,9 @@ import 'package:test_flutter_template/model/categoryDetail.dart';
 import 'package:test_flutter_template/model/notificationDetail.dart';
 
 const FAKE_CATRGORY = const [
-  Category(id: 1, content: "Khẩn Cấp"),
-  Category(id: 2, content: "Bảng Tin"),
-  Category(id: 3, content: "Tin Chung"),
+  Category(id: 1, content: "Tin chung"),
+  Category(id: 2, content: "Bảng tin"),
+  Category(id: 3, content: "Khẩn cấp"),
 ];
 
 var FAKE_NOTIFICATION = [
