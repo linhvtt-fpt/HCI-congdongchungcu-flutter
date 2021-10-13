@@ -61,7 +61,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
     return InkWell(
       onTap: () {},
       child: Container(
-          decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(3)), color: Colors.blue,),
+          decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(3)), color: Color.fromRGBO(240, 103, 103, 1),),
           // margin: EdgeInsets.symmetric(horizontal: 1),
           child: Padding(
             padding: const EdgeInsets.all(15.0),

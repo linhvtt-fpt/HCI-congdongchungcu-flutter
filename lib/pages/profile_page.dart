@@ -1,3 +1,5 @@
+
+import 'package:test_flutter_template/json/cart_product_json.dart';
 import 'package:test_flutter_template/json/user_model.dart';
 import 'package:test_flutter_template/json/user_preferences.dart';
 import 'package:test_flutter_template/theme/colors.dart';

@@ -7,7 +7,7 @@ AppBar buildAppBar(BuildContext context) {
     // toolbarHeight: 35,
     // backgroundColor: Colors.white60,
     // elevation: 0.5,
-    backgroundColor: Color(0x44000000),
+    backgroundColor: Color.fromRGBO(240, 103, 103, 1),
     elevation: 0,
     
 
