@@ -1,4 +1,5 @@
 import 'package:flutter_svg/svg.dart';
+import 'package:test_flutter_template/json/cart_product_json.dart';
 import 'package:test_flutter_template/json/user_model.dart';
 import 'package:test_flutter_template/json/user_preferences.dart';
 import 'package:test_flutter_template/pages/cho_xac_nhan_page.dart';
@@ -312,7 +313,7 @@ class _ProfilePageState extends State<ProfilePage> {
       pageIndex = index;
       if(pageIndex == 0){
         Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => WaitAcceptPage()),
+              MaterialPageRoute(builder: (context) => WaitAcceptPage(cartIn: cartList)),
             );
         print("helo");
       }
