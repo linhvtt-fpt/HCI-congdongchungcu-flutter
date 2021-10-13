@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:test_flutter_template/json/cart_product_json.dart';
 import 'package:test_flutter_template/json/product_model.dart';
 import 'package:test_flutter_template/theme/colors.dart';
 import 'package:test_flutter_template/json/user_checkout.dart';
+
+import 'cho_xac_nhan_page.dart';
 class CheckoutPage  extends StatefulWidget {
   final List<Product> listProductToCheckout;
   CheckoutPage(this.listProductToCheckout);
@@ -92,10 +95,24 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                   Text(listProductToCheckout[index].name, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
                                   Row(
                                     children: [
+                                      SizedBox(
+                                        width: 15,
+                                        height: 15,
+                                        child: Image.asset(
+                                            "assets/images/vietnamese-dong.png",
+                                            color: Colors.red),
+                                      ),
                                       Text(NumberFormat.decimalPattern().format(listProductToCheckout[index].price)),
-                                      SizedBox(width: 150,),
+                                      SizedBox(width: 100,),
                                       Text("x" + listProductToCheckout[index].quantity.toString()),
                                       SizedBox(width: 30,),
+                                      SizedBox(
+                                        width: 15,
+                                        height: 15,
+                                        child: Image.asset(
+                                            "assets/images/vietnamese-dong.png",
+                                            color: Colors.red),
+                                      ),
                                       Text(NumberFormat.decimalPattern().format(listProductToCheckout[index].price * listProductToCheckout[index].quantity).toString())
                                     ],
                                   )
@@ -171,7 +188,7 @@ width: double.infinity,
               width: 150,
               child: ElevatedButton(
                   onPressed: () {
-                    
+                   Navigator.push(context, MaterialPageRoute(builder: (_) => WaitAcceptPage()));
                   },
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(Colors.red),
