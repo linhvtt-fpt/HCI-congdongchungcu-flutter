@@ -8,6 +8,7 @@ import 'package:test_flutter_template/json/product_myshop.dart';
 import 'package:test_flutter_template/theme/colors.dart';
 import 'package:test_flutter_template/theme/styles.dart';
 
+import 'myshop_add_new_product.dart';
 import 'myshop_detail_product.dart';
 
 class MyShopPage extends StatefulWidget {
@@ -315,7 +316,10 @@ class _MyShopPageState extends State<MyShopPage> {
 
   Widget _btnCreateNewProduct() {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => AddNewProductMyShop()));
+      },
       child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(0)),
