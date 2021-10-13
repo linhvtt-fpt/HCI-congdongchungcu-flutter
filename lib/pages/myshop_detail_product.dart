@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:test_flutter_template/json/cart_product_json.dart';
-import 'package:test_flutter_template/json/product_checkout_json.dart';
-import 'package:test_flutter_template/json/product_model.dart';
 import 'package:test_flutter_template/json/product_myshop.dart';
 import 'package:test_flutter_template/json/product_myshop_model.dart';
 import 'package:test_flutter_template/theme/colors.dart';
 
-import 'cart_page.dart';
-import 'checkout_page.dart';
 import 'edit_myshop_product.dart';
 
 class MyShopDetailPage extends StatefulWidget {

@@ -62,7 +62,8 @@ class _CartState extends State<Cart> {
                                     color: Colors.red),
                               ),
                               Text(
-                                NumberFormat.decimalPattern().format(item.price),
+                                NumberFormat.decimalPattern()
+                                    .format(item.price),
                                 style: TextStyle(fontSize: 18),
                               ),
                               SizedBox(
@@ -84,10 +85,12 @@ class _CartState extends State<Cart> {
                                       ),
                                       onTap: () {
                                         setState(() {
-                                          if(item.quantity > 1){
-                                          item.quantity = item.quantity - 1;
-                                          _cart.elementAt(_cart.indexOf(item)).quantity = item.quantity;
-                                          }else{
+                                          if (item.quantity > 1) {
+                                            item.quantity = item.quantity - 1;
+                                            _cart
+                                                .elementAt(_cart.indexOf(item))
+                                                .quantity = item.quantity;
+                                          } else {
                                             _cart.remove(item);
                                           }
                                         });
@@ -112,7 +115,9 @@ class _CartState extends State<Cart> {
                                         onTap: () {
                                           setState(() {
                                             item.quantity = item.quantity + 1;
-                                            _cart.elementAt(_cart.indexOf(item)).quantity = item.quantity;
+                                            _cart
+                                                .elementAt(_cart.indexOf(item))
+                                                .quantity = item.quantity;
                                           });
                                         },
                                         child: Icon(
@@ -144,7 +149,7 @@ class _CartState extends State<Cart> {
                   )),
             );
           }),
-      bottomSheet: getFooter(),
+      bottomNavigationBar: getFooter(),
     );
   }
 
@@ -181,19 +186,15 @@ class _CartState extends State<Cart> {
                   padding: EdgeInsets.only(top: 15),
                   child: Row(
                     children: [
-                       SizedBox(
-                                width: 20,
-                                height: 20,
-                                child: Image.asset(
-                                    "assets/images/vietnamese-dong.png",
-                                    color: Colors.red),
-                              ),
+                      SizedBox(
+                        width: 20,
+                        height: 20,
+                        child: Image.asset("assets/images/vietnamese-dong.png",
+                            color: Colors.red),
+                      ),
                       Text(
                         NumberFormat.decimalPattern().format(totalProduct()),
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.red
-                        ),
+                        style: TextStyle(fontSize: 20, color: Colors.red),
                       ),
                     ],
                   ),
@@ -204,9 +205,9 @@ class _CartState extends State<Cart> {
               width: 150,
               child: ElevatedButton(
                   onPressed: () {
-                     Route route = MaterialPageRoute(
-                            builder: (context) => CheckoutPage(_cart));
-                        Navigator.push(context, route);
+                    Route route = MaterialPageRoute(
+                        builder: (context) => CheckoutPage(_cart));
+                    Navigator.push(context, route);
                   },
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(Colors.red),

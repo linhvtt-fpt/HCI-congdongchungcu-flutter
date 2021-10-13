@@ -29,6 +29,12 @@ class _MyShopPageState extends State<MyShopPage> {
 
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back),
+        ),
         title: Container(
           padding: EdgeInsets.all(2),
           child: Row(
@@ -50,11 +56,11 @@ class _MyShopPageState extends State<MyShopPage> {
         child: Column(
           children: [
             SizedBox(
-              height: 15,
+              height: 5,
             ),
             _btnNotificationMyshop(),
             SizedBox(
-              height: 15,
+              height: 5,
             ),
             Container(
               child: Column(
@@ -63,7 +69,7 @@ class _MyShopPageState extends State<MyShopPage> {
                     decoration: BoxDecoration(
                       border: Border(
                         top: BorderSide(
-                            width: 5, color: black.withOpacity(0.06)),
+                            width: 8, color: black.withOpacity(0.06)),
                       ),
                       color: Colors.white,
                     ),
@@ -95,7 +101,10 @@ class _MyShopPageState extends State<MyShopPage> {
                         Icon(
                           Icons.arrow_forward_ios,
                           size: 18,
-                        )
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
                       ],
                     ),
                   ),
@@ -112,7 +121,7 @@ class _MyShopPageState extends State<MyShopPage> {
                         border: Border(
                             // top: BorderSide(width: 2, color: black.withOpacity(0.06)),
                             bottom: BorderSide(
-                                width: 2, color: black.withOpacity(0.06)))),
+                                width: 8, color: black.withOpacity(0.06)))),
                     child: Padding(
                       padding: const EdgeInsets.only(
                           left: 30, right: 30, bottom: 0, top: 10),
@@ -146,11 +155,11 @@ class _MyShopPageState extends State<MyShopPage> {
               ),
             ),
             SizedBox(
-              height: 10,
+              height: 5,
             ),
             _btnCreateNewProduct(),
             SizedBox(
-              height: 10,
+              height: 5,
             ),
             getBody(),
           ],
@@ -166,7 +175,7 @@ class _MyShopPageState extends State<MyShopPage> {
       children: [
         Container(
           width: size.width,
-          height: 5,
+          height: 8,
           decoration: BoxDecoration(color: textFieldColor),
         ),
         SizedBox(
