@@ -37,6 +37,9 @@ class _EditMyShopProductState extends State<EditMyShopProduct> {
   );
 
   Widget getDataEdit() {
+    String dropdownValue = 'Thực phẩm';
+    String? _selectedCate = 'Thực phẩm';
+    //List<Choice> choices = choices2021;
     var size = MediaQuery.of(context).size;
      return SingleChildScrollView(
        child: Padding(
@@ -48,9 +51,14 @@ class _EditMyShopProductState extends State<EditMyShopProduct> {
                     Container(
                       width: 350,
                       height: 230,
-                      child: Image(
-                        image: NetworkImage(widget.product.urlImage),
-                        fit: BoxFit.cover,
+                      child: InkWell(
+                        onTap: () {
+
+                        },
+                        child: Image(
+                          image: NetworkImage(widget.product.urlImage),
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ],
@@ -61,10 +69,36 @@ class _EditMyShopProductState extends State<EditMyShopProduct> {
                   child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    TextFieldWidget(
-                      label: "Phân loại",
-                      text: widget.product.category,
-                      onChanged: (category) {},
+                    // TextFieldWidget(
+                    //   label: "Phân loại",
+                    //   text: widget.product.category,
+                    //   onChanged: (category) {},
+                    // ),
+                    Text("Phân loại", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),),
+                    DropdownButton<String>(
+                      isExpanded: true,
+                      value: _selectedCate,
+                      items: <String>['Thực phẩm', 'Ăn vặt', 'Đồ gia dụng', 'Điện thoại'].map((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(
+                            value,
+                            textAlign: TextAlign.center,
+                          ),
+                        );
+                      }).toList(),
+                      onChanged: (newValue) {
+                        setState(() {
+                          _selectedCate = newValue;
+                          if (_selectedCate == 'Ăn vặt') {
+                            _selectedCate = "Ăn Vặt";
+                          } else if (_selectedCate == 'Đồ gia dụng') {
+                            _selectedCate = "Đồ gia dụng";
+                          } else if (_selectedCate == 'Điện thoại') {
+                            _selectedCate= "Điện thoại";
+                          }
+                        });
+                      },
                     ),
                     SizedBox(height: 10),
                     TextFieldWidget(
@@ -85,6 +119,39 @@ class _EditMyShopProductState extends State<EditMyShopProduct> {
                       onChanged: (quantity) {},
                     ),
                     SizedBox(height: 10),
+                  // TextFormField(
+                  //   initialValue: /*widget.productId != 'add'
+                  //           ? _product.description
+                  //           :*/
+                  //   '',
+                  //   // focusNode: _descriptionFocusNode,
+                  //   maxLines: 3,
+                  //   keyboardType: TextInputType.multiline,
+                  //   decoration: InputDecoration(
+                  //     border: ,
+                  //     filled: true,
+                  //     fillColor: Colors.white,
+                  //     hintText: 'Input Description',
+                  //     hintStyle: TextStyle(color: Colors.grey),
+                  //     focusedBorder: UnderlineInputBorder(
+                  //       borderSide: BorderSide(
+                  //         color: Theme.of(context).accentColor,
+                  //         width: 2.0,
+                  //       ),
+                  //     ),
+                  //     focusedErrorBorder: UnderlineInputBorder(
+                  //       borderSide: BorderSide(
+                  //         color: Colors.red,
+                  //         width: 2.0,
+                  //       ),
+                  //     ),
+                  //     enabledBorder: UnderlineInputBorder(
+                  //       borderSide: BorderSide(
+                  //         color: Colors.grey.shade500,
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
                     TextFieldWidget(
                       label: "Mô tả sản phẩm",
                       text: widget.product.description,
