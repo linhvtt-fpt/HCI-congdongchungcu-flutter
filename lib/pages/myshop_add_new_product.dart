@@ -52,9 +52,14 @@ class _AddNewProductMyShopState extends State<AddNewProductMyShop> {
                   Container(
                     width: 350,
                     height: 230,
-                    child: Image(
-                      image: NetworkImage("https://support.sapo.vn/Upload/ImageManager/Image/HaBTT/Sapoweb/San%20pham/sp6.jpg"),
-                      fit: BoxFit.cover,
+                    child: InkWell(
+                      onTap: () {
+
+                      },
+                      child: Image(
+                        image: NetworkImage("https://support.sapo.vn/Upload/ImageManager/Image/HaBTT/Sapoweb/San%20pham/sp6.jpg"),
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ],
