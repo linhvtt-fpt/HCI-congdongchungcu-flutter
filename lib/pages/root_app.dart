@@ -7,6 +7,8 @@ import 'package:test_flutter_template/pages/notification_page.dart';
 import 'package:test_flutter_template/pages/profile_page.dart';
 import 'package:test_flutter_template/theme/colors.dart';
 
+import 'fee_page.dart';
+
 class RootApp extends StatefulWidget {
   @override
   _RootAppState createState() => _RootAppState();
@@ -81,13 +83,8 @@ class _RootAppState extends State<RootApp> {
 
       NotificationPage(),
 
-      Center(
-        child: Text(
-          "Fee Page",
-          style: TextStyle(
-              fontSize: 20, fontWeight: FontWeight.bold, color: black),
-        ),
-      ),
+      FeePage(),
+
       ProfilePage()
     ];
     return IndexedStack(
