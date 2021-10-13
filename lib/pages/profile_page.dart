@@ -8,6 +8,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'edit_profile_page.dart';
+import 'myshop_page.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -117,7 +118,11 @@ class _ProfilePageState extends State<ProfilePage> {
               width: 150,
               height: 30,
               child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                   Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => MyShopPage()),
+            );
+                  },
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(Colors.red),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(

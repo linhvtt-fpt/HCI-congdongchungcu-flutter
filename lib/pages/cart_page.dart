@@ -4,6 +4,8 @@ import 'package:test_flutter_template/json/product_model.dart';
 import 'package:test_flutter_template/pages/checkout_page.dart';
 import 'package:test_flutter_template/theme/colors.dart';
 
+import 'store_detail_pages.dart';
+
 class Cart extends StatefulWidget {
   final List<Product> _cart;
 
@@ -36,10 +38,19 @@ class _CartState extends State<Cart> {
                   elevation: 4.0,
                   child: Row(
                     children: [
-                      SizedBox(
-                        width: 70,
-                        height: 70,
-                        child: Image.network(item.urlImage),
+                      GestureDetector(
+                        onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (_) => StoreDetailPage(
+                                            product: item)));
+                              },
+                        child: SizedBox(
+                          width: 70,
+                          height: 70,
+                          child: Image.network(item.urlImage),
+                        ),
                       ),
                       SizedBox(
                         width: 10,
