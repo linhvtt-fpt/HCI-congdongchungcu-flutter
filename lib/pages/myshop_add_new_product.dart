@@ -1,4 +1,6 @@
+import 'dart:io';
 
+import 'package:image_picker/image_picker.dart';
 import 'package:test_flutter_template/json/product_myshop_model.dart';
 import 'package:test_flutter_template/widgets/textfield_widget.dart';
 import 'package:flutter/cupertino.dart';
@@ -14,29 +16,39 @@ class AddNewProductMyShop extends StatefulWidget {
 }
 
 class _AddNewProductMyShopState extends State<AddNewProductMyShop> {
+  var _image;
+  var imagePicker;
+
+  @override
+  void initState() {
+    // ignore: todo
+    // TODO: implement initState
+    super.initState();
+    imagePicker = new ImagePicker();
+  }
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(
-      backgroundColor: Color.fromRGBO(240, 103, 103, 1),
-      leading: IconButton(
-        onPressed: () {
-          Navigator.pop(context);
-        },
-        icon: Icon(Icons.arrow_back),
-      ),
-      title: Text("Thêm mới sản phẩm"),
-      elevation: 0,
-    ),
-    body: ListView(
-      padding: EdgeInsets.symmetric(horizontal: 15),
-      physics: BouncingScrollPhysics(),
-      children: [
-        getDataEdit(),
-        _btnSave(),
-      ],
-    ),
-  );
+        appBar: AppBar(
+          backgroundColor: Color.fromRGBO(240, 103, 103, 1),
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(Icons.arrow_back),
+          ),
+          title: Text("Thêm mới sản phẩm"),
+          elevation: 0,
+        ),
+        body: ListView(
+          padding: EdgeInsets.symmetric(horizontal: 15),
+          physics: BouncingScrollPhysics(),
+          children: [
+            getDataEdit(),
+            _btnSave(),
+          ],
+        ),
+      );
 
   Widget getDataEdit() {
     String dropdownValue = 'Thực phẩm';
@@ -53,11 +65,24 @@ class _AddNewProductMyShopState extends State<AddNewProductMyShop> {
                     width: 350,
                     height: 230,
                     child: InkWell(
-                      onTap: () {
-
+                      onTap: () async {
+                        var source = ImageSource.gallery;
+                        XFile image = await imagePicker.pickImage(
+                            source: source,
+                            imageQuality: 50,
+                            preferredCameraDevice: CameraDevice.front);
+                        setState(() {
+                          _image = File(image.path);
+                        });
                       },
-                      child: Image(
-                        image: NetworkImage("https://support.sapo.vn/Upload/ImageManager/Image/HaBTT/Sapoweb/San%20pham/sp6.jpg"),
+                      child: _image != null
+                            ? Image.file(
+                          _image,
+                          fit: BoxFit.cover,
+                        ):
+                      Image(
+                        image: NetworkImage(
+                            "https://support.sapo.vn/Upload/ImageManager/Image/HaBTT/Sapoweb/San%20pham/sp6.jpg"),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -75,11 +100,20 @@ class _AddNewProductMyShopState extends State<AddNewProductMyShop> {
                     //   text: widget.product.category,
                     //   onChanged: (category) {},
                     // ),
-                    Text("Phân loại", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),),
+                    Text(
+                      "Phân loại",
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+                    ),
                     DropdownButton<String>(
                       isExpanded: true,
                       value: _selectedCate,
-                      items: <String>['Thực phẩm', 'Ăn vặt', 'Đồ gia dụng', 'Điện thoại'].map((String value) {
+                      items: <String>[
+                        'Thực phẩm',
+                        'Ăn vặt',
+                        'Đồ gia dụng',
+                        'Điện thoại'
+                      ].map((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
                           child: Text(
@@ -169,18 +203,18 @@ class _AddNewProductMyShopState extends State<AddNewProductMyShop> {
                 ),
               ),
             ],
-          )
-      ),
+          )),
     );
   }
 
   Widget _btnSave() {
     return InkWell(
-      onTap: () {
-
-      },
+      onTap: () {},
       child: Container(
-          decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(3)), color: Color.fromRGBO(240, 103, 103, 1),),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(3)),
+            color: Color.fromRGBO(240, 103, 103, 1),
+          ),
           margin: EdgeInsets.symmetric(horizontal: 15),
           child: Padding(
             padding: const EdgeInsets.all(15.0),
@@ -197,5 +231,4 @@ class _AddNewProductMyShopState extends State<AddNewProductMyShop> {
           )),
     );
   }
-
 }
