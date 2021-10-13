@@ -3,6 +3,8 @@ import 'package:intl/intl.dart';
 import 'package:test_flutter_template/json/product_model.dart';
 import 'package:test_flutter_template/theme/colors.dart';
 import 'package:test_flutter_template/json/user_checkout.dart';
+
+import 'cho_xac_nhan_page.dart';
 class CheckoutPage  extends StatefulWidget {
   final List<Product> listProductToCheckout;
   CheckoutPage(this.listProductToCheckout);
@@ -171,7 +173,7 @@ width: double.infinity,
               width: 150,
               child: ElevatedButton(
                   onPressed: () {
-                    
+                   Navigator.push(context, MaterialPageRoute(builder: (_) => WaitAcceptPage()));
                   },
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(Colors.red),
