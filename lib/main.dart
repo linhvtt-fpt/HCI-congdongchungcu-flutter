@@ -8,7 +8,7 @@ import 'package:test_flutter_template/pages/myshop_page.dart';
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: AddNewProductMyShop(),
+    home: RootApp(),
   ));
 }
 
