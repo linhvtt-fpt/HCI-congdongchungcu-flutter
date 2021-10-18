@@ -26,6 +26,7 @@ class _NotificationPageState extends State<NotificationPage> {
       length: listCate.length,
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           backgroundColor: Color.fromRGBO(240, 103, 103, 1),
           title: Center(child: Text('BAN QUẢN LÝ')),
         ),

@@ -1,13 +1,18 @@
 
+import 'package:test_flutter_template/json/bill_model.dart';
 import 'package:test_flutter_template/json/cart_product_json.dart';
+import 'package:test_flutter_template/json/list_bill_json.dart';
 import 'package:test_flutter_template/json/user_model.dart';
 import 'package:test_flutter_template/json/user_preferences.dart';
+import 'package:test_flutter_template/pages/history_cancel_bill.dart';
 import 'package:test_flutter_template/theme/colors.dart';
 import 'package:test_flutter_template/widgets/profile_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'cho_xac_nhan_page.dart';
 import 'edit_profile_page.dart';
+import 'lich_su_mua_hang.dart';
+import 'login_page.dart';
 import 'myshop_page.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -17,6 +22,9 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   int pageIndex = 0;
+  final List<Bill> listbillChuaXacNhan = listBill.where((element) => element.status.contains("Chưa xác nhận")).toList();
+  final List<Bill> listbillDaXacNhan = listBill.where((element) => element.status.contains("Đã xác nhận")).toList(); 
+  final List<Bill> listbillDaHuy = listBill.where((element) => element.status.contains("Đã hủy")).toList(); 
   @override
   Widget build(BuildContext context) {
     final user = UserPreferences.myUser;
@@ -24,9 +32,10 @@ class _ProfilePageState extends State<ProfilePage> {
     List bottomItems = [
       Icons.my_library_books_sharp,
       Icons.card_giftcard,
-      Icons.stars
+      Icons.stars,
+      Icons.delete_forever
     ];
-    List textItems = ["Chờ xác nhận", "Đã xác nhận", "Đánh giá"];
+    List textItems = ["Chờ xác nhận", "Đã xác nhận", "Đánh giá", "Đã hủy"];
 
     return Scaffold(
         // appBar: buildAppBar(context),
@@ -63,7 +72,28 @@ class _ProfilePageState extends State<ProfilePage> {
                 SizedBox(width: 20,),
                 Icon(Icons.list_alt, color: Colors.blue[900],size: 30,),
                 SizedBox(width: 10,),
-                Text("Đơn mua", style: TextStyle( fontSize: 18),)
+                Text("Đơn mua", style: TextStyle( fontSize: 18),),
+              //   SizedBox(width: 110,),
+              //   Container(
+              //     width: 160,
+              //     height: 20,
+              //     decoration: BoxDecoration(
+              //         color: Colors.grey[350],
+              //         borderRadius: BorderRadius.all(Radius.circular(20))
+              //       ),
+              //     child: InkWell(
+              //       onTap: (){
+              //         Navigator.of(context).push(
+              // MaterialPageRoute(builder: (context) => HistoryBuyedPage()));
+              //       },
+              //       child: Row(
+              //         children: [
+              //           Text(" Xem lịch sử mua hàng"),
+              //           Icon(Icons.arrow_forward_ios, size: 15)
+              //         ],
+              //       ),
+              //     ),
+              //   )
               ],
             ),
             Container(
@@ -88,10 +118,63 @@ class _ProfilePageState extends State<ProfilePage> {
                     },
                     child: Column(
                       children: [
-                        Icon(
-                          bottomItems[index],
-                          size: 22,
-                          color: Colors.black
+                        Stack(
+                          children: [
+                            Icon(
+                            bottomItems[index],
+                            size: 22,
+                            color: Colors.black
+                          ),
+                          if (index == 0 && listbillChuaXacNhan.length > 0)
+                      Padding(
+                        padding: const EdgeInsets.only(right: 3),
+                        child: CircleAvatar(
+                          radius: 8.0,
+                          backgroundColor: Colors.red,
+                          foregroundColor: Colors.white,
+                          child: Text(
+                            listbillChuaXacNhan.length.toString(),
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12.0,
+                            ),
+                          ),
+                        ),
+                      ),
+                        if(index == 1 && listbillDaXacNhan.length > 0)
+                        Padding(
+                        padding: const EdgeInsets.only(right: 3),
+                        child: CircleAvatar(
+                          radius: 8.0,
+                          backgroundColor: Colors.red,
+                          foregroundColor: Colors.white,
+                          child: Text(
+                            listbillDaXacNhan.length.toString(),
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12.0,
+                            ),
+                          ),
+                        ),
+                      ),
+                      if( index == 3 && listbillDaHuy.length > 0)
+                      Padding(
+                        padding: const EdgeInsets.only(right: 3),
+                        child: CircleAvatar(
+                          radius: 8.0,
+                          backgroundColor: Colors.red,
+                          foregroundColor: Colors.white,
+                          child: Text(
+                            listbillDaHuy.length.toString(),
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12.0,
+                            ),
+                          ),
+                        ),
+                      ),
+                          ],
+                           
                         ),
                         SizedBox(
                           height: 5,
@@ -144,7 +227,7 @@ class _ProfilePageState extends State<ProfilePage> {
         SizedBox(
           height: 5,
         ),
-        _profileDetail(),
+        _profileDetail(user),
         SizedBox(
           height: 5,
         ),
@@ -181,7 +264,7 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  Widget _profileDetail() {
+  Widget _profileDetail(User user) {
     return Padding(
         padding: const EdgeInsets.all(10.0),
         child: Card(
@@ -195,7 +278,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     Icon(Icons.alternate_email),
                     SizedBox(width: 30,),
                     Text(
-                      "erenYeager@gmail.com",
+                      user.email,
                       style: TextStyle(fontSize: 16),
                     )
               ]),
@@ -209,7 +292,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     Icon(Icons.phone),
                     SizedBox(width: 30,),
                     Text(
-                      "09236738253",
+                      user.phoneNumber,
                       style: TextStyle(fontSize: 16),
                     )
               ]),
@@ -223,7 +306,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     Icon(Icons.add_location_alt_rounded),
                     SizedBox(width: 30,),
                     Text(
-                      "Topaz Home apartment, Block 3",
+                      user.address,
                       style: TextStyle(fontSize: 16),
                     )
               ]),
@@ -312,6 +395,9 @@ class _ProfilePageState extends State<ProfilePage> {
       if(pageIndex == 0){
         Navigator.push(context, MaterialPageRoute(builder: (_) => WaitAcceptPage()));
       }
+      else if(pageIndex == 3){
+         Navigator.push(context, MaterialPageRoute(builder: (_) => HistoryBuyedPage()));
+      }
     });
   }
 
@@ -334,9 +420,17 @@ class _ProfilePageState extends State<ProfilePage> {
                   color: Colors.white,
                 ),
                 SizedBox(width: 5),
-                Text(
-                  "Đăng xuất",
-                  style: TextStyle(color: Colors.white, fontSize: 20),
+                InkWell(
+                  onTap: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => LoginScreen()));
+                  },
+                  child: Text(
+                    "Đăng xuất",
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
                 )
               ],
             ),
