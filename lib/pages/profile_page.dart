@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 
 import 'package:test_flutter_template/json/bill_model.dart';
-=======
->>>>>>> 1d2b056c38dffce5316144b99de863c0cbbc69c8
 import 'package:test_flutter_template/json/cart_product_json.dart';
 import 'package:test_flutter_template/json/list_bill_json.dart';
 import 'package:test_flutter_template/json/user_model.dart';
@@ -27,13 +24,9 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   int pageIndex = 0;
-<<<<<<< HEAD
   final List<Bill> listbillChuaXacNhan = listBill.where((element) => element.status.contains("Chưa xác nhận")).toList();
   final List<Bill> listbillDaXacNhan = listBill.where((element) => element.status.contains("Đã xác nhận")).toList(); 
   final List<Bill> listbillDaHuy = listBill.where((element) => element.status.contains("Đã hủy")).toList(); 
-=======
-
->>>>>>> 1d2b056c38dffce5316144b99de863c0cbbc69c8
   @override
   Widget build(BuildContext context) {
     final user = UserPreferences.myUser;
@@ -52,27 +45,6 @@ class _ProfilePageState extends State<ProfilePage> {
         body: ListView(
       physics: BouncingScrollPhysics(),
       children: [
-        SizedBox(
-          height: 150,
-          child: Column(
-            children: [
-              SizedBox(
-                height: 10,
-              ),
-              ProfileWidget(
-                imagePath: user.imagePath,
-                //hieu ung mo
-                onClicked: () async {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => EditProfilePage()),
-                  );
-                },
-              ),
-              SizedBox(height: 10),
-              buildName(user),
-            ],
-          ),
-        ),
         SizedBox(height: 30),
         Column(
           children: [
@@ -96,110 +68,60 @@ class _ProfilePageState extends State<ProfilePage> {
                 ],
               ),
             ),
-
-            SizedBox(height: 30),
-            Column(
-              children: [
-                Row(
-                  children: [
-                    SizedBox(width: 20,),
-                    Icon(Icons.list_alt, color: Colors.blue[900],size: 30,),
-                    SizedBox(width: 10,),
-                    Text("Đơn mua", style: TextStyle( fontSize: 18),)
-                  ],
-                ),
-                Container(
-                  width: double.infinity,
-                  height: 60,
-                  decoration: BoxDecoration(
-                      color: white,
-                      border: Border(
-                          top: BorderSide(width: 2, color: black.withOpacity(0.06)),
-                          bottom: BorderSide(width: 2, color: black.withOpacity(0.06)))
-                  ),
-                  child: Padding(
-                    padding:
-                    const EdgeInsets.only(left: 30, right: 30, bottom: 0, top: 10),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: List.generate(textItems.length, (index) {
-                        return InkWell(
-                            onTap: () {
-                              selectedTab(index);
-                            },
-                            child: Column(
-                              children: [
-                                Icon(
-                                    bottomItems[index],
-                                    size: 22,
-                                    color: Colors.black
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Text(
-                                  textItems[index],
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                      color: black),
-                                ),
-                              ],
-                            ));
-                      }),
-                    ),
-                  ),
-                ),
-              ],
-            ),
             SizedBox(height: 30),
             Row(
               children: [
-<<<<<<< HEAD
-                SizedBox(width: 20,),
-                Icon(Icons.list_alt, color: Colors.blue[900],size: 30,),
-                SizedBox(width: 10,),
-                Text("Đơn mua", style: TextStyle( fontSize: 18),),
-              //   SizedBox(width: 110,),
-              //   Container(
-              //     width: 160,
-              //     height: 20,
-              //     decoration: BoxDecoration(
-              //         color: Colors.grey[350],
-              //         borderRadius: BorderRadius.all(Radius.circular(20))
-              //       ),
-              //     child: InkWell(
-              //       onTap: (){
-              //         Navigator.of(context).push(
-              // MaterialPageRoute(builder: (context) => HistoryBuyedPage()));
-              //       },
-              //       child: Row(
-              //         children: [
-              //           Text(" Xem lịch sử mua hàng"),
-              //           Icon(Icons.arrow_forward_ios, size: 15)
-              //         ],
-              //       ),
-              //     ),
-              //   )
+                SizedBox(
+                  width: 20,
+                ),
+                Icon(
+                  Icons.list_alt,
+                  color: Colors.blue[900],
+                  size: 30,
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  "Đơn mua",
+                  style: TextStyle(fontSize: 18),
+                )
               ],
             ),
             Container(
-      width: double.infinity,
-      height: 60,
-      decoration: BoxDecoration(
-              color: white,
-              border: Border(
-                  top: BorderSide(width: 2, color: black.withOpacity(0.06)),
-                  bottom: BorderSide(width: 2, color: black.withOpacity(0.06)))
-                  ),
-      child: Padding(
-            padding:
-                const EdgeInsets.only(left: 30, right: 30, bottom: 0, top: 10),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: List.generate(textItems.length, (index) {
-                return InkWell(
+              width: double.infinity,
+              height: 60,
+              decoration: BoxDecoration(
+                  color: white,
+                  border: Border(
+                      top: BorderSide(width: 2, color: black.withOpacity(0.06)),
+                      bottom: BorderSide(
+                          width: 2, color: black.withOpacity(0.06)))),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 30, right: 30, bottom: 0, top: 10),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: List.generate(textItems.length, (index) {
+                    // return InkWell(
+                    //     onTap: () {
+                    //       selectedTab(index);
+                    //     },
+                    //     child: Column(
+                    //       children: [
+                    //         Icon(bottomItems[index],
+                    //             size: 22, color: Colors.black),
+                    //         SizedBox(
+                    //           height: 5,
+                    //         ),
+                    //         Text(
+                    //           textItems[index],
+                    //           style: TextStyle(fontSize: 15, color: black),
+                    //         ),
+                    //       ],
+                    //     ));
+                  return InkWell(
                     onTap: () {
                       selectedTab(index);
                     },
@@ -274,63 +196,11 @@ class _ProfilePageState extends State<ProfilePage> {
                         ),
                       ],
                     ));
-              }),
-=======
-                SizedBox(
-                  width: 20,
-                ),
-                Icon(
-                  Icons.list_alt,
-                  color: Colors.blue[900],
-                  size: 30,
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Text(
-                  "Đơn mua",
-                  style: TextStyle(fontSize: 18),
-                )
-              ],
-            ),
-            Container(
-              width: double.infinity,
-              height: 60,
-              decoration: BoxDecoration(
-                  color: white,
-                  border: Border(
-                      top: BorderSide(width: 2, color: black.withOpacity(0.06)),
-                      bottom: BorderSide(
-                          width: 2, color: black.withOpacity(0.06)))),
-              child: Padding(
-                padding: const EdgeInsets.only(
-                    left: 30, right: 30, bottom: 0, top: 10),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: List.generate(textItems.length, (index) {
-                    return InkWell(
-                        onTap: () {
-                          selectedTab(index);
-                        },
-                        child: Column(
-                          children: [
-                            Icon(bottomItems[index],
-                                size: 22, color: Colors.black),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              textItems[index],
-                              style: TextStyle(fontSize: 15, color: black),
-                            ),
-                          ],
-                        ));
-                  }),
+                  }
+                  )
                 ),
               ),
->>>>>>> 1d2b056c38dffce5316144b99de863c0cbbc69c8
-            ),
+            )
           ],
         ),
         SizedBox(height: 30),
@@ -418,23 +288,12 @@ class _ProfilePageState extends State<ProfilePage> {
               Row(children: [
                 Padding(
                     padding: EdgeInsets.only(left: 20, bottom: 10, top: 45)),
-<<<<<<< HEAD
                     Icon(Icons.alternate_email),
                     SizedBox(width: 30,),
                     Text(
                       user.email,
                       style: TextStyle(fontSize: 16),
                     )
-=======
-                Icon(Icons.alternate_email),
-                SizedBox(
-                  width: 30,
-                ),
-                Text(
-                  "erenYeager@gmail.com",
-                  style: TextStyle(fontSize: 16),
-                )
->>>>>>> 1d2b056c38dffce5316144b99de863c0cbbc69c8
               ]),
               Divider(
                 height: 0.6,
@@ -443,23 +302,12 @@ class _ProfilePageState extends State<ProfilePage> {
               Row(children: [
                 Padding(
                     padding: EdgeInsets.only(left: 20, bottom: 10, top: 45)),
-<<<<<<< HEAD
                     Icon(Icons.phone),
                     SizedBox(width: 30,),
                     Text(
                       user.phoneNumber,
                       style: TextStyle(fontSize: 16),
                     )
-=======
-                Icon(Icons.phone),
-                SizedBox(
-                  width: 30,
-                ),
-                Text(
-                  "09236738253",
-                  style: TextStyle(fontSize: 16),
-                )
->>>>>>> 1d2b056c38dffce5316144b99de863c0cbbc69c8
               ]),
               Divider(
                 height: 0.6,
@@ -468,23 +316,12 @@ class _ProfilePageState extends State<ProfilePage> {
               Row(children: [
                 Padding(
                     padding: EdgeInsets.only(left: 20, bottom: 10, top: 45)),
-<<<<<<< HEAD
                     Icon(Icons.add_location_alt_rounded),
                     SizedBox(width: 30,),
                     Text(
                       user.address,
                       style: TextStyle(fontSize: 16),
                     )
-=======
-                Icon(Icons.add_location_alt_rounded),
-                SizedBox(
-                  width: 30,
-                ),
-                Text(
-                  "Topaz Home apartment, Block 3",
-                  style: TextStyle(fontSize: 16),
-                )
->>>>>>> 1d2b056c38dffce5316144b99de863c0cbbc69c8
               ]),
             ],
           ),
