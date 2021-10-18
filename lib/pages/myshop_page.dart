@@ -90,9 +90,9 @@ class _MyShopPageState extends State<MyShopPage> {
                         ),
                         Expanded(
                             child: Text(
-                          "Đơn hàng",
-                          style: TextStyle(fontSize: 16),
-                        )),
+                              "Đơn hàng",
+                              style: TextStyle(fontSize: 16),
+                            )),
                         Text(
                           "Xem lịch sử đơn hàng",
                           style: TextStyle(fontSize: 16),
@@ -121,7 +121,7 @@ class _MyShopPageState extends State<MyShopPage> {
                     decoration: BoxDecoration(
                         color: white,
                         border: Border(
-                            // top: BorderSide(width: 2, color: black.withOpacity(0.06)),
+                          // top: BorderSide(width: 2, color: black.withOpacity(0.06)),
                             bottom: BorderSide(
                                 width: 8, color: black.withOpacity(0.06)))),
                     child: Padding(
@@ -145,7 +145,7 @@ class _MyShopPageState extends State<MyShopPage> {
                                   Text(
                                     textItems[index],
                                     style:
-                                        TextStyle(fontSize: 13, color: black),
+                                    TextStyle(fontSize: 13, color: black),
                                   ),
                                 ],
                               ));
@@ -199,114 +199,114 @@ class _MyShopPageState extends State<MyShopPage> {
                 // scrollDirection: Axis.horizontal,
                 child: Column(
                     children: List.generate(allProductMyShop.length, (index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(5),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Stack(
+                      return Padding(
+                        padding: const EdgeInsets.all(5),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (_) => MyShopDetailPage(
-                                            product: allProductMyShop[index])));
-                              },
-                              child: Container(
-                                width: size.width,
-                                height: 160,
-                                child: Image(
-                                  image: NetworkImage(
-                                      allProductMyShop[index].urlImage),
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Text(
-                                allProductMyShop[index].name,
-                                style: TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.w400),
-                              ),
-                            ),
-                            Icon(
-                              Icons.star,
-                              color: Colors.orange[300],
-                              size: 17,
-                            ),
-                            Text(
-                              allProductMyShop[index].rate,
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                                child: Row(
+                            Stack(
                               children: [
-                                Image.asset(
-                                  "assets/images/vietnamese-dong.png",
-                                  width: 13,
-                                  color: Colors.red,
-                                ),
-                                Text(
-                                  NumberFormat.decimalPattern()
-                                      .format(allProductMyShop[index].price),
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      color: Colors.red,
-                                      fontWeight: FontWeight.w600),
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (_) => MyShopDetailPage(
+                                                product: allProductMyShop[index])));
+                                  },
+                                  child: Container(
+                                    width: size.width,
+                                    height: 160,
+                                    child: Image(
+                                      image: NetworkImage(
+                                          allProductMyShop[index].urlImage),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
                                 ),
                               ],
-                            )),
-                            Container(
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Text(
-                                    allProductMyShop[index].category,
-                                    style: TextStyle(fontSize: 14),
+                            ),
+                            SizedBox(
+                              height: 15,
+                            ),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: Text(
+                                    allProductMyShop[index].name,
+                                    style: TextStyle(
+                                        fontSize: 18, fontWeight: FontWeight.w400),
                                   ),
-                                  SizedBox(
-                                    width: 3,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  color: Colors.orange[300],
+                                  size: 17,
+                                ),
+                                Text(
+                                  allProductMyShop[index].rate,
+                                ),
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
+                                    child: Row(
+                                      children: [
+                                        Image.asset(
+                                          "assets/images/vietnamese-dong.png",
+                                          width: 13,
+                                          color: Colors.red,
+                                        ),
+                                        Text(
+                                          NumberFormat.decimalPattern()
+                                              .format(allProductMyShop[index].price),
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              color: Colors.red,
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                      ],
+                                    )),
+                                Container(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Text(
+                                        allProductMyShop[index].category,
+                                        style: TextStyle(fontSize: 14),
+                                      ),
+                                      SizedBox(
+                                        width: 3,
+                                      ),
+                                      // Icon(
+                                      //   Icons.star,
+                                      //   color: Colors.orange[300],
+                                      //   size: 17,
+                                      // ),
+                                      Text("|"),
+                                      SizedBox(
+                                        width: 3,
+                                      ),
+                                      Text("Đã bán"),
+                                      SizedBox(
+                                        width: 3,
+                                      ),
+                                      Text(
+                                        NumberFormat.decimalPattern().format(
+                                            allProductMyShop[index].quantitySold),
+                                        style: TextStyle(fontSize: 14),
+                                      )
+                                    ],
                                   ),
-                                  // Icon(
-                                  //   Icons.star,
-                                  //   color: Colors.orange[300],
-                                  //   size: 17,
-                                  // ),
-                                  Text("|"),
-                                  SizedBox(
-                                    width: 3,
-                                  ),
-                                  Text("Đã bán"),
-                                  SizedBox(
-                                    width: 3,
-                                  ),
-                                  Text(
-                                    NumberFormat.decimalPattern().format(
-                                        allProductMyShop[index].quantitySold),
-                                    style: TextStyle(fontSize: 14),
-                                  )
-                                ],
-                              ),
-                            )
+                                )
+                              ],
+                            ),
                           ],
                         ),
-                      ],
-                    ),
-                  );
-                })),
+                      );
+                    })),
               )
             ],
           ),
@@ -341,21 +341,21 @@ class _MyShopPageState extends State<MyShopPage> {
               SizedBox(width: 5),
               Expanded(
                 child:
-                  Row(
-                    children: [
-                      Text(
-                        "Thêm sản phẩm mới",
-                        style: TextStyle(color: Colors.black87, fontSize: 16),
-                      ),
-                      SizedBox(
-                        width: 162,
-                      ),
-                      Icon(
-                        Icons.arrow_forward_ios,
-                        size: 18,
-                      ),
-                    ],
-                  ),
+                Row(
+                  children: [
+                    Text(
+                      "Thêm sản phẩm mới",
+                      style: TextStyle(color: Colors.black87, fontSize: 16),
+                    ),
+                    SizedBox(
+                      width: 162,
+                    ),
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      size: 18,
+                    ),
+                  ],
+                ),
               )
             ],
           )),

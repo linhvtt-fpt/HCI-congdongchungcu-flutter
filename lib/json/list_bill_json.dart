@@ -125,7 +125,7 @@ import 'package:test_flutter_template/json/user_checkout.dart';
    ),
 
    Bill(
-     status: "Đã hoàn thành",
+     status: "Đã xác nhận",
      buyer: user[0],
      listProduct: [
        Product(
