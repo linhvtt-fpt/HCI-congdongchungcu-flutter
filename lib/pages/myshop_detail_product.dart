@@ -295,7 +295,7 @@ class _MyShopDetailPageState extends State<MyShopDetailPage> {
                         width: 20,
                         height: 20,
                       ),
-                      Text(" #bánh_trung_thu_mùa_dịch, #bánh_trung_thu_ế "),
+                      Text(" #bánh_trung_thu_mùa_dịch, #bánh_trung_thu_ngon "),
                     ],
                   ),
                   SizedBox(

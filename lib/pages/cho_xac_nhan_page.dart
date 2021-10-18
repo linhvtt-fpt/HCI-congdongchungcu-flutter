@@ -35,13 +35,13 @@ class _WaitAcceptPageState extends State<WaitAcceptPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+        appBar: AppBar(
           backgroundColor: Color.fromRGBO(240, 103, 103, 1),
-              title: Text(
-                   'Chờ Xác Nhận'
-              ),
-      ),
-      body: ListView.builder(
+          title: Text(
+              'Chờ Xác Nhận'
+          ),
+        ),
+        body: ListView.builder(
           itemCount: listbill.length,
           itemBuilder: (context, index1) {
             return Container(
@@ -75,47 +75,47 @@ class _WaitAcceptPageState extends State<WaitAcceptPage> {
                       ),
                       Expanded(
                         child: ListView.builder(
-                            itemCount: 2,
-                            itemBuilder: (context, index) {
-                              var item = listbill[index1].listProduct;
-                              return Card(
-                                child: Row(
-                                  children: [
-                                    Image.network(item[index].urlImage, width: 70, height: 70,),
-                                    SizedBox(width: 20,),
-                                    Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text(item[index].name, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
-                                        Row(
-                                          children: [
-                                            SizedBox(
-                                              width: 15,
-                                              height: 15,
-                                              child: Image.asset(
-                                                  "assets/images/vietnamese-dong.png",
-                                                  color: Colors.red),
-                                                                     ),
-                                            Text(NumberFormat.decimalPattern().format(item[index].price),style: TextStyle(color: Colors.red)),
-                                            SizedBox(width: 120,),
-                                            Text("x" + item[index].quantity.toString()),
-                                            SizedBox(width: 30,),
-                                            SizedBox(
-                                              width: 15,
-                                              height: 15,
-                                              child: Image.asset(
-                                                  "assets/images/vietnamese-dong.png",
-                                                  color: Colors.red),
-                                            ),
-                                            Text(NumberFormat.decimalPattern().format(item[index].price * item[index].quantity).toString(), style: TextStyle(color: Colors.red))
-                                          ],
-                                        )
-                                      ],
-                                    )
-                                  ],
-                                ),
-                              );
-                            }, ),
+                          itemCount: 2,
+                          itemBuilder: (context, index) {
+                            var item = listbill[index1].listProduct;
+                            return Card(
+                              child: Row(
+                                children: [
+                                  Image.network(item[index].urlImage, width: 70, height: 70,),
+                                  SizedBox(width: 20,),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(item[index].name, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
+                                      Row(
+                                        children: [
+                                          SizedBox(
+                                            width: 15,
+                                            height: 15,
+                                            child: Image.asset(
+                                                "assets/images/vietnamese-dong.png",
+                                                color: Colors.red),
+                                          ),
+                                          Text(NumberFormat.decimalPattern().format(item[index].price),style: TextStyle(color: Colors.red)),
+                                          SizedBox(width: 120,),
+                                          Text("x" + item[index].quantity.toString()),
+                                          SizedBox(width: 30,),
+                                          SizedBox(
+                                            width: 15,
+                                            height: 15,
+                                            child: Image.asset(
+                                                "assets/images/vietnamese-dong.png",
+                                                color: Colors.red),
+                                          ),
+                                          Text(NumberFormat.decimalPattern().format(item[index].price * item[index].quantity).toString(), style: TextStyle(color: Colors.red))
+                                        ],
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
+                            );
+                          }, ),
                       ),
 
                       if(listbill[index1].listProduct.length > 2)
@@ -141,19 +141,19 @@ class _WaitAcceptPageState extends State<WaitAcceptPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text( totalQuantity(listbill[index1].listProduct).toString()+' sản phẩm'
-                            ,style: TextStyle(
+                              ,style: TextStyle(
                                 color: Colors.black54,
                               ),),
                             Row(
                               children: [
                                 Text(
                                   'Tổng thanh toán: ',
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.normal,
-                                  color: Colors.black54,
-                                ),
+                                  style: TextStyle(
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.normal,
+                                    color: Colors.black54,
                                   ),
+                                ),
                                 SizedBox(
                                   width: 15,
                                   height: 15,
@@ -169,9 +169,9 @@ class _WaitAcceptPageState extends State<WaitAcceptPage> {
                           ],
                         ),
                       ),
-                       Divider(
-                         color: Colors.grey,
-                       ),
+                      Divider(
+                        color: Colors.grey,
+                      ),
                       _btnShow(),
                     ],
                   ),
@@ -180,7 +180,7 @@ class _WaitAcceptPageState extends State<WaitAcceptPage> {
               ,
             );
           },
-      )
+        )
     );
   }
 
@@ -209,27 +209,27 @@ class _WaitAcceptPageState extends State<WaitAcceptPage> {
 
 Widget _btnShow() {
   return InkWell(
-    onTap: () {},
-    child: Container(
-        padding: EdgeInsets.all(10),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Container(
-              padding: EdgeInsets.all(13),
+      onTap: () {},
+      child: Container(
+          padding: EdgeInsets.all(10),
+          child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                  padding: EdgeInsets.all(13),
 
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(5)),
-                color: Colors.grey,
-              ),
-              child: Text(
-                  "    Đang xử Lý   ",
-                  style: TextStyle(color: Colors.white54, fontSize: 16),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                    color: Colors.grey,
+                  ),
+                  child: Text(
+                    "    Đang xử Lý   ",
+                    style: TextStyle(color: Colors.white54, fontSize: 16),
+                  ),
                 ),
-            ),
-                ]
-        )
-        )
+              ]
+          )
+      )
   );
 
   // child: ListView.builder(

@@ -31,7 +31,7 @@ class _ProfilePageState extends State<ProfilePage> {
     List textItems = ["Chờ xác nhận", "Đã xác nhận", "Đánh giá"];
 
     return Scaffold(
-        // appBar: buildAppBar(context),
+      // appBar: buildAppBar(context),
 
         body: ListView(
       physics: BouncingScrollPhysics(),
@@ -60,6 +60,83 @@ class _ProfilePageState extends State<ProfilePage> {
         SizedBox(height: 30),
         Column(
           children: [
+            SizedBox(
+              height: 150,
+              child: Column(
+                children: [
+                  SizedBox(height: 10,),
+                  ProfileWidget(
+                    imagePath: user.imagePath,
+                    //hieu ung mo
+                    onClicked: () async {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => EditProfilePage()),
+                      );
+                    },
+                  ),
+
+                  SizedBox(height: 10),
+                  buildName(user),
+                ],
+              ),
+            ),
+
+            SizedBox(height: 30),
+            Column(
+              children: [
+                Row(
+                  children: [
+                    SizedBox(width: 20,),
+                    Icon(Icons.list_alt, color: Colors.blue[900],size: 30,),
+                    SizedBox(width: 10,),
+                    Text("Đơn mua", style: TextStyle( fontSize: 18),)
+                  ],
+                ),
+                Container(
+                  width: double.infinity,
+                  height: 60,
+                  decoration: BoxDecoration(
+                      color: white,
+                      border: Border(
+                          top: BorderSide(width: 2, color: black.withOpacity(0.06)),
+                          bottom: BorderSide(width: 2, color: black.withOpacity(0.06)))
+                  ),
+                  child: Padding(
+                    padding:
+                    const EdgeInsets.only(left: 30, right: 30, bottom: 0, top: 10),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: List.generate(textItems.length, (index) {
+                        return InkWell(
+                            onTap: () {
+                              selectedTab(index);
+                            },
+                            child: Column(
+                              children: [
+                                Icon(
+                                    bottomItems[index],
+                                    size: 22,
+                                    color: Colors.black
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Text(
+                                  textItems[index],
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: black),
+                                ),
+                              ],
+                            ));
+                      }),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 30),
             Row(
               children: [
                 SizedBox(
@@ -173,13 +250,13 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   Widget buildName(User user) => Column(
-        children: [
-          Text(
-            user.name,
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
-          )
-        ],
-      );
+    children: [
+      Text(
+        user.name,
+        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+      )
+    ],
+  );
 
   Widget _heading(String heading) {
     return Container(
