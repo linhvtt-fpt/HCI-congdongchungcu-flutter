@@ -6,7 +6,7 @@ List<User> user = <User>[
     phoneNumber: "0989378492",
     address: "Đường 154, phường Tân Phú, Tp Thủ Đức",
     email: "teo@gmail.com",
-    imagePath: "",
+    imagePath: "assets/images/user.png",
     note: "Block 3, topaz home 2"
   ),
 ];
