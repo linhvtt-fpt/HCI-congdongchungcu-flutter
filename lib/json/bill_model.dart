@@ -4,11 +4,14 @@ import 'package:test_flutter_template/json/user_model.dart';
 class Bill{
   final List<Product> listProduct;
   final User buyer;
-  final String status;
+  String status;
+  bool isRating;
 
-  const Bill({
+
+  Bill({
     required this.listProduct,
     required this.buyer,
-    required this.status
+    required this.status,
+    required this.isRating,
   });
 }

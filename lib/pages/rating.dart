@@ -6,16 +6,18 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:test_flutter_template/json/bill_model.dart';
 import 'package:test_flutter_template/json/product_model.dart';
 
-class RatingPage extends StatefulWidget {
+import 'danh_gia_page.dart';
+
+class RatingBill extends StatefulWidget {
   final Bill bill;
 
-  RatingPage(this.bill);
+  RatingBill(this.bill);
 
   @override
-  _RatingPage createState() => _RatingPage();
+  _RatingBill createState() => _RatingBill();
 }
 
-class _RatingPage extends State<RatingPage> {
+class _RatingBill extends State<RatingBill> {
   @override
   Widget build(BuildContext context) {
     var bill = widget.bill;
@@ -27,12 +29,18 @@ class _RatingPage extends State<RatingPage> {
           centerTitle: true,
           title: Text('Đánh giá sản phẩm'),
           leading: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context);
+            },
             icon: Icon(Icons.arrow_back),
           ),
           actions: [
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                bill.isRating = true;
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => RatingPage()));
+              },
               child: const Text(
                   'GỬI',
                   style: TextStyle(

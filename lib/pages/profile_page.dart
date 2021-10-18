@@ -1,4 +1,3 @@
-
 import 'package:test_flutter_template/json/cart_product_json.dart';
 import 'package:test_flutter_template/json/user_model.dart';
 import 'package:test_flutter_template/json/user_preferences.dart';
@@ -7,6 +6,8 @@ import 'package:test_flutter_template/widgets/profile_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'cho_xac_nhan_page.dart';
+import 'da_xac_nhan_page.dart';
+import 'danh_gia_page.dart';
 import 'edit_profile_page.dart';
 import 'myshop_page.dart';
 
@@ -17,6 +18,7 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   int pageIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     final user = UserPreferences.myUser;
@@ -31,83 +33,89 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
         // appBar: buildAppBar(context),
 
-      body: ListView(
+        body: ListView(
       physics: BouncingScrollPhysics(),
       children: [
         SizedBox(
-          height: 150, 
+          height: 150,
           child: Column(
             children: [
-              SizedBox(height: 10,),
-        ProfileWidget(
-          imagePath: user.imagePath,
-          //hieu ung mo
-          onClicked: () async {
-            Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => EditProfilePage()),
-            );
-          },
-        ),
-                
-        SizedBox(height: 10),
-        buildName(user),
+              SizedBox(
+                height: 10,
+              ),
+              ProfileWidget(
+                imagePath: user.imagePath,
+                //hieu ung mo
+                onClicked: () async {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => EditProfilePage()),
+                  );
+                },
+              ),
+              SizedBox(height: 10),
+              buildName(user),
             ],
           ),
         ),
-
         SizedBox(height: 30),
         Column(
           children: [
             Row(
               children: [
-                SizedBox(width: 20,),
-                Icon(Icons.list_alt, color: Colors.blue[900],size: 30,),
-                SizedBox(width: 10,),
-                Text("Đơn mua", style: TextStyle( fontSize: 18),)
+                SizedBox(
+                  width: 20,
+                ),
+                Icon(
+                  Icons.list_alt,
+                  color: Colors.blue[900],
+                  size: 30,
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  "Đơn mua",
+                  style: TextStyle(fontSize: 18),
+                )
               ],
             ),
             Container(
-      width: double.infinity,
-      height: 60,
-      decoration: BoxDecoration(
-              color: white,
-              border: Border(
-                  top: BorderSide(width: 2, color: black.withOpacity(0.06)),
-                  bottom: BorderSide(width: 2, color: black.withOpacity(0.06)))
-                  ),
-      child: Padding(
-            padding:
-                const EdgeInsets.only(left: 30, right: 30, bottom: 0, top: 10),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: List.generate(textItems.length, (index) {
-                return InkWell(
-                    onTap: () {
-                      selectedTab(index);
-                    },
-                    child: Column(
-                      children: [
-                        Icon(
-                          bottomItems[index],
-                          size: 22,
-                          color: Colors.black
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Text(
-                          textItems[index],
-                          style: TextStyle(
-                              fontSize: 15,
-                              color: black),
-                        ),
-                      ],
-                    ));
-              }),
+              width: double.infinity,
+              height: 60,
+              decoration: BoxDecoration(
+                  color: white,
+                  border: Border(
+                      top: BorderSide(width: 2, color: black.withOpacity(0.06)),
+                      bottom: BorderSide(
+                          width: 2, color: black.withOpacity(0.06)))),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 30, right: 30, bottom: 0, top: 10),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: List.generate(textItems.length, (index) {
+                    return InkWell(
+                        onTap: () {
+                          selectedTab(index);
+                        },
+                        child: Column(
+                          children: [
+                            Icon(bottomItems[index],
+                                size: 22, color: Colors.black),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              textItems[index],
+                              style: TextStyle(fontSize: 15, color: black),
+                            ),
+                          ],
+                        ));
+                  }),
+                ),
+              ),
             ),
-      ),
-    ),
           ],
         ),
         SizedBox(height: 30),
@@ -115,32 +123,35 @@ class _ProfilePageState extends State<ProfilePage> {
           children: [
             _heading("Thông tin cá nhân"),
             SizedBox(
-              width: 150,
-              height: 30,
-              child: ElevatedButton(
+                width: 150,
+                height: 30,
+                child: ElevatedButton(
                   onPressed: () {
-                   Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => MyShopPage()),
-            );
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => MyShopPage()),
+                    );
                   },
                   style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.red),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8))),
+                    backgroundColor: MaterialStateProperty.all(Colors.red),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8))),
                   ),
                   child: Row(
                     children: [
-                      Icon(Icons.storefront, size: 20,),
-                      SizedBox(width: 10,),
+                      Icon(
+                        Icons.storefront,
+                        size: 20,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
                       Text("Shop của tôi")
                     ],
                   ),
-              )
-            )
+                ))
           ],
         ),
-        
         SizedBox(
           height: 5,
         ),
@@ -192,12 +203,14 @@ class _ProfilePageState extends State<ProfilePage> {
               Row(children: [
                 Padding(
                     padding: EdgeInsets.only(left: 20, bottom: 10, top: 45)),
-                    Icon(Icons.alternate_email),
-                    SizedBox(width: 30,),
-                    Text(
-                      "erenYeager@gmail.com",
-                      style: TextStyle(fontSize: 16),
-                    )
+                Icon(Icons.alternate_email),
+                SizedBox(
+                  width: 30,
+                ),
+                Text(
+                  "erenYeager@gmail.com",
+                  style: TextStyle(fontSize: 16),
+                )
               ]),
               Divider(
                 height: 0.6,
@@ -206,12 +219,14 @@ class _ProfilePageState extends State<ProfilePage> {
               Row(children: [
                 Padding(
                     padding: EdgeInsets.only(left: 20, bottom: 10, top: 45)),
-                    Icon(Icons.phone),
-                    SizedBox(width: 30,),
-                    Text(
-                      "09236738253",
-                      style: TextStyle(fontSize: 16),
-                    )
+                Icon(Icons.phone),
+                SizedBox(
+                  width: 30,
+                ),
+                Text(
+                  "09236738253",
+                  style: TextStyle(fontSize: 16),
+                )
               ]),
               Divider(
                 height: 0.6,
@@ -220,12 +235,14 @@ class _ProfilePageState extends State<ProfilePage> {
               Row(children: [
                 Padding(
                     padding: EdgeInsets.only(left: 20, bottom: 10, top: 45)),
-                    Icon(Icons.add_location_alt_rounded),
-                    SizedBox(width: 30,),
-                    Text(
-                      "Topaz Home apartment, Block 3",
-                      style: TextStyle(fontSize: 16),
-                    )
+                Icon(Icons.add_location_alt_rounded),
+                SizedBox(
+                  width: 30,
+                ),
+                Text(
+                  "Topaz Home apartment, Block 3",
+                  style: TextStyle(fontSize: 16),
+                )
               ]),
             ],
           ),
@@ -305,12 +322,18 @@ class _ProfilePageState extends State<ProfilePage> {
         ));
   }
 
-  
   selectedTab(index) {
     setState(() {
       pageIndex = index;
-      if(pageIndex == 0){
-        Navigator.push(context, MaterialPageRoute(builder: (_) => WaitAcceptPage()));
+      if (pageIndex == 0) {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (_) => WaitAcceptPage()));
+      } else if (pageIndex == 1){
+        Navigator.push(
+            context, MaterialPageRoute(builder: (_) => AcceptedPage()));
+      } else if (pageIndex == 2){
+        Navigator.push(
+            context, MaterialPageRoute(builder: (_) => RatingPage()));
       }
     });
   }
