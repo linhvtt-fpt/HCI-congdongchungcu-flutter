@@ -8,6 +8,8 @@ import 'package:test_flutter_template/json/product_myshop.dart';
 import 'package:test_flutter_template/theme/colors.dart';
 import 'package:test_flutter_template/theme/styles.dart';
 
+import 'da_xac_nhan_shop.dart';
+import 'danh_gia_shop.dart';
 import 'myshop_add_new_product.dart';
 import 'myshop_detail_product.dart';
 import 'myshop_notification_page.dart';
@@ -27,7 +29,7 @@ class _MyShopPageState extends State<MyShopPage> {
       Icons.card_giftcard,
       Icons.stars
     ];
-    List textItems = ["Chờ xác nhận", "Giao hàng", "Đánh giá"];
+    List textItems = ["Chờ xác nhận", "Đã xác nhận", "Đánh giá"];
 
     return Scaffold(
       appBar: AppBar(
@@ -411,6 +413,15 @@ class _MyShopPageState extends State<MyShopPage> {
   selectedTab(index) {
     setState(() {
       pageIndex = index;
+      if (pageIndex == 0) {
+
+      } else if (pageIndex == 1){
+        Navigator.push(
+            context, MaterialPageRoute(builder: (_) => AcceptedShop()));
+      } else if (pageIndex == 2){
+        Navigator.push(
+            context, MaterialPageRoute(builder: (_) => RatingShop()));
+      }
     });
   }
 }
