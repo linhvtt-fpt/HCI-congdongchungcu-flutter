@@ -22,9 +22,10 @@ class _FeePage extends State<FeePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
             backgroundColor: Color.fromRGBO(240, 103, 103, 1),
             centerTitle: true,
-            title: Text('Lịch sử đóng phí')),
+            title: Text('LỊCH SỬ ĐÓNG PHÍ')),
         body: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(children: <Widget>[

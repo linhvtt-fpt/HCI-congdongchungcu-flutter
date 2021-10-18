@@ -1,6 +1,13 @@
+<<<<<<< HEAD
+
+import 'package:test_flutter_template/json/bill_model.dart';
+=======
+>>>>>>> 1d2b056c38dffce5316144b99de863c0cbbc69c8
 import 'package:test_flutter_template/json/cart_product_json.dart';
+import 'package:test_flutter_template/json/list_bill_json.dart';
 import 'package:test_flutter_template/json/user_model.dart';
 import 'package:test_flutter_template/json/user_preferences.dart';
+import 'package:test_flutter_template/pages/history_cancel_bill.dart';
 import 'package:test_flutter_template/theme/colors.dart';
 import 'package:test_flutter_template/widgets/profile_widget.dart';
 import 'package:flutter/cupertino.dart';
@@ -9,6 +16,8 @@ import 'cho_xac_nhan_page.dart';
 import 'da_xac_nhan_page.dart';
 import 'danh_gia_page.dart';
 import 'edit_profile_page.dart';
+import 'lich_su_mua_hang.dart';
+import 'login_page.dart';
 import 'myshop_page.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -18,7 +27,13 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   int pageIndex = 0;
+<<<<<<< HEAD
+  final List<Bill> listbillChuaXacNhan = listBill.where((element) => element.status.contains("Chưa xác nhận")).toList();
+  final List<Bill> listbillDaXacNhan = listBill.where((element) => element.status.contains("Đã xác nhận")).toList(); 
+  final List<Bill> listbillDaHuy = listBill.where((element) => element.status.contains("Đã hủy")).toList(); 
+=======
 
+>>>>>>> 1d2b056c38dffce5316144b99de863c0cbbc69c8
   @override
   Widget build(BuildContext context) {
     final user = UserPreferences.myUser;
@@ -26,9 +41,10 @@ class _ProfilePageState extends State<ProfilePage> {
     List bottomItems = [
       Icons.my_library_books_sharp,
       Icons.card_giftcard,
-      Icons.stars
+      Icons.stars,
+      Icons.delete_forever
     ];
-    List textItems = ["Chờ xác nhận", "Đã xác nhận", "Đánh giá"];
+    List textItems = ["Chờ xác nhận", "Đã xác nhận", "Đánh giá", "Đã hủy"];
 
     return Scaffold(
       // appBar: buildAppBar(context),
@@ -139,6 +155,127 @@ class _ProfilePageState extends State<ProfilePage> {
             SizedBox(height: 30),
             Row(
               children: [
+<<<<<<< HEAD
+                SizedBox(width: 20,),
+                Icon(Icons.list_alt, color: Colors.blue[900],size: 30,),
+                SizedBox(width: 10,),
+                Text("Đơn mua", style: TextStyle( fontSize: 18),),
+              //   SizedBox(width: 110,),
+              //   Container(
+              //     width: 160,
+              //     height: 20,
+              //     decoration: BoxDecoration(
+              //         color: Colors.grey[350],
+              //         borderRadius: BorderRadius.all(Radius.circular(20))
+              //       ),
+              //     child: InkWell(
+              //       onTap: (){
+              //         Navigator.of(context).push(
+              // MaterialPageRoute(builder: (context) => HistoryBuyedPage()));
+              //       },
+              //       child: Row(
+              //         children: [
+              //           Text(" Xem lịch sử mua hàng"),
+              //           Icon(Icons.arrow_forward_ios, size: 15)
+              //         ],
+              //       ),
+              //     ),
+              //   )
+              ],
+            ),
+            Container(
+      width: double.infinity,
+      height: 60,
+      decoration: BoxDecoration(
+              color: white,
+              border: Border(
+                  top: BorderSide(width: 2, color: black.withOpacity(0.06)),
+                  bottom: BorderSide(width: 2, color: black.withOpacity(0.06)))
+                  ),
+      child: Padding(
+            padding:
+                const EdgeInsets.only(left: 30, right: 30, bottom: 0, top: 10),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: List.generate(textItems.length, (index) {
+                return InkWell(
+                    onTap: () {
+                      selectedTab(index);
+                    },
+                    child: Column(
+                      children: [
+                        Stack(
+                          children: [
+                            Icon(
+                            bottomItems[index],
+                            size: 22,
+                            color: Colors.black
+                          ),
+                          if (index == 0 && listbillChuaXacNhan.length > 0)
+                      Padding(
+                        padding: const EdgeInsets.only(right: 3),
+                        child: CircleAvatar(
+                          radius: 8.0,
+                          backgroundColor: Colors.red,
+                          foregroundColor: Colors.white,
+                          child: Text(
+                            listbillChuaXacNhan.length.toString(),
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12.0,
+                            ),
+                          ),
+                        ),
+                      ),
+                        if(index == 1 && listbillDaXacNhan.length > 0)
+                        Padding(
+                        padding: const EdgeInsets.only(right: 3),
+                        child: CircleAvatar(
+                          radius: 8.0,
+                          backgroundColor: Colors.red,
+                          foregroundColor: Colors.white,
+                          child: Text(
+                            listbillDaXacNhan.length.toString(),
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12.0,
+                            ),
+                          ),
+                        ),
+                      ),
+                      if( index == 3 && listbillDaHuy.length > 0)
+                      Padding(
+                        padding: const EdgeInsets.only(right: 3),
+                        child: CircleAvatar(
+                          radius: 8.0,
+                          backgroundColor: Colors.red,
+                          foregroundColor: Colors.white,
+                          child: Text(
+                            listbillDaHuy.length.toString(),
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12.0,
+                            ),
+                          ),
+                        ),
+                      ),
+                          ],
+                           
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          textItems[index],
+                          style: TextStyle(
+                              fontSize: 15,
+                              color: black),
+                        ),
+                      ],
+                    ));
+              }),
+=======
                 SizedBox(
                   width: 20,
                 ),
@@ -192,6 +329,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   }),
                 ),
               ),
+>>>>>>> 1d2b056c38dffce5316144b99de863c0cbbc69c8
             ),
           ],
         ),
@@ -232,7 +370,7 @@ class _ProfilePageState extends State<ProfilePage> {
         SizedBox(
           height: 5,
         ),
-        _profileDetail(),
+        _profileDetail(user),
         SizedBox(
           height: 5,
         ),
@@ -269,7 +407,7 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  Widget _profileDetail() {
+  Widget _profileDetail(User user) {
     return Padding(
         padding: const EdgeInsets.all(10.0),
         child: Card(
@@ -280,6 +418,14 @@ class _ProfilePageState extends State<ProfilePage> {
               Row(children: [
                 Padding(
                     padding: EdgeInsets.only(left: 20, bottom: 10, top: 45)),
+<<<<<<< HEAD
+                    Icon(Icons.alternate_email),
+                    SizedBox(width: 30,),
+                    Text(
+                      user.email,
+                      style: TextStyle(fontSize: 16),
+                    )
+=======
                 Icon(Icons.alternate_email),
                 SizedBox(
                   width: 30,
@@ -288,6 +434,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   "erenYeager@gmail.com",
                   style: TextStyle(fontSize: 16),
                 )
+>>>>>>> 1d2b056c38dffce5316144b99de863c0cbbc69c8
               ]),
               Divider(
                 height: 0.6,
@@ -296,6 +443,14 @@ class _ProfilePageState extends State<ProfilePage> {
               Row(children: [
                 Padding(
                     padding: EdgeInsets.only(left: 20, bottom: 10, top: 45)),
+<<<<<<< HEAD
+                    Icon(Icons.phone),
+                    SizedBox(width: 30,),
+                    Text(
+                      user.phoneNumber,
+                      style: TextStyle(fontSize: 16),
+                    )
+=======
                 Icon(Icons.phone),
                 SizedBox(
                   width: 30,
@@ -304,6 +459,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   "09236738253",
                   style: TextStyle(fontSize: 16),
                 )
+>>>>>>> 1d2b056c38dffce5316144b99de863c0cbbc69c8
               ]),
               Divider(
                 height: 0.6,
@@ -312,6 +468,14 @@ class _ProfilePageState extends State<ProfilePage> {
               Row(children: [
                 Padding(
                     padding: EdgeInsets.only(left: 20, bottom: 10, top: 45)),
+<<<<<<< HEAD
+                    Icon(Icons.add_location_alt_rounded),
+                    SizedBox(width: 30,),
+                    Text(
+                      user.address,
+                      style: TextStyle(fontSize: 16),
+                    )
+=======
                 Icon(Icons.add_location_alt_rounded),
                 SizedBox(
                   width: 30,
@@ -320,6 +484,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   "Topaz Home apartment, Block 3",
                   style: TextStyle(fontSize: 16),
                 )
+>>>>>>> 1d2b056c38dffce5316144b99de863c0cbbc69c8
               ]),
             ],
           ),
@@ -412,6 +577,9 @@ class _ProfilePageState extends State<ProfilePage> {
         Navigator.push(
             context, MaterialPageRoute(builder: (_) => RatingPage()));
       }
+      else if(pageIndex == 3){
+         Navigator.push(context, MaterialPageRoute(builder: (_) => HistoryBuyedPage()));
+      }
     });
   }
 
@@ -434,9 +602,17 @@ class _ProfilePageState extends State<ProfilePage> {
                   color: Colors.white,
                 ),
                 SizedBox(width: 5),
-                Text(
-                  "Đăng xuất",
-                  style: TextStyle(color: Colors.white, fontSize: 20),
+                InkWell(
+                  onTap: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => LoginScreen()));
+                  },
+                  child: Text(
+                    "Đăng xuất",
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
                 )
               ],
             ),

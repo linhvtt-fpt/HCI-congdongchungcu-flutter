@@ -20,57 +20,6 @@ class _RootAppState extends State<RootApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   // title: Text(
-      //   //   'TOPAZ HOME',
-      //   //   textAlign: TextAlign.center,
-      //   //   style: TextStyle(
-      //   //     color: colorApp,
-      //   //     fontFamily: 'TharLon',
-      //   //     fontSize: 36,
-      //   //     fontWeight: FontWeight.normal,
-      //   //   ),
-      //   // ),
-      //   // backgroundColor: Colors.orange[600],
-      //   // centerTitle: true,
-      //    title: Container(
-      //           width: double.infinity,
-      //           height: 40,
-      //           color: Colors.white,
-      //           child: Center(
-      //             child: TextField(
-      //               decoration: InputDecoration(
-      //                   hintText: 'Search for something',
-      //                   prefixIcon: Icon(Icons.search),
-      //                   suffixIcon: Icon(Icons.camera_alt)
-      //                   ),
-      //             ),
-      //           ),
-      //         ),
-      //         backgroundColor: Color.fromRGBO(240, 103, 103, 1),
-      //   actions: <Widget>[
-      //     Padding(
-      //       padding: const EdgeInsets.all(10.0),
-      //       child: Container(
-      //         height: 150.0,
-      //         width: 30.0,
-      //         child: GestureDetector(
-      //           onTap: (){
-      //           },
-      //           child: Stack(
-      //             children: <Widget>[
-      //               IconButton(onPressed: (){
-      //               },
-      //               icon: Icon(Icons.shopping_cart),
-      //               color: Colors.black,
-      //               ),
-      //             ],
-      //           ),
-      //         ),
-      //       ),
-      //     )
-      //   ],
-      //   ),
       body: getBody(),
       bottomNavigationBar: getFooter(),
     );

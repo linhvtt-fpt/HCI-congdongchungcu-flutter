@@ -33,10 +33,10 @@ class _MyShopDetailPageState extends State<MyShopDetailPage> {
 
   Widget getFooter() {
     List bottomItems = [
-      "assets/images/cart.png",
-      "assets/images/buy-button.png",
+      "assets/images/156415719_114052893959945_8249222890319726342_n.png",
+      // "assets/images/buy-button.png",
     ];
-    List textItems = ["Chỉnh sửa sản phẩm", "Bump ngay"];
+    List textItems = ["Chỉnh sửa sản phẩm"];
     return Container(
       width: double.infinity,
       height: 60,
@@ -48,7 +48,7 @@ class _MyShopDetailPageState extends State<MyShopDetailPage> {
         padding: const EdgeInsets.only(left: 50, right: 60, bottom: 0, top: 5),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: List.generate(textItems.length, (index) {
             return InkWell(
                 onTap: () {
