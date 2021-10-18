@@ -10,6 +10,7 @@ import 'package:test_flutter_template/theme/styles.dart';
 
 import 'myshop_add_new_product.dart';
 import 'myshop_detail_product.dart';
+import 'myshop_notification_page.dart';
 
 class MyShopPage extends StatefulWidget {
   @override
@@ -363,7 +364,10 @@ class _MyShopPageState extends State<MyShopPage> {
 
   Widget _btnNotificationMyshop() {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => MyShopNotificationPage()));
+      },
       child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(0)),
