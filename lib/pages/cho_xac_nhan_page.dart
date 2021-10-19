@@ -35,8 +35,11 @@ class WaitAcceptPage extends StatefulWidget {
   WaitAcceptPage({required this.buyer, required this.status})
   {
     //chưa xác nhận
-    if(status.contains("Chưa xác nhận")){
-      listbill = listBillShop.where((element) => element.status.contains("Chưa xác nhận")).toList();
+    if(status.contains("Chưa xác nhận") && buyer){
+      listbill = listBill.where((element) => element.status.contains("Chưa xác nhận")).toList();
+    }
+    else if(status.contains("Chưa xác nhận") && !buyer){
+       listbill = listBillShop.where((element) => element.status.contains("Chưa xác nhận")).toList();
     }
 
     // // Đã xác nhận

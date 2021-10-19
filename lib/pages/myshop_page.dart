@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:intl/intl.dart';
+import 'package:test_flutter_template/json/bill_model.dart';
+import 'package:test_flutter_template/json/list_bill_json.dart';
 import 'package:test_flutter_template/json/product_myshop.dart';
 import 'package:test_flutter_template/pages/cho_xac_nhan_page.dart';
 import 'package:test_flutter_template/theme/colors.dart';
@@ -11,6 +13,7 @@ import 'package:test_flutter_template/theme/styles.dart';
 
 import 'da_xac_nhan_shop.dart';
 import 'danh_gia_shop.dart';
+import 'history_cancel_bill.dart';
 import 'myshop_add_new_product.dart';
 import 'myshop_detail_product.dart';
 import 'myshop_notification_page.dart';
@@ -21,6 +24,10 @@ class MyShopPage extends StatefulWidget {
 }
 
 class _MyShopPageState extends State<MyShopPage> {
+    final List<Bill> listbillChuaXacNhan = listBillShop.where((element) => element.status.contains("Chưa xác nhận")).toList();
+  final List<Bill> listbillDaXacNhan = listBillShop.where((element) => element.status.contains("Đã xác nhận")).toList(); 
+  final List<Bill> listbillDaHuy = listBillShop.where((element) => element.status.contains("Đã hủy")).toList(); 
+    final List<Bill> listbillDaHoanThanh = listBillShop.where((element) => element.status.contains("Đã hoàn thành")).toList(); 
   int pageIndex = 0;
 
   @override
@@ -28,9 +35,10 @@ class _MyShopPageState extends State<MyShopPage> {
     List bottomItems = [
       Icons.my_library_books_sharp,
       Icons.card_giftcard,
-      Icons.stars
+      Icons.stars,
+       Icons.delete_forever
     ];
-    List textItems = ["Chờ xác nhận", "Đã xác nhận", "Đánh giá"];
+    List textItems = ["Chờ xác nhận", "Đã xác nhận", "Đánh giá", "Đã hủy"];
 
     return Scaffold(
       appBar: AppBar(
@@ -140,9 +148,78 @@ class _MyShopPageState extends State<MyShopPage> {
                               },
                               child: Column(
                                 children: [
-                                  Icon(bottomItems[index],
-                                      size: 22, color: Colors.black),
-                                  SizedBox(
+                                  Stack(
+                                    children: [
+                                      Icon(bottomItems[index],
+                                      size: 22, 
+                                      color: Colors.black),
+                                       if (index == 0 && listbillChuaXacNhan.length > 0)
+                      Padding(
+                        padding: const EdgeInsets.only(right: 3),
+                        child: CircleAvatar(
+                          radius: 8.0,
+                          backgroundColor: Colors.red,
+                          foregroundColor: Colors.white,
+                          child: Text(
+                            listbillChuaXacNhan.length.toString(),
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12.0,
+                            ),
+                          ),
+                        ),
+                      ),
+                        if(index == 1 && listbillDaXacNhan.length > 0)
+                        Padding(
+                        padding: const EdgeInsets.only(right: 3),
+                        child: CircleAvatar(
+                          radius: 8.0,
+                          backgroundColor: Colors.red,
+                          foregroundColor: Colors.white,
+                          child: Text(
+                            listbillDaXacNhan.length.toString(),
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12.0,
+                            ),
+                          ),
+                        ),
+                      ),
+                      if( index == 3 && listbillDaHuy.length > 0)
+                      Padding(
+                        padding: const EdgeInsets.only(right: 3),
+                        child: CircleAvatar(
+                          radius: 8.0,
+                          backgroundColor: Colors.red,
+                          foregroundColor: Colors.white,
+                          child: Text(
+                            listbillDaHuy.length.toString(),
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12.0,
+                            ),
+                          ),
+                        ),
+                      ),
+                      if(index == 2 && listbillDaHoanThanh.length > 0)
+                        Padding(
+                        padding: const EdgeInsets.only(right: 3),
+                        child: CircleAvatar(
+                          radius: 8.0,
+                          backgroundColor: Colors.red,
+                          foregroundColor: Colors.white,
+                          child: Text(
+                            listbillDaHoanThanh.length.toString(),
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12.0,
+                            ),
+                          ),
+                        ),
+                      ),
+                                    ],
+                                  ),
+                                 SizedBox(
                                     height: 5,
                                   ),
                                   Text(
@@ -151,7 +228,8 @@ class _MyShopPageState extends State<MyShopPage> {
                                     TextStyle(fontSize: 13, color: black),
                                   ),
                                 ],
-                              ));
+                              )
+                              );
                         }),
                       ),
                     ),
@@ -423,6 +501,9 @@ class _MyShopPageState extends State<MyShopPage> {
       } else if (pageIndex == 2){
         Navigator.push(
             context, MaterialPageRoute(builder: (_) => RatingShop()));
+      } else if(pageIndex == 3){
+         Navigator.push(
+            context, MaterialPageRoute(builder: (_) => HistoryBuyedPage()));
       }
     });
   }

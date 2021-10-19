@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
           child: Center(
             child: TextField(
               decoration: InputDecoration(
-                  hintText: 'Search for something',
+                  hintText: 'Tìm kiếm...',
                   prefixIcon: Icon(Icons.search),
                   suffixIcon: Icon(Icons.camera_alt)),
             ),

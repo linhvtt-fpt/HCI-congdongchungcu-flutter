@@ -75,7 +75,7 @@ class _CartState extends State<Cart> {
                               Text(
                                 NumberFormat.decimalPattern()
                                     .format(item.price),
-                                style: TextStyle(fontSize: 18),
+                                style: TextStyle(fontSize: 18, color: Colors.red),
                               ),
                               SizedBox(
                                 width: 60,
