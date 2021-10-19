@@ -1,5 +1,6 @@
 import 'dart:ffi';
 
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:line_icons/line_icon.dart';
@@ -8,9 +9,11 @@ import 'package:test_flutter_template/json/list_bill_json.dart';
 import 'package:test_flutter_template/json/product_model.dart';
 import 'package:test_flutter_template/pages/checkout_page.dart';
 import 'package:test_flutter_template/pages/chi_tiet_don_hang_page.dart';
+import 'package:test_flutter_template/pages/reason_cancel_bill.dart';
 import 'package:test_flutter_template/pages/store_detail_pages.dart';
 
 import 'cart_page.dart';
+import 'da_xac_nhan_shop.dart';
 
 class WaitAcceptPage extends StatefulWidget {
 
@@ -243,10 +246,10 @@ class _WaitAcceptPageState extends State<WaitAcceptPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
 
-                          _btnShow(),
+                          _btnShow(context),
 
                           if(widget.buyer == false)
-                            _btnAccept(),
+                            _btnAccept(context),
 
                           if(widget.buyer == true && widget.status.contains("Chưa xác nhận"))
                           //truyền là Buyer và đang ở trang chưa xác nhận
@@ -292,7 +295,7 @@ class _WaitAcceptPageState extends State<WaitAcceptPage> {
 
 }
 
-Widget _btnShow() {
+Widget _btnShow(BuildContext context) {
   return InkWell(
       onTap: () {},
       child: Container(
@@ -307,9 +310,14 @@ Widget _btnShow() {
                     borderRadius: BorderRadius.all(Radius.circular(5)),
                     color: Colors.red,
                   ),
-                  child: Text(
-                    "       Hủy Đơn      ",
-                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(context,MaterialPageRoute(builder: (context) => CancelBillReason()));
+                    },
+                    child: Text(
+                      "       Hủy Đơn      ",
+                      style: TextStyle(color: Colors.white, fontSize: 16),
+                    ),
                   ),
                 ),
               ]
@@ -343,7 +351,7 @@ Widget _btnProcess(String text, Color colors) {
   );
 }
 
-Widget _btnAccept() {
+Widget _btnAccept(BuildContext context) {
   return InkWell(
       onTap: () {},
       child: Container(
@@ -357,9 +365,14 @@ Widget _btnAccept() {
                     borderRadius: BorderRadius.all(Radius.circular(5)),
                     color: Colors.green,
                   ),
-                  child: Text(
-                    "  Xác Nhận Đơn ",
-                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(context,MaterialPageRoute(builder: (context) => AcceptedShop()));
+                    },
+                    child: Text(
+                      "  Xác Nhận Đơn ",
+                      style: TextStyle(color: Colors.white, fontSize: 16),
+                    ),
                   ),
                 ),
               ]

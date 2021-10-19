@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:test_flutter_template/json/cancel_bill.dart';
+import 'package:test_flutter_template/widgets/textfield_widget.dart';
 
 class CancelBillReason extends StatefulWidget {
   @override
@@ -101,6 +102,14 @@ class _CancelBillReasonState extends State<CancelBillReason> {
             },
             activeColor: Colors.red,
           ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextFieldWidget(
+                label: "Khác",
+                text: "",
+                maxLines: 5,
+                onChanged: (other){}),
+          ),
           _btnAcceptCancel(),
         ],
       ),
@@ -113,7 +122,7 @@ Widget _btnAcceptCancel() {
     onTap: () {},
     child: Container(
         decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(3)), color: Color.fromRGBO(240, 103, 103, 1),),
-        // margin: EdgeInsets.symmetric(horizontal: 1),
+         margin: EdgeInsets.symmetric(horizontal: 10),
         child: Padding(
           padding: const EdgeInsets.all(15.0),
           child: Row(

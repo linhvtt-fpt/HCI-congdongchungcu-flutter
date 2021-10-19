@@ -27,7 +27,7 @@ class AcceptedPage extends StatefulWidget {
   _AcceptedPageState createState() => _AcceptedPageState();
 }
 class _AcceptedPageState extends State<AcceptedPage> {
-  final List<Bill> listbill = listBill.where((element) => element.status.contains("Đã xác nhận")).toList();
+  final List<Bill> listbill = listBillShop.where((element) => element.status.contains("Đã xác nhận")).toList();
   // List<Product> _cart ;
   //
   // _WaitAcceptPageState(this._cart);

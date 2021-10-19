@@ -190,6 +190,7 @@ class _AddNewProductMyShopState extends State<AddNewProductMyShop> {
                     TextFieldWidget(
                       label: "Mô tả sản phẩm",
                       text: "",
+                      maxLines: 10,
                       onChanged: (description) {},
                     ),
                     SizedBox(height: 10),
