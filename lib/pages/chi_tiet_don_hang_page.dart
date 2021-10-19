@@ -44,6 +44,42 @@ class _DetailOrderPageState extends State<DetailOrderPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Container(
+                width: 500,
+                height: 80,
+                color: Colors.tealAccent[700],
+                child: Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      if(widget.status == "Chưa xác nhận")
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("Đơn hàng đang chờ xác nhận", style: TextStyle(fontSize: 18, color: white, fontWeight: FontWeight.bold),),
+                        ],
+                      ),
+                      if(widget.status == "Đã xác nhận")
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          if(widget.buyer)
+                          Text("Người bán đã xác nhận đơn hàng", style: TextStyle(fontSize: 18, color: white, fontWeight: FontWeight.bold),),
+                          if(!widget.buyer)
+                          Text("Bạn đã xác nhận đơn hàng", style: TextStyle(fontSize: 18, color: white, fontWeight: FontWeight.bold),),
+                        ],
+                      ),
+                      Icon(Icons.my_library_books_outlined, size: 35,color: white,)
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
               SizedBox(
                 height: 100,
                 child: Container(

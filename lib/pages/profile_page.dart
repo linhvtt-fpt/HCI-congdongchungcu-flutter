@@ -27,6 +27,7 @@ class _ProfilePageState extends State<ProfilePage> {
   final List<Bill> listbillChuaXacNhan = listBill.where((element) => element.status.contains("Chưa xác nhận")).toList();
   final List<Bill> listbillDaXacNhan = listBill.where((element) => element.status.contains("Đã xác nhận")).toList(); 
   final List<Bill> listbillDaHuy = listBill.where((element) => element.status.contains("Đã hủy")).toList(); 
+    final List<Bill> listbillDaHoanThanh = listBill.where((element) => element.status.contains("Đã hoàn thành")).toList(); 
   @override
   Widget build(BuildContext context) {
     final user = UserPreferences.myUser;
@@ -175,6 +176,22 @@ class _ProfilePageState extends State<ProfilePage> {
                           foregroundColor: Colors.white,
                           child: Text(
                             listbillDaHuy.length.toString(),
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12.0,
+                            ),
+                          ),
+                        ),
+                      ),
+                      if(index == 2 && listbillDaHoanThanh.length > 0)
+                        Padding(
+                        padding: const EdgeInsets.only(right: 3),
+                        child: CircleAvatar(
+                          radius: 8.0,
+                          backgroundColor: Colors.red,
+                          foregroundColor: Colors.white,
+                          child: Text(
+                            listbillDaHoanThanh.length.toString(),
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 12.0,

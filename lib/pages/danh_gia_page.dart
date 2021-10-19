@@ -37,13 +37,6 @@ class _RatingPageState extends State<RatingPage> {
               title: Text(
                    'Đánh giá'
               ),
-        leading: IconButton(
-          onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (_) => ProfilePage()));
-          },
-          icon: Icon(Icons.arrow_back),
-        ),
       ),
       body: ListView.builder(
           itemCount: listbill.length,
