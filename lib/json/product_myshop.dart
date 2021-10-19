@@ -53,8 +53,8 @@ final allProductMyShop = <ProductMyShop>[
       shopName: 'AVACAKE OFFICIAL STORE',
       urlImage:
           "https://images.unsplash.com/photo-1506354666786-959d6d497f1a?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTR8fGZvb2R8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-      name: "Pizza",
-      description: "Pizza bò, heo, phô mai",
+      name: "Pizza viền phô mai 2 loại cỡ vừa",
+      description: "Pizza bò, heo, phô mai, 2 ly coca",
       price: 90000,
       category: 'Thực phẩm',
       quantitySold: 12,
@@ -64,8 +64,8 @@ final allProductMyShop = <ProductMyShop>[
       shopName: 'AVACAKE OFFICIAL STORE',
       urlImage:
           "https://vinmec-prod.s3.amazonaws.com/images/20190425_063710_470758_rau_xanh.max-800x800.jpg",
-      name: "Rau củ",
-      description: "Súp lơ, cà rốt, cải thảo",
+      name: "Rau củ thập cẩm các loại ngẫu nhiên",
+      description: "Súp lơ, cà rốt, cải thảo, rau muống",
       price: 35000,
       category: 'Thực phẩm',
       quantitySold: 0,

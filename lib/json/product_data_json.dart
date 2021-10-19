@@ -2,7 +2,7 @@ import 'package:test_flutter_template/json/product_model.dart';
 
 final allProduct = <Product>[
   Product(
-      name: "Set nguyên liệu pha trà sữa",
+      name: "Set nguyên liệu pha trà sữa nhiều loại",
       description: "Trà sữa trân châu, thái xanh, truyền thống",
       price: 20000,
       urlImage: 'https://cf.shopee.vn/file/435d7bbfad159966b7c6aa1b3614ec9b_tn',
@@ -13,7 +13,7 @@ final allProduct = <Product>[
       quantity: 1,
       categoryId: 1),
   Product(
-      name: "Khoai tây chiên",
+      name: "Khoai tây chiên nghiền phô mai túi 200g",
       description: "Khoai tây chiên truyền thống, lắc phô mai",
       price: 20000,
       urlImage:
@@ -26,7 +26,7 @@ final allProduct = <Product>[
       categoryId: 1),
   Product(
       urlImage: "https://toplist.vn/images/800px/cau-dat-farm-375871.jpg",
-      name: "Trái cây sấy",
+      name: "Trái cây sấy thập cẩm mít, xoài túi 150g",
       description: "Trái cây sấy",
       price: 20000,
       imgShop: "assets/images/3.jpg",
@@ -38,8 +38,8 @@ final allProduct = <Product>[
   Product(
       urlImage:
           "https://cdn.nguyenkimmall.com/images/companies/_1/Tin_tuc/kinh-nghiem-meo-hay/tu-lanh/bao-quan-thit-ca-tuoi-lau-trong-tu-lanh-3.jpg",
-      name: "Cá",
-      description: "Cá hồi, cá diêu hồng, cá basa",
+      name: "Cá hồi phi lê 1kg",
+      description: "Cá hồi mới đánh bắt, tươi ngon",
       price: 90000,
       imgShop: "assets/images/3.jpg",
       nameShop: "Baba Tea",
@@ -50,8 +50,8 @@ final allProduct = <Product>[
   Product(
       urlImage:
           "https://images.unsplash.com/photo-1506354666786-959d6d497f1a?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTR8fGZvb2R8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-      name: "Pizza",
-      description: "Pizza bò, heo, phô mai",
+      name: "Pizza viền phô mai 2 loại nhân phủ cỡ vừa",
+      description: "Pizza bò, heo, phô mai, 2 ly coca",
       price: 90000,
       imgShop: "assets/images/3.jpg",
       nameShop: "Baba Tea",
@@ -62,8 +62,8 @@ final allProduct = <Product>[
   Product(
       urlImage:
           "https://vinmec-prod.s3.amazonaws.com/images/20190425_063710_470758_rau_xanh.max-800x800.jpg",
-      name: "Rau củ",
-      description: "Súp lơ, cà rốt, cải thảo",
+      name: "Rau củ thập cẩm ngẫu nhiên túi 500g",
+      description: "Súp lơ, cà rốt, cải thảo, rau muống",
       price: 35000,
       imgShop: "assets/images/3.jpg",
       nameShop: "Baba Tea",
