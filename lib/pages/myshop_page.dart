@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:intl/intl.dart';
 import 'package:test_flutter_template/json/product_myshop.dart';
+import 'package:test_flutter_template/pages/cho_xac_nhan_page.dart';
 import 'package:test_flutter_template/theme/colors.dart';
 import 'package:test_flutter_template/theme/styles.dart';
 
@@ -414,7 +415,8 @@ class _MyShopPageState extends State<MyShopPage> {
     setState(() {
       pageIndex = index;
       if (pageIndex == 0) {
-
+        Navigator.push(
+            context, MaterialPageRoute(builder: (_) => WaitAcceptPage(buyer: false, status: "Chưa xác nhận")));
       } else if (pageIndex == 1){
         Navigator.push(
             context, MaterialPageRoute(builder: (_) => AcceptedShop()));

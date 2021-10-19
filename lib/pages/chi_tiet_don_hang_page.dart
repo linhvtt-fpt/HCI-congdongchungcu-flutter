@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:test_flutter_template/json/cart_product_json.dart';
 import 'package:test_flutter_template/json/product_model.dart';
+import 'package:test_flutter_template/pages/reason_cancel_bill.dart';
 import 'package:test_flutter_template/theme/colors.dart';
 import 'package:test_flutter_template/json/user_checkout.dart';
 
 import 'cho_xac_nhan_page.dart';
+import 'da_xac_nhan_shop.dart';
+import 'danh_gia_page.dart';
 class DetailOrderPage  extends StatefulWidget {
   final List<Product> listProductToCheckout;
   final String status;
@@ -204,17 +207,23 @@ class _DetailOrderPageState extends State<DetailOrderPage> {
               if(widget.status.contains("Đã xác nhận") && widget.buyer == true)
               Container(
                 height: 50,
-                child: Card(
-                  color: Colors.green,
-                  elevation: 4.0,
-                  margin: EdgeInsets.only(top: 10),
-                  child: Center(
-                      child: Text('Đã Nhận Hàng',
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: Colors.white,
-                        ),),
-                    ),
+                child: GestureDetector(
+                  onTap:
+                  () {
+                    Navigator.push(context,MaterialPageRoute(builder: (context) =>  RatingPage()));
+                  },
+                  child: Card(
+                    color: Colors.green,
+                    elevation: 4.0,
+                    margin: EdgeInsets.only(top: 10),
+                    child: Center(
+                        child: Text('Đã Nhận Được Hàng',
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: Colors.white,
+                          ),),
+                      ),
+                  ),
                 ),
               ),
 
@@ -240,16 +249,21 @@ class _DetailOrderPageState extends State<DetailOrderPage> {
               if(widget.status.contains("Chưa xác nhận") && widget.buyer == false)
                 Container(
                   height: 50,
-                  child: Card(
-                    color: Colors.green,
-                    elevation: 4.0,
-                    margin: EdgeInsets.only(top: 10),
-                    child: Center(
-                      child: Text('Xác Nhận Đơn',
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: Colors.white,
-                        ),),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(context,MaterialPageRoute(builder: (context) => AcceptedShop()));
+                    },
+                    child: Card(
+                      color: Colors.green,
+                      elevation: 4.0,
+                      margin: EdgeInsets.only(top: 10),
+                      child: Center(
+                        child: Text('Xác Nhận Đơn',
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: Colors.white,
+                          ),),
+                      ),
                     ),
                   ),
                 ),
@@ -258,16 +272,21 @@ class _DetailOrderPageState extends State<DetailOrderPage> {
               if(widget.status.contains("Chưa xác nhận"))
                 Container(
                   height: 50,
-                  child: Card(
-                    color: Colors.red,
-                    elevation: 4.0,
-                    margin: EdgeInsets.only(top: 10),
-                    child: Center(
-                      child: Text('Hủy Đơn Hàng',
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: Colors.white,
-                        ),),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(context,MaterialPageRoute(builder: (context) => CancelBillReason()));
+                    },
+                    child: Card(
+                      color: Colors.red,
+                      elevation: 4.0,
+                      margin: EdgeInsets.only(top: 10),
+                      child: Center(
+                        child: Text('Hủy Đơn Hàng',
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: Colors.white,
+                          ),),
+                      ),
                     ),
                   ),
                 ),
