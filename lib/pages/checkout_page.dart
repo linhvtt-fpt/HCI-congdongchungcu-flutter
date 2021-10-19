@@ -188,7 +188,7 @@ width: double.infinity,
               width: 150,
               child: ElevatedButton(
                   onPressed: () {
-                   Navigator.push(context, MaterialPageRoute(builder: (_) => WaitAcceptPage()));
+                   Navigator.push(context, MaterialPageRoute(builder: (_) => WaitAcceptPage(buyer: true, status: "Chưa xác nhận",)));
                   },
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(Colors.red),

@@ -8,6 +8,7 @@ import 'package:test_flutter_template/json/list_bill_json.dart';
 import 'package:test_flutter_template/json/product_model.dart';
 import 'package:test_flutter_template/pages/store_detail_pages.dart';
 
+import 'chi_tiet_don_hang_page.dart';
 import 'danh_gia_page.dart';
 
 class AcceptedShop extends StatefulWidget {
@@ -120,8 +121,18 @@ class _AcceptedShopState extends State<AcceptedShop> {
                             }, ),
                       ),
 
+                      // if(listbill[index1].listProduct.length > 2)
+                      //   Text('Xem Thêm Sản Phẩm'),
                       if(listbill[index1].listProduct.length > 2)
-                        Text('Xem Thêm Sản Phẩm'),
+                        GestureDetector(
+                            onTap: () {
+                              // chuyển trand sang trang detail
+                              Navigator.push(context,
+                                  MaterialPageRoute(
+                                    builder: (context) => DetailOrderPage(listbill[index1].listProduct, "Đã xác nhận", false),
+                                  ) );
+                            },
+                            child: Text('Xem Thêm Sản Phẩm')),
 
                       // SizedBox(
                       //   height: 5,

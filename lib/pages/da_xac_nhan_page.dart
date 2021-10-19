@@ -8,6 +8,7 @@ import 'package:test_flutter_template/json/list_bill_json.dart';
 import 'package:test_flutter_template/json/product_model.dart';
 import 'package:test_flutter_template/pages/store_detail_pages.dart';
 
+import 'chi_tiet_don_hang_page.dart';
 import 'danh_gia_page.dart';
 
 class AcceptedPage extends StatefulWidget {
@@ -26,7 +27,7 @@ class AcceptedPage extends StatefulWidget {
   _AcceptedPageState createState() => _AcceptedPageState();
 }
 class _AcceptedPageState extends State<AcceptedPage> {
-  final List<Bill> listbill = listBill.where((element) => element.status.contains("Đã xác nhận")).toList();
+  final List<Bill> listbill = listBillShop.where((element) => element.status.contains("Đã xác nhận")).toList();
   // List<Product> _cart ;
   //
   // _WaitAcceptPageState(this._cart);
@@ -120,8 +121,18 @@ class _AcceptedPageState extends State<AcceptedPage> {
                             }, ),
                       ),
 
+                      // if(listbill[index1].listProduct.length > 2)
+                      //   Text('Xem Thêm Sản Phẩm'),
                       if(listbill[index1].listProduct.length > 2)
-                        Text('Xem Thêm Sản Phẩm'),
+                        GestureDetector(
+                            onTap: () {
+                              // chuyển trand sang trang detail
+                              Navigator.push(context,
+                                  MaterialPageRoute(
+                                    builder: (context) => DetailOrderPage(listbill[index1].listProduct, "Đã xác nhận", true),
+                                  ) );
+                            },
+                            child: Text('Xem Thêm Sản Phẩm')),
 
                       // SizedBox(
                       //   height: 5,

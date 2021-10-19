@@ -152,16 +152,28 @@ class _EditMyShopProductState extends State<EditMyShopProduct> {
                   //     ),
                   //   ),
                   // ),
+                  //   TextFieldWidget(
+                  //     label: "Mô tả sản phẩm",
+                  //     text: widget.product.description,
+                  //     onChanged: (description) {},
+                  //   ),
+                    SizedBox(height: 10),
+                    // TextFieldWidget(
+                    //   label: "Thêm chi tiết quảng cáo",
+                    //   text: "#bánh_trung_thu_mùa_dịch, #bánh_trung_thu_ế \n"
+                    //       "Thành phần: \n",
+                    //   onChanged: (description) {},
+                    // ),
                     TextFieldWidget(
                       label: "Mô tả sản phẩm",
-                      text: widget.product.description,
-                      onChanged: (description) {},
-                    ),
-                    SizedBox(height: 10),
-                    TextFieldWidget(
-                      label: "Thêm chi tiết quảng cáo",
-                      text: "#bánh_trung_thu_mùa_dịch, #bánh_trung_thu_ế \n"
-                          "Thành phần: \n",
+                      maxLines: 15,
+                      text: widget.product.description + "\n"
+                          "#bánh_trung_thu_mùa_dịch, #bánh_trung_thu_ngon \n"
+                          "Thành phần: \n"
+                          " 1 Bánh nhân dừa \n"
+                          " 1 Bánh nhân đậu xanh \n"
+                          " 1 Bánh nhân thập cẩm \n"
+                          " 1 Bánh nhân gà quay\n",
                       onChanged: (description) {},
                     ),
                   ],
