@@ -19,6 +19,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
     int pageIndex = 0;
 
   List<Product> listProductToCheckout;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,7 +103,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                             "assets/images/vietnamese-dong.png",
                                             color: Colors.red),
                                       ),
-                                      Text(NumberFormat.decimalPattern().format(listProductToCheckout[index].price)),
+                                      Text(NumberFormat.decimalPattern().format(listProductToCheckout[index].price), style: TextStyle(color: Colors.red),),
                                       SizedBox(width: 100,),
                                       Text("x" + listProductToCheckout[index].quantity.toString()),
                                       SizedBox(width: 30,),
@@ -113,7 +114,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                             "assets/images/vietnamese-dong.png",
                                             color: Colors.red),
                                       ),
-                                      Text(NumberFormat.decimalPattern().format(listProductToCheckout[index].price * listProductToCheckout[index].quantity).toString())
+                                      Text(NumberFormat.decimalPattern().format(listProductToCheckout[index].price * listProductToCheckout[index].quantity).toString(), style: TextStyle(color: Colors.red),)
                                     ],
                                   )
                                   

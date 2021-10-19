@@ -24,49 +24,49 @@ class _HistoryBuyedPageState extends State<HistoryBuyedPage> {
       body: ListView.builder(
           itemCount: listbill.length,
           itemBuilder: (context, index1) {
-            return Container(
-              height: 370,
-              child: Card(
-                child:  Container(
-                  color: Colors.grey[200],
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            padding: EdgeInsets.all(10),
-                            child: Row(
-                              children: [
-                                Icon(Icons.storefront),
-                                SizedBox(width: 3,),
-                                Text(listbill[index1].listProduct[0].nameShop),
-                              ],
+            return InkWell(
+              onTap: (){
+                 Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ChiTietDonHuyPage(listbill[index1].listProduct, true)
+                                  ));
+              },
+              child: Container(
+                height: 370,
+                child: Card(
+                  child:  Container(
+                    color: Colors.grey[200],
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              padding: EdgeInsets.all(10),
+                              child: Row(
+                                children: [
+                                  Icon(Icons.storefront),
+                                  SizedBox(width: 3,),
+                                  Text(listbill[index1].listProduct[0].nameShop),
+                                ],
+                              ),
                             ),
-                          ),
-                          Container(
-                            padding: EdgeInsets.only(right: 10),
-                            child: Text(listbill[index1].status,
-                              style: TextStyle(
-                                color: Colors.deepOrangeAccent,
-                              ),),
-                          ),
-                        ],
-                      ),
-                      Expanded(
-                        child: ListView.builder(
-                            itemCount: 2,
-                            itemBuilder: (context, index) {
-                              var item = listbill[index1].listProduct;
-                              return InkWell(
-                                onTap: (){
-                          //         Navigator.push(
-                          // context,
-                          // MaterialPageRoute(
-                          //     builder: (context) => CancelBillPage()
-                          //         ));
-                                },
-                                child: Card(
+                            Container(
+                              padding: EdgeInsets.only(right: 10),
+                              child: Text(listbill[index1].status,
+                                style: TextStyle(
+                                  color: Colors.deepOrangeAccent,
+                                ),),
+                            ),
+                          ],
+                        ),
+                        Expanded(
+                          child: ListView.builder(
+                              itemCount: 2,
+                              itemBuilder: (context, index) {
+                                var item = listbill[index1].listProduct;
+                                return Card(
                                   child: Row(
                                     children: [
                                       Image.network(item[index].urlImage, width: 70, height: 70,),
@@ -102,59 +102,59 @@ class _HistoryBuyedPageState extends State<HistoryBuyedPage> {
                                       )
                                     ],
                                   ),
-                                ),
-                              );
-                            }, ),
-                      ),
-
-                      if(listbill[index1].listProduct.length > 2)
-                        Text('Xem Thêm Sản Phẩm'),
-                      Divider(
-                        color: Colors.grey,
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(left: 8, right: 8, bottom: 8, top: 4) ,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text( totalQuantity(listbill[index1].listProduct).toString()+' sản phẩm'
-                            ,style: TextStyle(
-                                color: Colors.black54,
-                              ),),
-                            Row(
-                              children: [
-                                Text(
-                                  'Thành tiền: ',
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.normal,
-                                  color: Colors.black54,
-                                ),
-                                  ),
-                                SizedBox(
-                                  width: 15,
-                                  height: 15,
-                                  child: Image.asset(
-                                      "assets/images/vietnamese-dong.png",
-                                      color: Colors.red),
-                                ),
-                               Text(NumberFormat.decimalPattern().format(totalPrice(listbill[index1].listProduct)),
-                                  style: TextStyle(color: Colors.red) ,
-                                ),
-                              ],
-                            ),
-                          ],
+                                );
+                              }, ),
                         ),
-                      ),
-                       Divider(
-                         color: Colors.grey,
-                       ),
-                      _btnShow(),
-                    ],
+            
+                        if(listbill[index1].listProduct.length > 2)
+                          Text('Xem Thêm Sản Phẩm'),
+                        Divider(
+                          color: Colors.grey,
+                        ),
+                        Container(
+                          padding: EdgeInsets.only(left: 8, right: 8, bottom: 8, top: 4) ,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text( totalQuantity(listbill[index1].listProduct).toString()+' sản phẩm'
+                              ,style: TextStyle(
+                                  color: Colors.black54,
+                                ),),
+                              Row(
+                                children: [
+                                  Text(
+                                    'Thành tiền: ',
+                                  style: TextStyle(
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.normal,
+                                    color: Colors.black54,
+                                  ),
+                                    ),
+                                  SizedBox(
+                                    width: 15,
+                                    height: 15,
+                                    child: Image.asset(
+                                        "assets/images/vietnamese-dong.png",
+                                        color: Colors.red),
+                                  ),
+                                 Text(NumberFormat.decimalPattern().format(totalPrice(listbill[index1].listProduct)),
+                                    style: TextStyle(color: Colors.red) ,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                         Divider(
+                           color: Colors.grey,
+                         ),
+                        _btnShow(),
+                      ],
+                    ),
                   ),
-                ),
-              )
-              ,
+                )
+                ,
+              ),
             );
           },
       )
