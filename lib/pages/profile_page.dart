@@ -406,7 +406,7 @@ class _ProfilePageState extends State<ProfilePage> {
       pageIndex = index;
       if (pageIndex == 0) {
         Navigator.push(
-            context, MaterialPageRoute(builder: (_) => WaitAcceptPage()));
+            context, MaterialPageRoute(builder: (_) => WaitAcceptPage(buyer: true, status: "Chưa xác nhận",)));
       } else if (pageIndex == 1){
         Navigator.push(
             context, MaterialPageRoute(builder: (_) => AcceptedPage()));

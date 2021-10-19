@@ -6,7 +6,11 @@ import 'package:line_icons/line_icon.dart';
 import 'package:test_flutter_template/json/bill_model.dart';
 import 'package:test_flutter_template/json/list_bill_json.dart';
 import 'package:test_flutter_template/json/product_model.dart';
+import 'package:test_flutter_template/pages/checkout_page.dart';
+import 'package:test_flutter_template/pages/chi_tiet_don_hang_page.dart';
 import 'package:test_flutter_template/pages/store_detail_pages.dart';
+
+import 'cart_page.dart';
 
 class WaitAcceptPage extends StatefulWidget {
 
@@ -20,11 +24,34 @@ class WaitAcceptPage extends StatefulWidget {
   //
   // WaitAcceptPage({required this.cartIn});
 
+  final bool buyer;
+  final String status;
+  List<Bill> listbill = listBill;
+
+
+  WaitAcceptPage({required this.buyer, required this.status})
+  {
+    //chưa xác nhận
+    if(status.contains("Chưa xác nhận")){
+      listbill = listBillShop.where((element) => element.status.contains("Chưa xác nhận")).toList();
+    }
+
+    // // Đã xác nhận
+    // if(status.contains("Đã xác nhận")){
+    //   listbill = listBill.where((element) => element.status.contains("Đã xác nhận")).toList();
+    // }
+  }
+
   @override
   _WaitAcceptPageState createState() => _WaitAcceptPageState();
 }
+
+
 class _WaitAcceptPageState extends State<WaitAcceptPage> {
-  final List<Bill> listbill = listBill.where((element) => element.status.contains("Chưa xác nhận")).toList();
+
+  // listbill = listBill.where((element) => element.status.contains("Chưa xác nhận")).toList();
+
+
   // List<Product> _cart ;
   //
   // _WaitAcceptPageState(this._cart);
@@ -32,17 +59,33 @@ class _WaitAcceptPageState extends State<WaitAcceptPage> {
   //   this._cart = cartIn;
   // }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Color.fromRGBO(240, 103, 103, 1),
-          title: Text(
-              'Chờ Xác Nhận'
-          ),
+            backgroundColor: Color.fromRGBO(240, 103, 103, 1),
+            title:
+            Row(
+              children: [
+                if(widget.status.contains("Chưa xác nhận"))
+                  Center(
+                    child: Text(
+                        'Chờ Xác Nhận'
+                    ),
+                  ),
+                // if(widget.status.contains("Đã xác nhận"))
+                //   Center(
+                //     child: Text(
+                //         'Đã Xác Nhận'
+                //     ),
+                //   ),
+              ],
+            )
         ),
         body: ListView.builder(
-          itemCount: listbill.length,
+
+          itemCount: widget.listbill.length,
           itemBuilder: (context, index1) {
             return Container(
               height: 370,
@@ -54,30 +97,56 @@ class _WaitAcceptPageState extends State<WaitAcceptPage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
-                            padding: EdgeInsets.all(10),
-                            child: Row(
-                              children: [
-                                Icon(Icons.storefront),
-                                SizedBox(width: 3,),
-                                Text(listbill[index1].listProduct[0].nameShop),
-                              ],
+                          //này là người mua
+                          if(widget.buyer)
+                            Container(
+                              padding: EdgeInsets.all(10),
+                              child: Row(
+                                children: [
+                                  Icon(Icons.storefront),
+                                  SizedBox(width: 3,),
+                                  Text(widget.listbill[index1].listProduct[0].nameShop),
+                                ],
+                              ),
                             ),
-                          ),
-                          Container(
-                            padding: EdgeInsets.only(right: 10),
-                            child: Text(listbill[index1].status,
-                              style: TextStyle(
-                                color: Colors.deepOrangeAccent,
-                              ),),
-                          ),
+
+                          //này là shop
+                          if(!widget.buyer)
+                            Container(
+                              padding: EdgeInsets.all(10),
+                              child: Row(
+                                children: [
+                                  Icon(Icons.account_circle),
+                                  SizedBox(width: 3,),
+                                  Text(widget.listbill[index1].buyer.name.toString()),
+                                ],
+                              ),
+                            ),
+
+                          if(widget.status.contains("Chưa xác nhận"))
+                            Container(
+                              padding: EdgeInsets.only(right: 10),
+                              child: Text(widget.listbill[index1].status,
+                                style: TextStyle(
+                                  color: Colors.deepOrangeAccent,
+                                ),),
+                            ),
+
+                          // if(widget.status.contains("Đã xác nhận"))
+                          //   Container(
+                          //     padding: EdgeInsets.only(right: 10),
+                          //     child: Text(widget.listbill[index1].status,
+                          //       style: TextStyle(
+                          //         color: Colors.green,
+                          //       ),),
+                          //   ),
                         ],
                       ),
                       Expanded(
                         child: ListView.builder(
                           itemCount: 2,
                           itemBuilder: (context, index) {
-                            var item = listbill[index1].listProduct;
+                            var item = widget.listbill[index1].listProduct;
                             return Card(
                               child: Row(
                                 children: [
@@ -118,29 +187,27 @@ class _WaitAcceptPageState extends State<WaitAcceptPage> {
                           }, ),
                       ),
 
-                      if(listbill[index1].listProduct.length > 2)
-                        Text('Xem Thêm Sản Phẩm'),
-
-                      // SizedBox(
-                      //   height: 5,
-                      //   width: 10,
-                      //   child: Text('Xem Thêm Sản Phẩm'
-                      //   ,style: TextStyle(fontSize: 5),),
-                      // ) ,
-                      //   Container(
-                      //     padding:  ,
-                      //     child: Text('Xem Thêm Sản Phẩm'),
-                      //   ),
+                      if(widget.listbill[index1].listProduct.length > 2)
+                        GestureDetector(
+                            onTap: () {
+                              // chuyển trand sang trang detail
+                              Navigator.push(context,
+                                  MaterialPageRoute(
+                                    builder: (context) => DetailOrderPage(widget.listbill[index1].listProduct, widget.status, widget.buyer),
+                                  ) );
+                            },
+                            child: Text('Xem Thêm Sản Phẩm')),
 
                       Divider(
                         color: Colors.grey,
                       ),
+
                       Container(
                         padding: EdgeInsets.only(left: 8, right: 8, bottom: 8, top: 4) ,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text( totalQuantity(listbill[index1].listProduct).toString()+' sản phẩm'
+                            Text( totalQuantity(widget.listbill[index1].listProduct).toString()+' sản phẩm'
                               ,style: TextStyle(
                                 color: Colors.black54,
                               ),),
@@ -161,7 +228,7 @@ class _WaitAcceptPageState extends State<WaitAcceptPage> {
                                       "assets/images/vietnamese-dong.png",
                                       color: Colors.red),
                                 ),
-                                Text(NumberFormat.decimalPattern().format(totalPrice(listbill[index1].listProduct)),
+                                Text(NumberFormat.decimalPattern().format(totalPrice(widget.listbill[index1].listProduct)),
                                   style: TextStyle(color: Colors.red) ,
                                 ),
                               ],
@@ -172,7 +239,25 @@ class _WaitAcceptPageState extends State<WaitAcceptPage> {
                       Divider(
                         color: Colors.grey,
                       ),
-                      _btnShow(),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+
+                          _btnShow(),
+
+                          if(widget.buyer == false)
+                            _btnAccept(),
+
+                          if(widget.buyer == true && widget.status.contains("Chưa xác nhận"))
+                          //truyền là Buyer và đang ở trang chưa xác nhận
+                            _btnProcess("Đang xử lý", Colors.grey.shade300),
+
+                          // if(widget.buyer == true && widget.status.contains("Đã xác nhận"))
+                          // //truyền là Buyer và đang ở trang Đã xác nhận
+                          //   _btnProcess("Đang giao", Colors.green),
+                        ],
+                      )
+
                     ],
                   ),
                 ),
@@ -220,10 +305,35 @@ Widget _btnShow() {
 
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(5)),
-                    color: Colors.grey,
+                    color: Colors.red,
                   ),
                   child: Text(
-                    "    Đang xử Lý   ",
+                    "       Hủy Đơn      ",
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  ),
+                ),
+              ]
+          )
+      )
+  );
+}
+Widget _btnProcess(String text, Color colors) {
+  return InkWell(
+      onTap: () {},
+      child: Container(
+          padding: EdgeInsets.all(10),
+          child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                  padding: EdgeInsets.fromLTRB(31, 14, 31, 14),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                    color: colors,
+                  ),
+                  child: Text( text
+                    ,
+                    textAlign: TextAlign.center,
                     style: TextStyle(color: Colors.white54, fontSize: 16),
                   ),
                 ),
@@ -231,93 +341,29 @@ Widget _btnShow() {
           )
       )
   );
+}
 
-  // child: ListView.builder(
-  //     itemCount: _cart.length,//_cart.length,
-  //     itemBuilder: (context, index) {
-  //       var item = _cart[index];
-  //       return Container(
-  //         padding: EdgeInsets.only(left: 10),
-  //         child: Card(
-  //             color: Colors.grey[200] ,
-  //             elevation: 0.5,
-  //             child: Row(
-  //               children: [
-  //                 GestureDetector(
-  //                   onTap: () {
-  //                     Navigator.push(
-  //                         context,
-  //                         MaterialPageRoute(
-  //                             builder: (_) => StoreDetailPage(
-  //                                 product: item)));
-  //                   },
-  //                   child: SizedBox(
-  //                     width: 70,
-  //                     height: 70,
-  //                     child: Image.network(item.urlImage),
-  //                   ),
-  //                 ),
-  //                 SizedBox(
-  //                   width: 10,
-  //                 ),
-  //                 Column(
-  //                   crossAxisAlignment: CrossAxisAlignment.start,
-  //                   children: [
-  //                     Text(
-  //                       item.name,
-  //                       style: TextStyle(
-  //                           fontSize: 15, fontWeight: FontWeight.bold),
-  //                     ),
-  //                     Row(
-  //                       //mainAxisAlignment:  MainAxisAlignment.spaceBetween,
-  //                       children: [
-  //                         SizedBox(
-  //                           width: 15,
-  //                           height: 15,
-  //                           child: Image.asset(
-  //                               "assets/images/vietnamese-dong.png",
-  //                               color: Colors.red),
-  //                         ),
-  //                         Text(
-  //                           NumberFormat.decimalPattern()
-  //                               .format(item.price),
-  //                           style: TextStyle(fontSize: 18),
-  //                         ),
-  //                         SizedBox(
-  //                           width: 150,
-  //                         ),
-  //
-  //                         Text("x" + item.quantity.toString()),
-  //                       ],
-  //                     )
-  //                   ],
-  //                 ),
-  //               ],
-  //             )
-  //         ),
-  //       )
-  //       ;
-  //     }),
-  //
-
-  //  int totalQuantity(List<Product> item)
-  // {
-  //   int totalQuantity = 0;
-  //   for(int i = 0 ; i < item.length ; i ++)
-  //     {
-  //       totalQuantity = totalQuantity + item[i].quantity;
-  //     }
-  //   return totalQuantity;
-  // }
-  //
-  // int totalPrice(List<Product> item)
-  // {
-  //   int total = 0;
-  //   for(int i = 0 ; i < item.length ; i ++)
-  //   {
-  //     total = total + item[i].quantity * item[i].price;
-  //   }
-  //   return total;
-  // }
-
+Widget _btnAccept() {
+  return InkWell(
+      onTap: () {},
+      child: Container(
+          padding: EdgeInsets.all(10),
+          child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                  padding: EdgeInsets.all(13),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                    color: Colors.green,
+                  ),
+                  child: Text(
+                    "  Xác Nhận Đơn ",
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  ),
+                ),
+              ]
+          )
+      )
+  );
 }
