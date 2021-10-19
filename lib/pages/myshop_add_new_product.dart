@@ -6,6 +6,8 @@ import 'package:test_flutter_template/widgets/textfield_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'myshop_page.dart';
+
 class AddNewProductMyShop extends StatefulWidget {
   // final ProductMyShop product;
   // const AddNewProductMyShop(
@@ -210,7 +212,10 @@ class _AddNewProductMyShopState extends State<AddNewProductMyShop> {
 
   Widget _btnSave() {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => MyShopPage()));
+      },
       child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(3)),
