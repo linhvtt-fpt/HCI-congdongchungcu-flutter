@@ -368,8 +368,10 @@ class _StoreDetailPageState extends State<StoreDetailPage> {
                         Icons.close,
                         color: Colors.red,
                       ),
-                      Text(
-                          widget.product.description),
+                      Expanded(
+                        child: Text(
+                            widget.product.description),
+                      ),
                     ],
                   ),
                   SizedBox(

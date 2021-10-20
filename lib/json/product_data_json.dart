@@ -192,4 +192,58 @@ final allProduct = <Product>[
       rate_number: "155",
       quantity: 1,
       categoryId: 4),
+
+  // category khác
+  Product(
+      urlImage:
+      "https://cf.shopee.vn/file/6a874ecba84e9250bfc8ba07b6fcfb17",
+      name: "Nồi đáy từ vân đá chống dính cao cấp",
+      description: "Nồi đáy từ vân đá chống dính cao cấp - size 20-24cm - Tiện lợi, đa chức năng, phù hợp với mọi loại bếp ",
+      price: 35000,
+      imgShop: "assets/images/3.jpg",
+      nameShop: "Baba Tea",
+      rate: "4",
+      rate_number: "155",
+      quantity: 1,
+      categoryId: 5),
+
+  Product(
+      urlImage:
+      "https://finili.vn/wp-content/uploads/2021/04/Huong-dan-cach-lua-chon-ban-hoc-dat-chuan-cho-be-2.jpg",
+      name: "Bàn học đạt chuẩn cho bé",
+      description: "Bàn học cho bé ",
+      price: 35000,
+      imgShop: "assets/images/3.jpg",
+      nameShop: "Baba Tea",
+      rate: "4",
+      rate_number: "155",
+      quantity: 1,
+      categoryId: 5),
+
+  Product(
+      urlImage:
+      "https://cf.shopee.vn/file/155d05198c81c99c5c861c37078c9f3e",
+      name: "Ma Sói Phiên Bản Ultimate Werewolf Deluxe Tiếng anh",
+      description: "hóa thân, vai trò, chơi nhóm, tư duy",
+      price: 35000,
+      imgShop: "assets/images/3.jpg",
+      nameShop: "Baba Tea",
+      rate: "4",
+      rate_number: "155",
+      quantity: 1,
+      categoryId: 5),
+
+  Product(
+      urlImage:
+      "https://salt.tikicdn.com/cache/400x400/ts/product/d1/97/d0/2e64714b768273c013dc4b6a6033b3d1.jpg",
+      name: "Mũ bảo hiểm chính hãng NÓN SƠN XM-151",
+      description: "Mũ bảo hiểm chính hãng NÓN SƠN",
+      price: 35000,
+      imgShop: "assets/images/3.jpg",
+      nameShop: "Baba Tea",
+      rate: "4",
+      rate_number: "155",
+      quantity: 1,
+      categoryId: 5),
+
 ];
