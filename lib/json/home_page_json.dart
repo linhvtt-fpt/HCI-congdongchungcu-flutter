@@ -5,7 +5,7 @@ const List categories = [
   {"img": "assets/images/fast-food.png", "name": "Ăn vặt", "id": "2"},
   {"img": "assets/images/fashion.png", "name": "Thời trang", "id": "3"},
   {"img": "assets/images/electronics.png", "name": "Điện tử", "id": "4"},
-  {"img": "assets/images/menu.png", "name": "Khác"},
+  {"img": "assets/images/menu.png", "name": "Khác","id": "5"},
 ];
 
 const List exploreMenu = [
