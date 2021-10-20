@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:test_flutter_template/json/product_myshop.dart';
 import 'package:test_flutter_template/json/product_myshop_model.dart';
@@ -19,7 +22,15 @@ class EditMyShopProduct extends StatefulWidget {
 }
 
 class _EditMyShopProductState extends State<EditMyShopProduct> {
-
+  var _image;
+  var imagePicker;
+  @override
+  void initState() {
+    // ignore: todo
+    // TODO: implement initState
+    super.initState();
+    imagePicker = new ImagePicker();
+  }
   @override
   Widget build(BuildContext context) => Scaffold(
     appBar: AppBar(
@@ -52,10 +63,21 @@ class _EditMyShopProductState extends State<EditMyShopProduct> {
                       width: 350,
                       height: 230,
                       child: InkWell(
-                        onTap: () {
-
+                        onTap: () async {
+                          var source = ImageSource.gallery;
+                          XFile image = await imagePicker.pickImage(
+                              source: source,
+                              imageQuality: 50,
+                              preferredCameraDevice: CameraDevice.front);
+                          setState(() {
+                            _image = File(image.path);
+                          });
                         },
-                        child: Image(
+                        child: _image != null
+                            ? Image.file(
+                          _image,
+                          fit: BoxFit.cover,
+                        ): Image(
                           image: NetworkImage(widget.product.urlImage),
                           fit: BoxFit.cover,
                         ),

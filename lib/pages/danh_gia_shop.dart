@@ -141,7 +141,7 @@ class _RatingShopState extends State<RatingShop> {
                             Row(
                               children: [
                                 Text(
-                                  'Tổng thanh toán: ',
+                                  'Thành tiền: ',
                                 style: TextStyle(
                                   fontSize: 17,
                                   fontWeight: FontWeight.normal,

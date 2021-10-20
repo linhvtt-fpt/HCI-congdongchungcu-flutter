@@ -221,7 +221,7 @@ class _WaitAcceptPageState extends State<WaitAcceptPage> {
                             Row(
                               children: [
                                 Text(
-                                  'Tổng thanh toán: ',
+                                  'Thành tiền: ',
                                   style: TextStyle(
                                     fontSize: 17,
                                     fontWeight: FontWeight.normal,

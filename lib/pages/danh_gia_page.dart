@@ -133,7 +133,7 @@ class _RatingPageState extends State<RatingPage> {
                             Row(
                               children: [
                                 Text(
-                                  'Tổng thanh toán: ',
+                                  'Thành tiền: ',
                                 style: TextStyle(
                                   fontSize: 17,
                                   fontWeight: FontWeight.normal,
