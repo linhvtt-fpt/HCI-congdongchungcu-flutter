@@ -43,6 +43,12 @@ class _AcceptedPageState extends State<AcceptedPage> {
               title: Text(
                    'Đã xác nhận'
               ),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).popUntil((route) => route.isFirst);
+          },
+          icon: const Icon(Icons.arrow_back),
+        ),
       ),
       body: ListView.builder(
           itemCount: listbill.length,
@@ -129,7 +135,7 @@ class _AcceptedPageState extends State<AcceptedPage> {
                               // chuyển trand sang trang detail
                               Navigator.push(context,
                                   MaterialPageRoute(
-                                    builder: (context) => DetailOrderPage(listbill[index1].listProduct, "Đã xác nhận", true),
+                                    builder: (context) => DetailOrderPage(listbill[index1], true),
                                   ) );
                             },
                             child: Text('Xem Thêm Sản Phẩm')),

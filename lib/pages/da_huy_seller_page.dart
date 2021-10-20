@@ -20,7 +20,13 @@ class _HistorySellerPageState extends State<HistorySellerPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(240, 103, 103, 1),
-         title: Text("Đã hủy")
+         title: Text("Đã hủy"),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).popUntil(ModalRoute.withName('MyShopPage'));
+          },
+          icon: const Icon(Icons.arrow_back),
+        ),
       ),
       body: ListView.builder(
           itemCount: listbill.length,
@@ -47,7 +53,7 @@ class _HistorySellerPageState extends State<HistorySellerPage> {
                               padding: EdgeInsets.all(10),
                               child: Row(
                                 children: [
-                                  Icon(Icons.storefront),
+                                  Icon(Icons.account_circle),
                                   SizedBox(width: 3,),
                                   Text(listbill[index1].listProduct[0].nameShop),
                                 ],

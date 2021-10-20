@@ -11,6 +11,7 @@ import 'package:test_flutter_template/pages/rating.dart';
 import 'package:test_flutter_template/pages/store_detail_pages.dart';
 import 'package:test_flutter_template/pages/xem_rating.dart';
 
+import 'chi_tiet_don_hang_page.dart';
 import 'myshop_page.dart';
 
 class RatingShop extends StatefulWidget {
@@ -41,9 +42,9 @@ class _RatingShopState extends State<RatingShop> {
               ),
         leading: IconButton(
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.of(context).popUntil(ModalRoute.withName('MyShopPage'));
           },
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
         ),
       ),
       body: ListView.builder(
@@ -63,7 +64,7 @@ class _RatingShopState extends State<RatingShop> {
                             padding: EdgeInsets.all(10),
                             child: Row(
                               children: [
-                                Icon(Icons.account_circle_outlined),
+                                Icon(Icons.account_circle),
                                 SizedBox(width: 3,),
                                 Text(listbill[index1].listProduct[0].nameShop),
                               ],
@@ -124,7 +125,15 @@ class _RatingShopState extends State<RatingShop> {
                       ),
 
                       if(listbill[index1].listProduct.length > 2)
-                        Text('Xem Thêm Sản Phẩm'),
+                        GestureDetector(
+                            onTap: () {
+                              // chuyển trand sang trang detail
+                              Navigator.push(context,
+                                  MaterialPageRoute(
+                                    builder: (context) => DetailOrderPage(listbill[index1], false),
+                                  ) );
+                            },
+                            child: Text('Xem Thêm Sản Phẩm')),
 
                       Divider(
                         color: Colors.grey,

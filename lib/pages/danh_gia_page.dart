@@ -11,6 +11,8 @@ import 'package:test_flutter_template/pages/rating.dart';
 import 'package:test_flutter_template/pages/store_detail_pages.dart';
 import 'package:test_flutter_template/pages/xem_rating.dart';
 
+import 'chi_tiet_don_hang_page.dart';
+
 class RatingPage extends StatefulWidget {
 
 
@@ -37,6 +39,12 @@ class _RatingPageState extends State<RatingPage> {
               title: Text(
                    'Đánh giá'
               ),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).popUntil((route) => route.isFirst);
+          },
+          icon: const Icon(Icons.arrow_back),
+        ),
       ),
       body: ListView.builder(
           itemCount: listbill.length,
@@ -116,7 +124,15 @@ class _RatingPageState extends State<RatingPage> {
                       ),
 
                       if(listbill[index1].listProduct.length > 2)
-                        Text('Xem Thêm Sản Phẩm'),
+                        GestureDetector(
+                            onTap: () {
+                              // chuyển trand sang trang detail
+                              Navigator.push(context,
+                                  MaterialPageRoute(
+                                    builder: (context) => DetailOrderPage(listbill[index1], true),
+                                  ) );
+                            },
+                            child: Text('Xem Thêm Sản Phẩm')),
 
                       Divider(
                         color: Colors.grey,
