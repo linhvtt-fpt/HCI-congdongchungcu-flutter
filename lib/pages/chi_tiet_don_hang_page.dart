@@ -310,7 +310,7 @@ class _DetailOrderPageState extends State<DetailOrderPage> {
                   height: 50,
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.push(context,MaterialPageRoute(builder: (context) => CancelBillReason()));
+                      Navigator.push(context,MaterialPageRoute(builder: (context) => CancelBillReason(widget.buyer)));
                     },
                     child: Card(
                       color: Colors.red,

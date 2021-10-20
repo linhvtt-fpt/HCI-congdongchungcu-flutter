@@ -353,7 +353,7 @@ List<Bill> listBillShop = [
         rate_number: "155",
         categoryId: 1),
   ]),
-  Bill(status: "Chưa xác nhận", buyer: user[0], isRating: false, listProduct: [
+  Bill(status: "Đã hủy", buyer: user[0], isRating: false, listProduct: [
     Product(
         name: "Pizza",
         description: "Pizza bò, heo, phô mai",
