@@ -20,7 +20,13 @@ class _HistoryBuyedPageState extends State<HistoryBuyedPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(240, 103, 103, 1),
-         title: Text("Đã hủy")
+         title: Text("Đã hủy"),
+        leading: IconButton(
+          onPressed: () {
+              Navigator.of(context).popUntil((route) => route.isFirst);
+          },
+          icon: const Icon(Icons.arrow_back),
+        ),
       ),
       body: ListView.builder(
           itemCount: listbill.length,

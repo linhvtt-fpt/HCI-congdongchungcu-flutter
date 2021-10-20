@@ -88,7 +88,17 @@ class _WaitAcceptPageState extends State<WaitAcceptPage> {
                 //     ),
                 //   ),
               ],
-            )
+            ),
+          leading: IconButton(
+            onPressed: () {
+              if (buyer){
+                Navigator.of(context).popUntil((route) => route.isFirst);
+              } else{
+                Navigator.of(context).popUntil(ModalRoute.withName('MyShopPage'));
+              }
+            },
+            icon: const Icon(Icons.arrow_back),
+          ),
         ),
         body: ListView.builder(
 
@@ -200,7 +210,7 @@ class _WaitAcceptPageState extends State<WaitAcceptPage> {
                               // chuyển trand sang trang detail
                               Navigator.push(context,
                                   MaterialPageRoute(
-                                    builder: (context) => DetailOrderPage(widget.listbill[index1].listProduct, widget.status, widget.buyer),
+                                    builder: (context) => DetailOrderPage(widget.listbill[index1], widget.buyer),
                                   ) );
                             },
                             child: Text('Xem Thêm Sản Phẩm')),

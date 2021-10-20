@@ -5,6 +5,7 @@ import 'package:test_flutter_template/json/list_ly_do_huy_don.dart';
 import 'package:test_flutter_template/widgets/textfield_widget.dart';
 
 import 'da_huy_buyer_page.dart';
+import 'da_huy_seller_page.dart';
 
 class CancelBillReason extends StatefulWidget {
   bool buyer;
@@ -146,13 +147,14 @@ Widget _btnAcceptCancel(context, buyer) {
   return InkWell(
     onTap: () {
       if(buyer){
-
+        Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => HistoryBuyedPage()));
       }
       else if(!buyer){
-
+        Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => HistorySellerPage()));
       }
-         Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => HistoryBuyedPage()));
+
     },
     child: Container(
         decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(3)), color: Color.fromRGBO(240, 103, 103, 1),),

@@ -43,6 +43,12 @@ class _AcceptedShopState extends State<AcceptedShop> {
               title: Text(
                    'Đã xác nhận'
               ),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).popUntil(ModalRoute.withName('MyShopPage'));
+          },
+          icon: const Icon(Icons.arrow_back),
+        ),
       ),
       body: ListView.builder(
           itemCount: listbill.length,
@@ -61,7 +67,7 @@ class _AcceptedShopState extends State<AcceptedShop> {
                             padding: EdgeInsets.all(10),
                             child: Row(
                               children: [
-                                Icon(Icons.account_circle_outlined),
+                                Icon(Icons.account_circle),
                                 SizedBox(width: 3,),
                                 Text(listbill[index1].listProduct[0].nameShop),
                               ],
@@ -129,7 +135,7 @@ class _AcceptedShopState extends State<AcceptedShop> {
                               // chuyển trand sang trang detail
                               Navigator.push(context,
                                   MaterialPageRoute(
-                                    builder: (context) => DetailOrderPage(listbill[index1].listProduct, "Đã xác nhận", false),
+                                    builder: (context) => DetailOrderPage(listbill[index1], false),
                                   ) );
                             },
                             child: Text('Xem Thêm Sản Phẩm')),

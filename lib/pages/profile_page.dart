@@ -228,7 +228,10 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => MyShopPage()),
+                      MaterialPageRoute(
+                        builder: (context) => MyShopPage(),
+                        settings : RouteSettings(name: "MyShopPage"),
+                      ),
                     );
                   },
                   style: ButtonStyle(
