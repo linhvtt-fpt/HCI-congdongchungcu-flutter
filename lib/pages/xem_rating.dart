@@ -107,7 +107,10 @@ class _ViewRatingBill extends State<ViewRatingBill> {
                                 SizedBox(
                                   width: 40,
                                 ),
-                                Text("Ngon"),
+                                Text(
+                                  index == 0 ? "Ngon lắm, sẽ ủng hộ lần nữa"
+                                      : "Tôi rất hài lòng về sản phẩm",
+                                )
                               ],
                             )
                           ],

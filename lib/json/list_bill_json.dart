@@ -152,7 +152,7 @@ List<Bill> listBill = [
         categoryId: 3),
   ]),
   Bill(
-     status: "Đã giao",
+     status: "Đã hoàn thành",
      buyer: user[0],
      isRating: false,
      listProduct: [
@@ -195,7 +195,7 @@ List<Bill> listBill = [
    ),
 
    Bill(
-     status: "Đã giao",
+     status: "Đã hoàn thành",
      buyer: user[0],
      isRating: false,
      listProduct: [

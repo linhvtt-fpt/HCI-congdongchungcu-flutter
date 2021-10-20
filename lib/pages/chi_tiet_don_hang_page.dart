@@ -72,6 +72,14 @@ class _DetailOrderPageState extends State<DetailOrderPage> {
                           Text("Bạn đã xác nhận đơn hàng", style: TextStyle(fontSize: 18, color: white, fontWeight: FontWeight.bold),),
                         ],
                       ),
+                      if(widget.status == "Đã hoàn thành")
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("Đơn hàng đã hoàn thành", style: TextStyle(fontSize: 18, color: white, fontWeight: FontWeight.bold),),
+                          ],
+                        ),
                       Icon(Icons.my_library_books_outlined, size: 35,color: white,)
                     ],
                   ),

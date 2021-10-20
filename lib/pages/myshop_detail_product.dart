@@ -234,26 +234,26 @@ class _MyShopDetailPageState extends State<MyShopDetailPage> {
                         // SizedBox(
                         //   width: 10,
                         // ),
-                        Expanded(
-                          child: Container(
-                            width: 100,
-                            height: 40,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.rectangle,
-                              borderRadius: BorderRadius.circular(5),
-                              border:
-                              Border.all(color: Colors.orange.shade700),
-                            ),
-                            child: Center(
-                              child: Text(
-                                "Xem shop",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.orange.shade700),
-                              ),
-                            ),
-                          ),
-                        )
+                        // Expanded(
+                        //   child: Container(
+                        //     width: 100,
+                        //     height: 40,
+                        //     decoration: BoxDecoration(
+                        //       shape: BoxShape.rectangle,
+                        //       borderRadius: BorderRadius.circular(5),
+                        //       border:
+                        //       Border.all(color: Colors.orange.shade700),
+                        //     ),
+                        //     child: Center(
+                        //       child: Text(
+                        //         "Xem shop",
+                        //         style: TextStyle(
+                        //             fontWeight: FontWeight.w600,
+                        //             color: Colors.orange.shade700),
+                        //       ),
+                        //     ),
+                        //   ),
+                        // )
                       ],
                     ),
                   ),
