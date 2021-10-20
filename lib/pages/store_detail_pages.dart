@@ -13,6 +13,7 @@ import 'package:test_flutter_template/theme/styles.dart';
 import 'cart_page.dart';
 import 'checkout_page.dart';
 import 'home_page.dart';
+import 'yourshop_page.dart';
 
 class StoreDetailPage extends StatefulWidget {
   final Product product;
@@ -297,7 +298,10 @@ class _StoreDetailPageState extends State<StoreDetailPage> {
                               ),
                               child: Center(
                                 child: ElevatedButton(
-                                  onPressed: (){},
+                                  onPressed: (){
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(builder: (context) => YourShopPage()));
+                                  },
                                   style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.white)),
                                   child: Text(
                                     "Xem shop",
