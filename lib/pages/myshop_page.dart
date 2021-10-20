@@ -11,9 +11,9 @@ import 'package:test_flutter_template/pages/cho_xac_nhan_page.dart';
 import 'package:test_flutter_template/theme/colors.dart';
 import 'package:test_flutter_template/theme/styles.dart';
 
+import 'da_huy_seller_page.dart';
 import 'da_xac_nhan_shop.dart';
 import 'danh_gia_shop.dart';
-import 'history_cancel_bill.dart';
 import 'myshop_add_new_product.dart';
 import 'myshop_detail_product.dart';
 import 'myshop_notification_page.dart';
@@ -104,10 +104,6 @@ class _MyShopPageState extends State<MyShopPage> {
                               "Đơn hàng",
                               style: TextStyle(fontSize: 16),
                             )),
-                        Text(
-                          "Xem lịch sử đơn hàng",
-                          style: TextStyle(fontSize: 16),
-                        ),
                         SizedBox(
                           width: 10,
                         ),
@@ -503,7 +499,7 @@ class _MyShopPageState extends State<MyShopPage> {
             context, MaterialPageRoute(builder: (_) => RatingShop()));
       } else if(pageIndex == 3){
          Navigator.push(
-            context, MaterialPageRoute(builder: (_) => HistoryBuyedPage()));
+            context, MaterialPageRoute(builder: (_) => HistorySellerPage()));
       }
     });
   }

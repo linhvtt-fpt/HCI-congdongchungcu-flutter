@@ -49,12 +49,13 @@ class WaitAcceptPage extends StatefulWidget {
   }
 
   @override
-  _WaitAcceptPageState createState() => _WaitAcceptPageState();
+  _WaitAcceptPageState createState() => _WaitAcceptPageState(this.buyer);
 }
 
 
 class _WaitAcceptPageState extends State<WaitAcceptPage> {
-
+    bool buyer;
+    _WaitAcceptPageState(this.buyer);
   // listbill = listBill.where((element) => element.status.contains("Chưa xác nhận")).toList();
 
 
@@ -249,10 +250,10 @@ class _WaitAcceptPageState extends State<WaitAcceptPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
 
-                          _btnShow(context),
+                          _btnShow(context, this.buyer),
 
                           if(widget.buyer == false)
-                            _btnAccept(context),
+                            _btnAccept(context, index1),
 
                           if(widget.buyer == true && widget.status.contains("Chưa xác nhận"))
                           //truyền là Buyer và đang ở trang chưa xác nhận
@@ -298,7 +299,7 @@ class _WaitAcceptPageState extends State<WaitAcceptPage> {
 
 }
 
-Widget _btnShow(BuildContext context) {
+Widget _btnShow(BuildContext context, buyer) {
   return InkWell(
       onTap: () {},
       child: Container(
@@ -315,7 +316,7 @@ Widget _btnShow(BuildContext context) {
                   ),
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.push(context,MaterialPageRoute(builder: (context) => CancelBillReason()));
+                      Navigator.push(context,MaterialPageRoute(builder: (context) => CancelBillReason(buyer)));
                     },
                     child: Text(
                       "       Hủy Đơn      ",
@@ -354,7 +355,7 @@ Widget _btnProcess(String text, Color colors) {
   );
 }
 
-Widget _btnAccept(BuildContext context) {
+Widget _btnAccept(BuildContext context, index1) {
   return InkWell(
       onTap: () {},
       child: Container(
@@ -370,6 +371,7 @@ Widget _btnAccept(BuildContext context) {
                   ),
                   child: GestureDetector(
                     onTap: () {
+                      listBillShop[index1].status = "Đã xác nhận";
                       Navigator.push(context,MaterialPageRoute(builder: (context) => AcceptedShop()));
                     },
                     child: Text(

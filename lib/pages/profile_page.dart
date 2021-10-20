@@ -1,10 +1,9 @@
 
 import 'package:test_flutter_template/json/bill_model.dart';
-import 'package:test_flutter_template/json/cart_product_json.dart';
 import 'package:test_flutter_template/json/list_bill_json.dart';
 import 'package:test_flutter_template/json/user_model.dart';
 import 'package:test_flutter_template/json/user_preferences.dart';
-import 'package:test_flutter_template/pages/history_cancel_bill.dart';
+import 'package:test_flutter_template/pages/da_huy_buyer_page.dart';
 import 'package:test_flutter_template/theme/colors.dart';
 import 'package:test_flutter_template/widgets/profile_widget.dart';
 import 'package:flutter/cupertino.dart';
@@ -13,7 +12,6 @@ import 'cho_xac_nhan_page.dart';
 import 'da_xac_nhan_page.dart';
 import 'danh_gia_page.dart';
 import 'edit_profile_page.dart';
-import 'lich_su_mua_hang.dart';
 import 'login_page.dart';
 import 'myshop_page.dart';
 

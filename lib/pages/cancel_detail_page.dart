@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:test_flutter_template/json/chi_tiet_huy_don_json.dart';
 
 class CancelDetailPage extends StatefulWidget {
+  bool buyer;
+  CancelDetailPage(this.buyer);
   @override
   _CancelDetailPageState createState() => _CancelDetailPageState();
 }
 class _CancelDetailPageState extends State<CancelDetailPage> {
+
   int activeMenu = 0;
   @override
   Widget build(BuildContext context) {
@@ -23,7 +26,10 @@ class _CancelDetailPageState extends State<CancelDetailPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("Hủy bởi",style: TextStyle(fontWeight: FontWeight.bold)),
+                if(widget.buyer)
                 Text(billCancel[0]['personCancel'])
+                else if(!widget.buyer)
+                 Text(billCancel[1]['personCancel'])
               ],
             ),
           ), 
@@ -34,7 +40,10 @@ class _CancelDetailPageState extends State<CancelDetailPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("Hủy vào lúc",style: TextStyle(fontWeight: FontWeight.bold)),
+                if(widget.buyer)
                 Text(billCancel[0]['Time'])
+                else if(!widget.buyer)
+                Text(billCancel[1]['Time'])
               ],
             ),
           ),
@@ -51,7 +60,10 @@ class _CancelDetailPageState extends State<CancelDetailPage> {
             padding: const EdgeInsets.only( bottom: 10, left: 30, right: 30),
             child: Row(
               children: [
+                    if(widget.buyer)
                     Text(billCancel[0]['reason']),
+                    if(!widget.buyer)
+                    Text(billCancel[1]['reason']),
               ],
             ),
           ),

@@ -7,15 +7,16 @@ import 'package:test_flutter_template/json/list_bill_json.dart';
 import 'package:test_flutter_template/json/product_model.dart';
 import 'package:test_flutter_template/pages/cancel_detail_page.dart';
 import 'package:test_flutter_template/pages/da_huy_page.dart';
-class HistoryBuyedPage extends StatefulWidget {
+class HistorySellerPage extends StatefulWidget {
+
   @override
-  _HistoryBuyedPageState createState() => _HistoryBuyedPageState();
+  _HistorySellerPageState createState() => _HistorySellerPageState();
 }
-class _HistoryBuyedPageState extends State<HistoryBuyedPage> {
+class _HistorySellerPageState extends State<HistorySellerPage> {
   
   @override
   Widget build(BuildContext context) {
-    final List<Bill> listbill = listBill.where((element) => element.status.contains("Đã hủy")).toList();
+    final List<Bill> listbill = listBillShop.where((element) => element.status.contains("Đã hủy")).toList();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(240, 103, 103, 1),
@@ -197,7 +198,7 @@ Widget _btnShow() {
                 Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => CancelDetailPage()
+                              builder: (context) => CancelDetailPage(false)
                                   ));
               },
               child: Container(
