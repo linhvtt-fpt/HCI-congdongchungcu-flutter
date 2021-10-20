@@ -316,6 +316,43 @@ List<Bill> listBillShop = [
         quantity: 1,
         categoryId: 3),
   ]),
+   Bill(status: "Chưa xác nhận", buyer: user[0], isRating: false, listProduct: [
+    Product(
+        name: "Set bánh trung thu hiện đại",
+        description: "Gồm 4 loại bánh khác nhau",
+        price: 20000,
+        urlImage:
+        'https://lambanhngon.com/product_pictures/eny1473631885.jpg',
+        imgShop: "assets/images/3.jpg",
+        nameShop: user[0].name,
+        rate: "3.5",
+        rate_number: "155",
+        quantity: 1,
+        categoryId: 2),
+    Product(
+        name: "Pizza",
+        description: "Pizza bò, heo, phô mai",
+        price: 90000,
+        urlImage:
+        'https://images.unsplash.com/photo-1506354666786-959d6d497f1a?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTR8fGZvb2R8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+        imgShop: "assets/images/3.jpg",
+        nameShop: user[0].name,
+        rate: "4.0",
+        quantity: 1,
+        rate_number: "155",
+        categoryId: 1),
+    Product(
+        urlImage: "https://vinmec-prod.s3.amazonaws.com/images/20190425_063710_470758_rau_xanh.max-800x800.jpg",
+        name: "Rau củ",
+        description: "Súp lơ, cà rốt, cải thảo",
+        price: 35000,
+        imgShop: "assets/images/3.jpg",
+        nameShop: user[0].name,
+        rate: "4.3",
+        rate_number: "155",
+        quantity: 1,
+        categoryId: 3),
+  ]),
   Bill(status: "Đã xác nhận", buyer: user[0], isRating: false, listProduct: [
     Product(
         name: "Set bánh trung thu hiện đại",
