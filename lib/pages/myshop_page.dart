@@ -7,7 +7,10 @@ import 'package:intl/intl.dart';
 import 'package:test_flutter_template/json/bill_model.dart';
 import 'package:test_flutter_template/json/list_bill_json.dart';
 import 'package:test_flutter_template/json/product_myshop.dart';
+import 'package:test_flutter_template/json/sp_ban_chay_myshop.dart';
+import 'package:test_flutter_template/json/sp_yeu_thich_json.dart';
 import 'package:test_flutter_template/pages/cho_xac_nhan_page.dart';
+import 'package:test_flutter_template/pages/store_detail_pages.dart';
 import 'package:test_flutter_template/theme/colors.dart';
 import 'package:test_flutter_template/theme/styles.dart';
 
@@ -265,6 +268,149 @@ class _MyShopPageState extends State<MyShopPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Text(
+                "SẢN PHẨN BÁN CHẠY",
+                style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                    children: List.generate(popularProductMyShop.length, (index) {
+                      return Padding(
+                        padding: const EdgeInsets.only(left: 5, top: 5, bottom: 5, right: 10),
+                        child: Container(
+                          width: 180,
+                          height: 240,
+                          decoration: BoxDecoration(
+                            borderRadius:
+                            BorderRadius.circular(10),
+                            color: Colors.white,
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Stack(
+                                children: [
+                                  GestureDetector(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (_) => MyShopDetailPage(
+                                                  product: popularProductMyShop[index])));
+                                    },
+                                    child: ClipRRect(
+                                      // width: 200,
+                                      // height: 120,
+                                      // decoration: BoxDecoration(
+                                      //         borderRadius:
+                                      //             BorderRadius.circular(30),
+                                      //         color: Colors.grey[100],
+                                      //         border: Border.all(color: Colors.black12)),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      child: Image(
+                                        image:
+                                        NetworkImage(popularProductMyShop[index].urlImage),
+                                        width: 180,
+                                        height: 120,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 15,
+                              ),
+                              Text(
+                                popularProductMyShop[index].name,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                    fontSize: 17, fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                      child: Row(
+                                        children: [
+                                          Image.asset(
+                                            "assets/images/vietnamese-dong.png",
+                                            width: 15,
+                                            color: Colors.red,
+                                          ),
+                                          Text(
+                                            NumberFormat.decimalPattern()
+                                                .format(popularProductMyShop[index].price),
+                                            style: TextStyle(
+                                                fontSize: 20,
+                                                color: Colors.red,
+                                                fontWeight: FontWeight.w600),
+                                          ),
+                                        ],
+                                      )),
+
+                                ],
+
+                              ),
+                              SizedBox(height: 7,),
+                              Container(
+                                padding: EdgeInsets.only(right: 10),
+                                child: Column(
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        Text(
+                                          popularProductMyShop[index].rate,
+                                          style: TextStyle(fontSize: 13),
+                                        ),
+                                        SizedBox(
+                                          width: 3,
+                                        ),
+                                        Icon(
+                                          Icons.star,
+                                          color: Colors.orange[300],
+                                          size: 17,
+                                        ),
+                                        Text("|"),
+                                        SizedBox(
+                                          width: 3,
+                                        ),
+                                        Text("Đã bán", style: TextStyle(fontSize: 13),),
+                                        SizedBox(
+                                          width: 3,
+                                        ),
+                                        Text(
+                                            NumberFormat.decimalPattern()
+                                                .format(popularProductMyShop[index].quantitySold),
+                                          style: TextStyle(fontSize: 13),
+                                        )
+                                      ],
+                                    ),
+                                    SizedBox(height: 10,),
+                                    // Row(
+                                    //   mainAxisAlignment: MainAxisAlignment.end,
+                                    //   children: [
+                                    //     Text(popularProductMyShop[index].shopName, style: TextStyle(color: Colors.grey),)
+                                    //   ],
+                                    // )
+                                  ],
+                                ),
+                              ),
+
+                            ],
+                          ),
+                        ),
+                      );
+                    })),
+              ),
               Text(
                 "CÁC MẶT HÀNG ĐANG BÁN",
                 style: customTitle,
