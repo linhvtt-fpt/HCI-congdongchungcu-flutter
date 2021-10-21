@@ -114,10 +114,10 @@ class _SearchScreenState extends State<LoginScreen> {
                   alignment: Alignment.center,
                   child: InkWell(
                     onTap: (){
-                        Navigator.push(
+                        Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(
-                          builder: (_) => RootApp()));
+                          builder: (_) => RootApp()), (Route<dynamic> route) => false);
                      
                     },
                     child: Text(
