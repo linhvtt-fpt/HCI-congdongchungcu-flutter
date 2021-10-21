@@ -310,7 +310,7 @@ class _HomePageState extends State<HomePage> {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  Text("Shop "+productLike[index].nameShop, style: TextStyle(color: Colors.grey),)
+                                  Text(productLike[index].nameShop, style: TextStyle(color: Colors.grey),)
                                 ],
                               )
                                   ],
@@ -445,7 +445,7 @@ class _HomePageState extends State<HomePage> {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  Text("Shop "+productBanChay[index].nameShop, style: TextStyle(color: Colors.grey),)
+                                  Text(productBanChay[index].nameShop, style: TextStyle(color: Colors.grey),)
                                 ],
                               )
                                   ],
