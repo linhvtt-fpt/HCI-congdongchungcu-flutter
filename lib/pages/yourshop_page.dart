@@ -39,6 +39,13 @@ class _YourShopPageState extends State<YourShopPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+                      CustomSliderWidget(
+          items: [
+            "assets/images/banner1.jfif",
+            "assets/images/banner2.jfif",
+            "assets/images/banner3.jfif"
+          ],
+        ),
             Text(
               "Sản phẩm",
               style: customTitle,

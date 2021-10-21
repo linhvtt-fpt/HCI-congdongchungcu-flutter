@@ -13,7 +13,7 @@ final allProduct = <Product>[
       quantity: 1,
       categoryId: 1),
   Product(
-      name: "Khoai tây chiên nghiền phô mai túi 200g",
+      name: "Khoai tây chiên phô mai túi 200g",
       description: "Khoai tây chiên truyền thống, lắc phô mai",
       price: 20000,
       urlImage:
@@ -223,7 +223,7 @@ final allProduct = <Product>[
   Product(
       urlImage:
       "https://cf.shopee.vn/file/155d05198c81c99c5c861c37078c9f3e",
-      name: "Ma Sói Phiên Bản Ultimate Werewolf Deluxe Tiếng anh",
+      name: "Ma Sói Phiên Bản Ultimate Werewolf Deluxe",
       description: "hóa thân, vai trò, chơi nhóm, tư duy",
       price: 35000,
       imgShop: "assets/images/3.jpg",

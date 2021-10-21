@@ -4,11 +4,14 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 import 'package:test_flutter_template/json/home_page_json.dart';
 import 'package:test_flutter_template/json/product_data_json.dart';
 import 'package:test_flutter_template/json/product_model.dart';
+import 'package:test_flutter_template/json/sp_ban_chay_json.dart';
+import 'package:test_flutter_template/json/sp_yeu_thich_json.dart';
 import 'package:test_flutter_template/list_view/girdViewListItemPage.dart';
 import 'package:test_flutter_template/pages/cart_page.dart';
 import 'package:test_flutter_template/pages/store_detail_pages.dart';
@@ -120,11 +123,11 @@ class _HomePageState extends State<HomePage> {
             decoration: BoxDecoration(
               color: Colors.white,
             ),
-            padding: EdgeInsets.only(top: 5, bottom: 5),
+            padding: EdgeInsets.only(top: 3, bottom: 5),
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Container(
-                margin: EdgeInsets.only(left: 20),
+                margin: EdgeInsets.only(left: 10),
                 child: Row(
                     children: List.generate(categories.length, (index) {
                   return GestureDetector(
@@ -165,127 +168,432 @@ class _HomePageState extends State<HomePage> {
         ),
         Container(
           width: size.width,
-          height: 5,
+          height: 3,
           decoration: BoxDecoration(color: textFieldColor),
         ),
         SizedBox(
-          height: 15,
+          height: 20,
         ),
         Container(
+          width: size.width,
           margin: EdgeInsets.only(left: 15, right: 15, bottom: 30),
+          decoration: BoxDecoration(color: Colors.grey[100],),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "GỢI Ý HÔM NAY",
-                style: customTitle,
+                "CÓ THỂ BẠN SẼ THÍCH",
+                style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
               ),
               SizedBox(
-                height: 15,
+                height: 5,
               ),
               SingleChildScrollView(
-                // scrollDirection: Axis.horizontal,
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                    children: List.generate(productLike.length, (index) {
+                  return Padding(
+                    padding: const EdgeInsets.only(left: 5, top: 5, bottom: 5, right: 10),
+                    child: Container(
+                      width: 180,
+                      height: 240,
+                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          color: Colors.white,
+                                          ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Stack(
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (_) => StoreDetailPage(
+                                              product: productLike[index])));
+                                },
+                                child: ClipRRect(
+                                  // width: 200,
+                                  // height: 120,
+                                  // decoration: BoxDecoration(
+                                  //         borderRadius:
+                                  //             BorderRadius.circular(30),
+                                  //         color: Colors.grey[100],
+                                  //         border: Border.all(color: Colors.black12)),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: Image(
+                                    image:
+                                        NetworkImage(productLike[index].urlImage),
+                                    width: 180,
+                                  height: 120,
+                                  fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Text(
+                            productLike[index].name,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                                fontSize: 17, fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                  child: Row(
+                                children: [
+                                  Image.asset(
+                                    "assets/images/vietnamese-dong.png",
+                                    width: 15,
+                                    color: Colors.red,
+                                  ),
+                                  Text(
+                                    NumberFormat.decimalPattern()
+                                        .format(productLike[index].price),
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                ],
+                              )),
+                              
+                            ],
+                            
+                          ),
+                          SizedBox(height: 7,),
+                           Container(
+                             padding: EdgeInsets.only(right: 10),
+                                child: Column(
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        Text(
+                                          productLike[index].rate,
+                                          style: TextStyle(fontSize: 13),
+                                        ),
+                                        SizedBox(
+                                          width: 3,
+                                        ),
+                                        Icon(
+                                          Icons.star,
+                                          color: Colors.orange[300],
+                                          size: 17,
+                                        ),
+                                        Text("|"),
+                                        SizedBox(
+                                          width: 3,
+                                        ),
+                                        Text("Đã bán", style: TextStyle(fontSize: 13),),
+                                        SizedBox(
+                                          width: 3,
+                                        ),
+                                        Text(
+                                          productLike[index].rate_number,
+                                          style: TextStyle(fontSize: 13),
+                                        )
+                                      ],
+                                    ),
+                                     SizedBox(height: 10,),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Text("Shop "+productLike[index].nameShop, style: TextStyle(color: Colors.grey),)
+                                ],
+                              )
+                                  ],
+                                ),
+                              ),
+                             
+                        ],
+                      ),
+                    ),
+                  );
+                })),
+              ),
+              Text(
+                "BẠN MỚI XEM GẦN ĐÂY",
+                style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                    children: List.generate(productBanChay.length, (index) {
+                  return Padding(
+                    padding: const EdgeInsets.only(left: 5, top: 5, bottom: 5, right: 10),
+                    child: Container(
+                      width: 180,
+                      height: 240,
+                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          color: Colors.white,
+                                          ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Stack(
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (_) => StoreDetailPage(
+                                              product: productBanChay[index])));
+                                },
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: Image(
+                                    image:
+                                        NetworkImage(productBanChay[index].urlImage),
+                                    width: 180,
+                                  height: 120,
+                                  fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Text(
+                            productBanChay[index].name,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                                fontSize: 17, fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                  child: Row(
+                                children: [
+                                  Image.asset(
+                                    "assets/images/vietnamese-dong.png",
+                                    width: 15,
+                                    color: Colors.red,
+                                  ),
+                                  Text(
+                                    NumberFormat.decimalPattern()
+                                        .format(productBanChay[index].price),
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                ],
+                              )),
+                              
+                            ],
+                            
+                          ),
+                          SizedBox(height: 7,),
+                           Container(
+                             padding: EdgeInsets.only(right: 10),
+                                child: Column(
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        Text(
+                                          productBanChay[index].rate,
+                                          style: TextStyle(fontSize: 13),
+                                        ),
+                                        SizedBox(
+                                          width: 3,
+                                        ),
+                                        Icon(
+                                          Icons.star,
+                                          color: Colors.orange[300],
+                                          size: 17,
+                                        ),
+                                        Text("|"),
+                                        SizedBox(
+                                          width: 3,
+                                        ),
+                                        Text("Đã bán", style: TextStyle(fontSize: 13),),
+                                        SizedBox(
+                                          width: 3,
+                                        ),
+                                        Text(
+                                          productBanChay[index].rate_number,
+                                          style: TextStyle(fontSize: 13),
+                                        )
+                                      ],
+                                    ),
+                                     SizedBox(height: 10,),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Text("Shop "+productBanChay[index].nameShop, style: TextStyle(color: Colors.grey),)
+                                ],
+                              )
+                                  ],
+                                ),
+                              ),
+                             
+                        ],
+                      ),
+                    ),
+                  );
+                })),
+              ),
+            SizedBox(height: 10,),
+            Text("SẢN PHẨM BÁN CHẠY", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),),
+            SizedBox(height: 10,),
+            SingleChildScrollView(
                 child: Column(
                     children: List.generate(allProduct.length, (index) {
                   return Padding(
-                    padding: const EdgeInsets.all(5),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Stack(
-                          children: [
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (_) => StoreDetailPage(
-                                            product: allProduct[index])));
-                              },
-                              child: Container(
-                                width: size.width,
-                                height: 160,
-                                child: Image(
-                                  image:
-                                      NetworkImage(allProduct[index].urlImage),
-                                  fit: BoxFit.cover,
+                    padding: const EdgeInsets.only(bottom: 15),
+                    child: Container(
+                      width: size.width,
+                      height: 150,
+                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          color: Colors.white,
+                                          ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Stack(
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (_) => StoreDetailPage(
+                                              product: allProduct[index])));
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 8, right: 8, bottom: 8, top: 15),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    child: Image(
+                                      image:
+                                          NetworkImage(allProduct[index].urlImage),
+                                      width: 110,
+                                    height: 110,
+                                    fit: BoxFit.cover,
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Text(
-                          allProduct[index].name,
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.w400),
-                        ),
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                                child: Row(
-                              children: [
-                                Image.asset(
-                                  "assets/images/vietnamese-dong.png",
-                                  width: 13,
-                                  color: Colors.red,
-                                ),
-                                Text(
-                                  NumberFormat.decimalPattern()
-                                      .format(allProduct[index].price),
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      color: Colors.red,
-                                      fontWeight: FontWeight.w600),
-                                ),
-                              ],
-                            )),
-                            Container(
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
+                            ],
+                          ),
+                          // SizedBox(
+                          //   width: 10,
+                          // ),
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 8, right: 8, bottom: 8, top: 15),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    allProduct[index].rate,
-                                    style: TextStyle(fontSize: 14),
-                                  ),
-                                  SizedBox(
-                                    width: 3,
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: Colors.orange[300],
-                                    size: 17,
-                                  ),
-                                  Text("|"),
-                                  SizedBox(
-                                    width: 3,
-                                  ),
-                                  Text("Đã bán"),
-                                  SizedBox(
-                                    width: 3,
-                                  ),
-                                  Text(
-                                    allProduct[index].rate_number,
-                                    style: TextStyle(fontSize: 14),
-                                  )
+                              Text(
+                                allProduct[index].name,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                    fontSize: 19, fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(height: 5,),
+                              Text(allProduct[index].description, overflow: TextOverflow.ellipsis,style: TextStyle(fontSize: 15.5),),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Row(
+                                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                      Image.asset(
+                                        "assets/images/vietnamese-dong.png",
+                                        width: 18,
+                                        color: Colors.red,
+                                      ),
+                                      Text(
+                                        NumberFormat.decimalPattern()
+                                            .format(allProduct[index].price),
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            color: Colors.red,
+                                            fontWeight: FontWeight.w600),
+                                      ),
+                                      SizedBox(width: 17,),
+                                       
                                 ],
                               ),
-                            )
-                          ],
-                        ),
-                      ],
+                              SizedBox(height: 10,),
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          Text("Shop "+allProduct[index].nameShop, style: TextStyle(color: Colors.grey),),
+                                        ],
+                                      ),
+                                  SizedBox(height: 10,),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                       Text(
+                                          allProduct[index].rate,
+                                          style: TextStyle(fontSize: 13),
+                                        ),
+                                        SizedBox(
+                                          width: 3,
+                                        ),
+                                        Icon(
+                                          Icons.star,
+                                          color: Colors.orange[300],
+                                          size: 17,
+                                        ),
+                                        Text("|"),
+                                        SizedBox(
+                                          width: 3,
+                                        ),
+                                        Text("Đã bán", style: TextStyle(fontSize: 13),),
+                                        SizedBox(
+                                          width: 3,
+                                        ),
+                                        Text(
+                                          allProduct[index].rate_number,
+                                          style: TextStyle(fontSize: 13),
+                                        ),
+                                    ],
+                                  ),
+                                  
+
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 })),
               )
             ],
-          ),
+          ),    
         ),
 
         //],

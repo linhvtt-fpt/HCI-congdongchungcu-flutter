@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
@@ -320,37 +321,6 @@ class _StoreDetailPageState extends State<StoreDetailPage> {
                   SizedBox(
                     height: 20,
                   ),
-                  // Row(
-                  //   children: [
-                  //     Container(
-                  //       width: (size.width) * 0.8,
-                  //       child: Row(
-                  //         children: [
-                  //           SvgPicture.asset(
-                  //             "assets/images/pin_icon.svg",
-                  //             width: 15,
-                  //             color: black.withOpacity(0.5),
-                  //           ),
-                  //           SizedBox(
-                  //             width: 8,
-                  //           ),
-                  //           Text(
-                  //             "Tòa B3, sđt: 0367390525",
-                  //             style: TextStyle(fontSize: 14),
-                  //           )
-                  //         ],
-                  //       ),
-                  //     ),
-                  //     Expanded(
-                  //         child: Text(
-                  //       "More Info",
-                  //       style: TextStyle(
-                  //           fontSize: 14,
-                  //           color: primary,
-                  //           fontWeight: FontWeight.bold),
-                  //     )),
-                  //   ],
-                  // ),
                   Text(
                     "Chi tiết sản phẩm",
                     style: TextStyle(fontWeight: FontWeight.w600),
@@ -462,7 +432,51 @@ class _StoreDetailPageState extends State<StoreDetailPage> {
                   ),
                 ],
               ),
-            )
+            ),
+            Container(
+              width: size.width,
+          decoration: BoxDecoration(
+            color: textFieldColor,
+          ),
+          padding: EdgeInsets.only(top: 5),
+            ),
+            Container(
+              width: size.width,
+              height: 70,
+              padding: EdgeInsets.all(10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Đánh giá sản phẩm", style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),),
+                      Row(
+                        children: [
+                          Icon(Icons.star, color: Colors.orange,size:17),
+                          Icon(Icons.star, color: Colors.orange,size:17),
+                          Icon(Icons.star, color: Colors.orange,size:17),
+                          Icon(Icons.star, color: Colors.orange,size:17),
+                          Icon(Icons.star_half, color: Colors.orange,size:17),
+                          Text(" "+widget.product.rate+"/5", style: TextStyle(color: Colors.red, fontSize: 16),),
+                          Text(" ("+widget.product.rate_number+" đánh giá)", style: TextStyle( fontSize: 16))
+                        ],
+                      )
+                    ],
+                  ),
+                  Text("Xem tất cả", style: TextStyle(color: Colors.red, fontSize: 16))
+                ],
+              ),
+            ),
+            Container(
+              width: size.width,
+          decoration: BoxDecoration(
+            color: textFieldColor,
+            ),
+            padding: EdgeInsets.only(top: 5),
+            ),
+
           ],
         ),
       ),

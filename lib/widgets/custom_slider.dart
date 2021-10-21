@@ -69,6 +69,7 @@ class _CustomSliderWidgetState extends State<CustomSliderWidget> {
       children: <Widget>[
         Container(
           width: MediaQuery.of(context).size.width,
+          height: 180,
           child: CarouselSlider(
             options: CarouselOptions(
               onPageChanged: (index, reason) {
