@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:test_flutter_template/json/cart_product_json.dart';
+import 'package:test_flutter_template/json/danh_sach_danh_gia_json.dart';
 import 'package:test_flutter_template/json/product_checkout_json.dart';
 import 'package:test_flutter_template/json/product_data_json.dart';
 import 'package:test_flutter_template/json/product_model.dart';
@@ -18,10 +20,7 @@ import 'yourshop_page.dart';
 
 class StoreDetailPage extends StatefulWidget {
   final Product product;
-  const StoreDetailPage(
-      {Key? key,
-      required this.product})
-      : super(key: key);
+  const StoreDetailPage({Key? key, required this.product}) : super(key: key);
 
   @override
   _StoreDetailPageState createState() => _StoreDetailPageState();
@@ -44,21 +43,24 @@ class _StoreDetailPageState extends State<StoreDetailPage> {
               child: GestureDetector(
                 onTap: () {
                   if (cartList.isNotEmpty)
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => Cart(cartList),
-                    ),
-                  );
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => Cart(cartList),
+                      ),
+                    );
                 },
                 child: Stack(
                   children: <Widget>[
-                     IconButton(
+                    IconButton(
                       onPressed: () {
                         Route route = MaterialPageRoute(
                             builder: (context) => Cart(cartList));
                         Navigator.push(context, route);
                       },
-                      icon: Icon(Icons.shopping_cart_sharp, size: 28,),
+                      icon: Icon(
+                        Icons.shopping_cart_sharp,
+                        size: 28,
+                      ),
                       color: Colors.white,
                     ),
                     if (cartList.length > 0)
@@ -184,7 +186,8 @@ class _StoreDetailPageState extends State<StoreDetailPage> {
                       Container(
                         child: Container(
                           child: Text(
-                            NumberFormat.decimalPattern().format(widget.product.price),
+                            NumberFormat.decimalPattern()
+                                .format(widget.product.price),
                             style: TextStyle(fontSize: 22, color: Colors.red),
                           ),
                         ),
@@ -241,7 +244,7 @@ class _StoreDetailPageState extends State<StoreDetailPage> {
                             SizedBox(
                               width: 3,
                             ),
-                            Text(
+                            Text("Đã bán "+
                               widget.product.rate_number,
                             )
                           ],
@@ -262,58 +265,59 @@ class _StoreDetailPageState extends State<StoreDetailPage> {
                     height: 5,
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      Row(
+                        children: [
+                          Container(
+                            width: 50,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                            ),
+                            child: CircleAvatar(
+                              backgroundImage:
+                                  AssetImage(widget.product.imgShop),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            widget.product.nameShop,
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.w500),
+                          ),
+                        ],
+                      ),
+
+                      // SizedBox(
+                      //   width: 100,
+                      // ),
                       Container(
-                        child: Row(
-                          children: [
-                            Container(
-                              width: 50,
-                              height: 50,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                              ),
-                              child: CircleAvatar(
-                                backgroundImage:
-                                    AssetImage(widget.product.imgShop),
-                              ),
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              widget.product.nameShop,
+                        width: 100,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.rectangle,
+                          borderRadius: BorderRadius.circular(5),
+                          border: Border.all(color: Colors.orange.shade700),
+                        ),
+                        child: Center(
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => YourShopPage()));
+                            },
+                            style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.white)),
+                            child: Text(
+                              "Xem shop",
                               style: TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.w500),
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.orange.shade700),
                             ),
-                            SizedBox(
-                              width: 150,
-                            ),
-                            Container(
-                              width: 100,
-                              height: 40,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.rectangle,
-                                borderRadius: BorderRadius.circular(5),
-                                border:
-                                    Border.all(color: Colors.orange.shade700),
-                              ),
-                              child: Center(
-                                child: ElevatedButton(
-                                  onPressed: (){
-                                    Navigator.of(context).push(
-                                        MaterialPageRoute(builder: (context) => YourShopPage()));
-                                  },
-                                  style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.white)),
-                                  child: Text(
-                                    "Xem shop",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w600,
-                                        color: Colors.orange.shade700),
-                                  ),
-                                ),
-                              ),
-                            )
-                          ],
+                          ),
                         ),
                       )
                     ],
@@ -343,8 +347,7 @@ class _StoreDetailPageState extends State<StoreDetailPage> {
                         color: Colors.red,
                       ),
                       Expanded(
-                        child: Text(
-                            widget.product.description),
+                        child: Text(widget.product.description),
                       ),
                     ],
                   ),
@@ -435,10 +438,10 @@ class _StoreDetailPageState extends State<StoreDetailPage> {
             ),
             Container(
               width: size.width,
-          decoration: BoxDecoration(
-            color: textFieldColor,
-          ),
-          padding: EdgeInsets.only(top: 5),
+              decoration: BoxDecoration(
+                color: textFieldColor,
+              ),
+              padding: EdgeInsets.only(top: 5),
             ),
             Container(
               width: size.width,
@@ -451,32 +454,101 @@ class _StoreDetailPageState extends State<StoreDetailPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Đánh giá sản phẩm", style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),),
+                      Text(
+                        "Đánh giá sản phẩm",
+                        style: TextStyle(
+                            fontSize: 17, fontWeight: FontWeight.bold),
+                      ),
                       Row(
                         children: [
-                          Icon(Icons.star, color: Colors.orange,size:17),
-                          Icon(Icons.star, color: Colors.orange,size:17),
-                          Icon(Icons.star, color: Colors.orange,size:17),
-                          Icon(Icons.star, color: Colors.orange,size:17),
-                          Icon(Icons.star_half, color: Colors.orange,size:17),
-                          Text(" "+widget.product.rate+"/5", style: TextStyle(color: Colors.red, fontSize: 16),),
-                          Text(" ("+widget.product.rate_number+" đánh giá)", style: TextStyle( fontSize: 16))
+                          Icon(Icons.star, color: Colors.orange, size: 17),
+                          Icon(Icons.star, color: Colors.orange, size: 17),
+                          Icon(Icons.star, color: Colors.orange, size: 17),
+                          Icon(Icons.star, color: Colors.orange, size: 17),
+                          Icon(Icons.star_half, color: Colors.orange, size: 17),
+                          Text(
+                            " " + widget.product.rate + "/5",
+                            style: TextStyle(color: Colors.red, fontSize: 16),
+                          ),
+                          Text(" (" + widget.product.rate_number + " đánh giá)",
+                              style: TextStyle(fontSize: 16))
                         ],
                       )
                     ],
                   ),
-                  Text("Xem tất cả", style: TextStyle(color: Colors.red, fontSize: 16))
+                  Text("Xem tất cả",
+                      style: TextStyle(color: Colors.red, fontSize: 16))
                 ],
               ),
             ),
             Container(
               width: size.width,
-          decoration: BoxDecoration(
-            color: textFieldColor,
+              decoration: BoxDecoration(
+                color: textFieldColor,
+              ),
+              padding: EdgeInsets.only(top: 5),
             ),
-            padding: EdgeInsets.only(top: 5),
-            ),
-
+            Column(
+                children: List.generate(allRating.length, (index) {
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  padding: EdgeInsets.all(8),
+                  width: size.width,
+                  // height: 170,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.grey[100]),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
+                        children: [
+                          Icon(Icons.account_circle),
+                        ],
+                      ),
+                      Padding(
+                       padding: const EdgeInsets.only(left: 16),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(allRating[index].user),
+                            SizedBox(height: 5,),
+                            RatingBarIndicator(
+                              rating: allRating[index].rate,
+                              itemBuilder: (context, index) => Icon(
+                                Icons.star,
+                                color: Colors.amber,
+                              ),
+                              itemCount: 5,
+                              itemSize: 15.0,
+                              direction: Axis.horizontal,
+                            ),
+                            SizedBox(height: 5,),
+                            Container(
+                              width: 330,
+                              child: new Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  new Text(allRating[index].comment,
+                                      textAlign: TextAlign.left),
+                                ],
+                              ),
+                            ),
+                            SizedBox(height: 10,),
+                            Container(
+                              width: 70,
+                              height: 70,
+                              child: Image.network(allRating[index].imageFb),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              );
+            }))
           ],
         ),
       ),
@@ -487,18 +559,17 @@ class _StoreDetailPageState extends State<StoreDetailPage> {
     setState(() {
       pageIndex = index;
       if (index == 0) {
-        if(cartList.contains(widget.product)){
-          cartList.elementAt(cartList.indexOf(widget.product)).quantity = widget.product.quantity + 1;
+        if (cartList.contains(widget.product)) {
+          cartList.elementAt(cartList.indexOf(widget.product)).quantity =
+              widget.product.quantity + 1;
+        } else {
+          cartList.add(widget.product);
         }
-        else{
-        cartList.add(widget.product);
-        }
-      }
-      else{
+      } else {
         productCheckout.add(widget.product);
         Route route = MaterialPageRoute(
-                            builder: (context) => CheckoutPage(productCheckout));
-                        Navigator.push(context, route);
+            builder: (context) => CheckoutPage(productCheckout));
+        Navigator.push(context, route);
       }
     });
   }
