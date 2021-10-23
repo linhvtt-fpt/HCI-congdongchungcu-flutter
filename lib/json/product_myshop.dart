@@ -95,17 +95,6 @@ final allProductMyShop = <ProductMyShop>[
   ),
   ProductMyShop(
       shopName: 'AVACAKE OFFICIAL STORE',
-      urlImage: "https://lh3.googleusercontent.com/proxy/C2nm3F_3tJrZCINV-KtpcZY92QTnTjQ94M921A2U_ajQQYfSS2swa4UmfDy6GX7M1jgKXiyziPLe8WbvOxqxRKkL4t3ltxECjnGu7sARZ4aciU8Pb34poLl48UKIiopw",
-      name:
-      "Bánh ngọt cuối tuần thập cẩm nhiều nhân",
-      description: "Bánh ngọt cuối tuần thập cẩm nhiều nhân",
-      price: 20000,
-      category: 'Ăn vặt',
-      quantitySold: 111,
-      rate: '4',
-      quantity: 190),
-  ProductMyShop(
-      shopName: 'AVACAKE OFFICIAL STORE',
       urlImage:
       "https://bizweb.dktcdn.net/100/423/207/products/a956f9a2-a6e8-4666-b109-4d6c7b502c07.jpg?v=1625458015553",
       name: "Bánh kem trà xanh size nhỏ",

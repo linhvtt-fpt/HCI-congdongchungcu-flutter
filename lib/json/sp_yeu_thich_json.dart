@@ -1,12 +1,60 @@
 import 'package:test_flutter_template/json/product_model.dart';
 
 final productLike = <Product>[
+    Product(
+      urlImage:
+          "https://i.pinimg.com/originals/c3/fe/c2/c3fec2cff2771530d0dee7bb13fa76c7.jpg",
+      name: "Đầm suông vải len kèm áo tay dài đen ",
+      description: "Đầm suông sang trọng, công sở",
+      price: 525000,
+      imgShop: "assets/images/avtAnVat.jpg",
+      nameShop: "Women Fashion",
+      rate: "4.8",
+      rate_number: "80",
+      quantity: 1,
+      categoryId: 1),
+        Product(
+      urlImage:
+          "https://kenh14cdn.com/thumb_w/600/203336854389633024/2021/3/9/photo1615264602403-1615264602906749203568.jpg",
+      name: "Hamburger thịt bò",
+      description: "Hamburger nhà làm vị bò",
+      price: 50000,
+      imgShop: "assets/images/avtAnVat.jpg",
+      nameShop: "Ăn ngon ngon",
+      rate: "4.8",
+      rate_number: "80",
+      quantity: 1,
+      categoryId: 1),
+        Product(
+      urlImage:
+          "http://bizweb.dktcdn.net/thumb/grande/100/414/432/articles/xu-huong-thoi-trang-tre-em-8.jpg?v=1611625283600",
+      name: "Váy đuôi cá xanh đen bé gái",
+      description: "váy đuôi cá dành cho bé gái từ 7 - 10 tuổi",
+      price: 250000,
+      imgShop: "assets/images/avtAnVat.jpg",
+      nameShop: "Kid Store",
+      rate: "4.8",
+      rate_number: "80",
+      quantity: 1,
+      categoryId: 1),
+  Product(
+      urlImage:
+          "https://www.mrvui.vn/Data/Sites/1/Product/2356/balo-laptop-760-xam-trang-laptop-14-inch-(2).jpg?fbclid=IwAR2xBQl5V62-hRKHcZKMQ0bWshNAb4uFar3ZFCaBriODcfJsnKY7FkS6nSMg",
+      name: "Balo xám chống nước",
+      description: "Balo xám chống nước, đựng vừa laptop 15inch",
+      price: 150000,
+      imgShop: "assets/images/avtAnVat.jpg",
+      nameShop: "Chuyên sỉ balo",
+      rate: "4.8",
+      rate_number: "80",
+      quantity: 1,
+      categoryId: 1),
   Product(
       name: "Mít sấy Vinamit túi 100g",
       description: "Vừa ăn vừa xem phim, đọc sách rất phù hợp hoặc thưởng thức trà.",
       price: 37000,
       urlImage: 'https://cdn.tgdd.vn/Products/Images/3365/77802/bhx/mit-say-vinamit-goi-100g-2-org.jpg',
-      imgShop: "assets/images/anvat.jpg",
+      imgShop: "assets/images/avtAnVat.jpg",
       nameShop: "Ăn vặt ngon",
       rate: "4.9",
       rate_number: "120",
@@ -18,7 +66,7 @@ final productLike = <Product>[
       price: 99000,
       urlImage:
           'https://product.hstatic.net/1000030244/product/ca-dong-tuoi_f4917594e18d4c808f571a446213abbf_grande.jpg',
-      imgShop: "assets/images/haisan.jpg",
+      imgShop: "assets/images/avtHaisan.jpg",
       nameShop: "Hải sản sạch",
       rate: "4.0",
       quantity: 1,
@@ -29,7 +77,7 @@ final productLike = <Product>[
       name: "Bánh khoai lang kén 1kg",
       description: "Khoai lang kén nhà làm ngon đảm bảo an toàn",
       price: 60000,
-      imgShop: "assets/images/anvat.jpg",
+      imgShop: "assets/images/avtAnVat.jpg",
       nameShop: "Ăn vặt ngon",
       rate: "4.3",
       rate_number: "115",
@@ -37,7 +85,7 @@ final productLike = <Product>[
       categoryId: 1),
   Product(
       urlImage:
-          "https://www.transoceanmart.com/wp-content/uploads/2020/08/B%E1%BA%AFp-C%E1%BA%A3i-Tr%E1%BA%AFng-Vietgap-An-Ph%C3%BA.jpg",
+          "https://betimum.vn/wp-content/uploads/2020/05/la-bap-cai.jpg",
       name: "Bắp cải trắng 0.5kg",
       description: "Bắp cải Đà Lạt bao ngon",
       price: 18000,
@@ -47,18 +95,7 @@ final productLike = <Product>[
       rate_number: "144",
       quantity: 1,
       categoryId: 1),
-  Product(
-      urlImage:
-          "https://media.thatlangon.com/wp-content/uploads/2021/01/cach-lam-hamburger-hero.jpg?strip=all&lossy=1&fit=600%2C345&ssl=1",
-      name: "Hamburger thịt bò",
-      description: "Hamburger nhà làm vị bò",
-      price: 50000,
-      imgShop: "assets/images/foodlogo.jpg",
-      nameShop: "Ăn ngon ngon",
-      rate: "4.8",
-      rate_number: "80",
-      quantity: 1,
-      categoryId: 1),
+  
   Product(
       urlImage:
           "https://lh3.googleusercontent.com/proxy/NXwPyeYjGO7UKV1LSf8yA8g5FV5vIfBMmhG8w4bT-TEGtKMxw1JB4UCuXJbgIS-d9djVgipBpc9dFPbNwIT1bEFyLhTbM5l-EsOvfmXd0wcfrMoyOCt4GtrBdX-ERIgVwO8GaW4YhgLdfnx6jVkR",

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:intl/intl.dart';
+import 'package:test_flutter_template/json/danh_sach_danh_gia_json.dart';
 import 'package:test_flutter_template/json/product_myshop.dart';
 import 'package:test_flutter_template/json/product_myshop_model.dart';
 import 'package:test_flutter_template/theme/colors.dart';
@@ -8,10 +10,7 @@ import 'edit_myshop_product.dart';
 
 class MyShopDetailPage extends StatefulWidget {
   final ProductMyShop product;
-  const MyShopDetailPage(
-      {Key? key,
-        required this.product})
-      : super(key: key);
+  const MyShopDetailPage({Key? key, required this.product}) : super(key: key);
 
   @override
   _MyShopDetailPageState createState() => _MyShopDetailPageState();
@@ -109,7 +108,7 @@ class _MyShopDetailPageState extends State<MyShopDetailPage> {
               height: 15,
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 15, right: 15),
+              padding: const EdgeInsets.only(left: 15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -124,14 +123,15 @@ class _MyShopDetailPageState extends State<MyShopDetailPage> {
                     children: [
                       Container(
                           child: Image.asset(
-                            "assets/images/vietnamese-dong.png",
-                            width: 18,
-                            color: Colors.red,
-                          )),
+                        "assets/images/vietnamese-dong.png",
+                        width: 18,
+                        color: Colors.red,
+                      )),
                       Container(
                         child: Container(
                           child: Text(
-                            NumberFormat.decimalPattern().format(widget.product.price),
+                            NumberFormat.decimalPattern()
+                                .format(widget.product.price),
                             style: TextStyle(fontSize: 22, color: Colors.red),
                           ),
                         ),
@@ -175,7 +175,7 @@ class _MyShopDetailPageState extends State<MyShopDetailPage> {
                               width: 3,
                             ),
                             Text(
-                                widget.product.rate,
+                              widget.product.rate,
                               style: TextStyle(fontSize: 14),
                             ),
                             SizedBox(
@@ -190,7 +190,8 @@ class _MyShopDetailPageState extends State<MyShopDetailPage> {
                             ),
                             Text("Đã bán: "),
                             Text(
-                              NumberFormat.decimalPattern().format(widget.product.quantitySold),
+                              NumberFormat.decimalPattern()
+                                  .format(widget.product.quantitySold),
                             )
                           ],
                         ),
@@ -220,7 +221,7 @@ class _MyShopDetailPageState extends State<MyShopDetailPage> {
                           ),
                           child: CircleAvatar(
                             backgroundImage:
-                            AssetImage(widget.product.urlImage),
+                                AssetImage('assets/images/avtAnVat.jpg'),
                           ),
                         ),
                         SizedBox(
@@ -231,29 +232,6 @@ class _MyShopDetailPageState extends State<MyShopDetailPage> {
                           style: TextStyle(
                               fontSize: 16, fontWeight: FontWeight.w500),
                         ),
-                        // SizedBox(
-                        //   width: 10,
-                        // ),
-                        // Expanded(
-                        //   child: Container(
-                        //     width: 100,
-                        //     height: 40,
-                        //     decoration: BoxDecoration(
-                        //       shape: BoxShape.rectangle,
-                        //       borderRadius: BorderRadius.circular(5),
-                        //       border:
-                        //       Border.all(color: Colors.orange.shade700),
-                        //     ),
-                        //     child: Center(
-                        //       child: Text(
-                        //         "Xem shop",
-                        //         style: TextStyle(
-                        //             fontWeight: FontWeight.w600,
-                        //             color: Colors.orange.shade700),
-                        //       ),
-                        //     ),
-                        //   ),
-                        // )
                       ],
                     ),
                   ),
@@ -281,8 +259,14 @@ class _MyShopDetailPageState extends State<MyShopDetailPage> {
                         Icons.close,
                         color: Colors.red,
                       ),
-                      Text(
-                          widget.product.description),
+                      ConstrainedBox(
+                        constraints: BoxConstraints(
+                          maxWidth: 250,
+                        ),
+                        child: Container(
+                          child: Text(widget.product.description),
+                        ),
+                      ),
                     ],
                   ),
                   SizedBox(
@@ -367,6 +351,126 @@ class _MyShopDetailPageState extends State<MyShopDetailPage> {
                   SizedBox(
                     height: 5,
                   ),
+                  Container(
+                    width: size.width,
+                    height: 70,
+                    padding: EdgeInsets.all(10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Đánh giá sản phẩm",
+                              style: TextStyle(
+                                  fontSize: 17, fontWeight: FontWeight.bold),
+                            ),
+                            Row(
+                              children: [
+                                Icon(Icons.star,
+                                    color: Colors.orange, size: 17),
+                                Icon(Icons.star,
+                                    color: Colors.orange, size: 17),
+                                Icon(Icons.star,
+                                    color: Colors.orange, size: 17),
+                                Icon(Icons.star,
+                                    color: Colors.orange, size: 17),
+                                Icon(Icons.star_half,
+                                    color: Colors.orange, size: 17),
+                                Text(
+                                  " " + widget.product.rate + "/5",
+                                  style: TextStyle(
+                                      color: Colors.red, fontSize: 16),
+                                ),
+                                Text(" (100 đánh giá)",
+                                    style: TextStyle(fontSize: 16))
+                              ],
+                            )
+                          ],
+                        ),
+                        Text("Xem tất cả",
+                            style: TextStyle(color: Colors.red, fontSize: 16))
+                      ],
+                    ),
+                  ),
+                  Container(
+                    width: size.width,
+                    decoration: BoxDecoration(
+                      color: textFieldColor,
+                    ),
+                    padding: EdgeInsets.only(top: 5),
+                  ),
+                  Column(
+                      children: List.generate(allRating.length, (index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        // padding: EdgeInsets.all(8),
+                        width: size.width,
+                        // height: 170,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.grey[100]),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Column(
+                              children: [
+                                Icon(Icons.account_circle),
+                              ],
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 16),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(allRating[index].user),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  RatingBarIndicator(
+                                    rating: allRating[index].rate,
+                                    itemBuilder: (context, index) => Icon(
+                                      Icons.star,
+                                      color: Colors.amber,
+                                    ),
+                                    itemCount: 5,
+                                    itemSize: 15.0,
+                                    direction: Axis.horizontal,
+                                  ),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Container(
+                                    width: 330,
+                                    child: new Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        new Text(allRating[index].comment,
+                                            textAlign: TextAlign.left),
+                                      ],
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Container(
+                                    width: 70,
+                                    height: 70,
+                                    child:
+                                        Image.network(allRating[index].imageFb),
+                                  )
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    );
+                  }))
                 ],
               ),
             )
