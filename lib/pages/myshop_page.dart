@@ -269,7 +269,7 @@ class _MyShopPageState extends State<MyShopPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "SẢN PHẨN BÁN CHẠY",
+                "SẢN PHẨM BÁN CHẠY",
                 style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
               ),
               SizedBox(

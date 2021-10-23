@@ -64,23 +64,29 @@ class _CartState extends State<Cart> {
                                 fontSize: 15, fontWeight: FontWeight.bold),
                           ),
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              SizedBox(
-                                width: 15,
-                                height: 15,
-                                child: Image.asset(
-                                    "assets/images/vietnamese-dong.png",
-                                    color: Colors.red),
-                              ),
-                              Text(
-                                NumberFormat.decimalPattern()
-                                    .format(item.price),
-                                style: TextStyle(fontSize: 18, color: Colors.red),
-                              ),
-                              SizedBox(
-                                width: 60,
-                              ),
                               Container(
+                                child: Row(
+                                  children: [
+                                SizedBox(
+                                  width: 15,
+                                  height: 15,
+                                  child: Image.asset(
+                                      "assets/images/vietnamese-dong.png",
+                                      color: Colors.red),
+                                ),
+                                Text(
+                                  NumberFormat.decimalPattern()
+                                      .format(item.price),
+                                  style: TextStyle(fontSize: 18, color: Colors.red),
+                                ),
+                                  ],
+                                ),
+                              ),
+                                   SizedBox(width: 50,),                        
+                              Container(
+                                padding: EdgeInsets.only(right: 60),
                                 decoration: BoxDecoration(
 
                                   borderRadius: BorderRadius.circular(
@@ -139,9 +145,6 @@ class _CartState extends State<Cart> {
                                         )),
                                   ],
                                 ),
-                              ),
-                              SizedBox(
-                                width: 70,
                               ),
                               GestureDetector(
                                   child: Icon(
