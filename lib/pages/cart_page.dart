@@ -44,7 +44,7 @@ class _CartState extends State<Cart> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (_) => StoreDetailPage(
-                                            product: item)));
+                                            product: item, isSale: false)));
                               },
                         child: SizedBox(
                           width: 70,

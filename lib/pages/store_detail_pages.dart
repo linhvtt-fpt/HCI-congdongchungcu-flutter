@@ -20,7 +20,8 @@ import 'yourshop_page.dart';
 
 class StoreDetailPage extends StatefulWidget {
   final Product product;
-  const StoreDetailPage({Key? key, required this.product}) : super(key: key);
+  final bool isSale;
+  const StoreDetailPage({Key? key, required this.product, required this.isSale}) : super(key: key);
 
   @override
   _StoreDetailPageState createState() => _StoreDetailPageState();
@@ -177,6 +178,14 @@ class _StoreDetailPageState extends State<StoreDetailPage> {
                   ),
                   Row(
                     children: [
+                      widget.isSale ? Container(
+                          child: Text(
+                            'đ' + NumberFormat.decimalPattern()
+                                .format(widget.product.price * 1.1),
+                            style: TextStyle(fontSize: 17, color: Colors.grey,
+                              decoration: TextDecoration.lineThrough),
+                          ),
+                        ) : Text(''),
                       Container(
                           child: Image.asset(
                         "assets/images/vietnamese-dong.png",

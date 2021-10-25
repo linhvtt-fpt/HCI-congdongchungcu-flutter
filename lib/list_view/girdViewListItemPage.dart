@@ -120,7 +120,7 @@ class GridViewListItemPage extends StatelessWidget {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) =>
-                                      StoreDetailPage(product: list[index]),
+                                      StoreDetailPage(product: list[index], isSale: false),
                                 ));
                           },
                           child: Container(
