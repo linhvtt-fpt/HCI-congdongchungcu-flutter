@@ -87,7 +87,7 @@ class _YourShopPageState extends State<YourShopPage> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (_) => StoreDetailPage(
-                                            product: productBanChay[index])));
+                                            product: productBanChay[index], isSale: false)));
                               },
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
@@ -318,7 +318,7 @@ class _YourShopPageState extends State<YourShopPage> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (_) => StoreDetailPage(
-                                            product: allProduct[index])));
+                                            product: allProduct[index], isSale: false)));
                               },
                               child: Padding(
                                 padding: const EdgeInsets.only(
