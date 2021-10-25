@@ -40,12 +40,12 @@ class _CartState extends State<Cart> {
                     children: [
                       GestureDetector(
                         onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (_) => StoreDetailPage(
-                                            product: item, isSale: false)));
-                              },
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => StoreDetailPage(
+                                      product: item, isSale: false)));
+                        },
                         child: SizedBox(
                           width: 70,
                           height: 70,
@@ -66,29 +66,40 @@ class _CartState extends State<Cart> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
+                              if (item.isSale)
+                                Text(
+                                  'đ' +
+                                      NumberFormat.decimalPattern()
+                                          .format(item.price * 1.1),
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      decoration: TextDecoration.lineThrough,
+                                      color: Colors.grey,
+                                      fontWeight: FontWeight.w600),
+                                ),
                               Container(
+                                width: 100,
                                 child: Row(
                                   children: [
-                                SizedBox(
-                                  width: 15,
-                                  height: 15,
-                                  child: Image.asset(
-                                      "assets/images/vietnamese-dong.png",
-                                      color: Colors.red),
-                                ),
-                                Text(
-                                  NumberFormat.decimalPattern()
-                                      .format(item.price),
-                                  style: TextStyle(fontSize: 18, color: Colors.red),
-                                ),
+                                    SizedBox(
+                                      width: 15,
+                                      height: 15,
+                                      child: Image.asset(
+                                          "assets/images/vietnamese-dong.png",
+                                          color: Colors.red),
+                                    ),
+                                    Text(
+                                      NumberFormat.decimalPattern()
+                                          .format(item.price),
+                                      style: TextStyle(
+                                          fontSize: 18, color: Colors.red),
+                                    ),
                                   ],
                                 ),
                               ),
-                                   SizedBox(width: 50,),                        
                               Container(
-                                padding: EdgeInsets.only(right: 60),
+                                // padding: EdgeInsets.only(right: 60),
                                 decoration: BoxDecoration(
-
                                   borderRadius: BorderRadius.circular(
                                     5,
                                   ),
@@ -146,16 +157,19 @@ class _CartState extends State<Cart> {
                                   ],
                                 ),
                               ),
-                              GestureDetector(
-                                  child: Icon(
-                                    Icons.remove_circle,
-                                    color: Colors.red,
-                                  ),
-                                  onTap: () {
-                                    setState(() {
-                                      _cart.remove(item);
-                                    });
-                                  }),
+                              Container(
+                                width: 80,
+                                child: GestureDetector(
+                                    child: Icon(
+                                      Icons.remove_circle,
+                                      color: Colors.red,
+                                    ),
+                                    onTap: () {
+                                      setState(() {
+                                        _cart.remove(item);
+                                      });
+                                    }),
+                              ),
                             ],
                           )
                         ],

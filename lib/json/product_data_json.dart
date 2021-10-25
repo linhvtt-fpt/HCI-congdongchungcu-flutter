@@ -11,7 +11,8 @@ final allProduct = <Product>[
       rate: "3.5",
       rate_number: "155",
       quantity: 1,
-      categoryId: 1),
+      categoryId: 1,
+      isSale: false),
   Product(
       name: "Khoai tây chiên phô mai túi 200g",
       description: "Khoai tây chiên truyền thống, lắc phô mai",
@@ -23,7 +24,8 @@ final allProduct = <Product>[
       rate: "4.0",
       quantity: 1,
       rate_number: "155",
-      categoryId: 1),
+      categoryId: 1,
+      isSale: false),
   Product(
       urlImage: "https://toplist.vn/images/800px/cau-dat-farm-375871.jpg",
       name: "Trái cây sấy thập cẩm mít, xoài túi 150g",
@@ -34,7 +36,8 @@ final allProduct = <Product>[
       rate: "4.3",
       rate_number: "155",
       quantity: 1,
-      categoryId: 1),
+      categoryId: 1,
+      isSale: false),
   Product(
       urlImage:
           "https://cdn.nguyenkimmall.com/images/companies/_1/Tin_tuc/kinh-nghiem-meo-hay/tu-lanh/bao-quan-thit-ca-tuoi-lau-trong-tu-lanh-3.jpg",
@@ -46,7 +49,8 @@ final allProduct = <Product>[
       rate: "3.9",
       rate_number: "155",
       quantity: 1,
-      categoryId: 1),
+      categoryId: 1,
+      isSale: false),
   Product(
       urlImage:
           "https://images.unsplash.com/photo-1506354666786-959d6d497f1a?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTR8fGZvb2R8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
@@ -58,7 +62,8 @@ final allProduct = <Product>[
       rate: "4.5",
       rate_number: "155",
       quantity: 1,
-      categoryId: 1),
+      categoryId: 1,
+      isSale: false),
   Product(
       urlImage:
           "https://vinmec-prod.s3.amazonaws.com/images/20190425_063710_470758_rau_xanh.max-800x800.jpg",
@@ -70,7 +75,8 @@ final allProduct = <Product>[
       rate: "4",
       rate_number: "155",
       quantity: 1,
-      categoryId: 1),
+      categoryId: 1,
+      isSale: false),
 
   // Ăn Vặt
   // Product(
@@ -124,7 +130,8 @@ final allProduct = <Product>[
       rate: "4",
       rate_number: "155",
       quantity: 1,
-      categoryId: 3),
+      categoryId: 3,
+      isSale: false),
 
   Product(
       urlImage:
@@ -137,7 +144,8 @@ final allProduct = <Product>[
       rate: "4",
       rate_number: "155",
       quantity: 1,
-      categoryId: 3),
+      categoryId: 3,
+      isSale: false),
 
   Product(
       urlImage:
@@ -150,7 +158,8 @@ final allProduct = <Product>[
       rate: "4",
       rate_number: "155",
       quantity: 1,
-      categoryId: 3),
+      categoryId: 3,
+      isSale: false),
 
 //Điện tử
 
@@ -165,7 +174,8 @@ final allProduct = <Product>[
       rate: "4",
       rate_number: "155",
       quantity: 1,
-      categoryId: 4),
+      categoryId: 4,
+      isSale: false),
 
   Product(
       urlImage:
@@ -178,7 +188,8 @@ final allProduct = <Product>[
       rate: "4",
       rate_number: "155",
       quantity: 1,
-      categoryId: 4),
+      categoryId: 4,
+      isSale: false),
 
   Product(
       urlImage:
@@ -191,7 +202,8 @@ final allProduct = <Product>[
       rate: "4",
       rate_number: "155",
       quantity: 1,
-      categoryId: 4),
+      categoryId: 4,
+      isSale: false),
 
   // category khác
   Product(
@@ -205,7 +217,8 @@ final allProduct = <Product>[
       rate: "4",
       rate_number: "155",
       quantity: 1,
-      categoryId: 5),
+      categoryId: 5,
+      isSale: false),
 
   Product(
       urlImage:
@@ -218,7 +231,8 @@ final allProduct = <Product>[
       rate: "4",
       rate_number: "155",
       quantity: 1,
-      categoryId: 5),
+      categoryId: 5,
+      isSale: false),
 
   Product(
       urlImage:
@@ -231,7 +245,8 @@ final allProduct = <Product>[
       rate: "4",
       rate_number: "155",
       quantity: 1,
-      categoryId: 5),
+      categoryId: 5,
+      isSale: false),
 
   Product(
       urlImage:
@@ -244,6 +259,7 @@ final allProduct = <Product>[
       rate: "4",
       rate_number: "155",
       quantity: 1,
-      categoryId: 5),
+      categoryId: 5,
+      isSale: false),
 
 ];

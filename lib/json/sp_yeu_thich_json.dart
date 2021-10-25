@@ -1,6 +1,32 @@
 import 'package:test_flutter_template/json/product_model.dart';
 
 final productLike = <Product>[
+          Product(
+      urlImage:
+          "http://bizweb.dktcdn.net/thumb/grande/100/414/432/articles/xu-huong-thoi-trang-tre-em-8.jpg?v=1611625283600",
+      name: "Váy đuôi cá xanh đen bé gái",
+      description: "váy đuôi cá dành cho bé gái từ 7 - 10 tuổi",
+      price: 250000,
+      imgShop: "assets/images/avtAnVat.jpg",
+      nameShop: "Kid Store",
+      rate: "4.8",
+      rate_number: "80",
+      quantity: 1,
+      categoryId: 1,
+      isSale: false),
+              Product(
+      urlImage:
+          "https://kenh14cdn.com/thumb_w/600/203336854389633024/2021/3/9/photo1615264602403-1615264602906749203568.jpg",
+      name: "Hamburger thịt bò",
+      description: "Hamburger nhà làm vị bò",
+      price: 50000,
+      imgShop: "assets/images/avtAnVat.jpg",
+      nameShop: "Ăn ngon ngon",
+      rate: "4.8",
+      rate_number: "80",
+      quantity: 1,
+      categoryId: 1,
+      isSale: false),
     Product(
       urlImage:
           "https://i.pinimg.com/originals/c3/fe/c2/c3fec2cff2771530d0dee7bb13fa76c7.jpg",
@@ -12,31 +38,10 @@ final productLike = <Product>[
       rate: "4.8",
       rate_number: "80",
       quantity: 1,
-      categoryId: 1),
-        Product(
-      urlImage:
-          "https://kenh14cdn.com/thumb_w/600/203336854389633024/2021/3/9/photo1615264602403-1615264602906749203568.jpg",
-      name: "Hamburger thịt bò",
-      description: "Hamburger nhà làm vị bò",
-      price: 50000,
-      imgShop: "assets/images/avtAnVat.jpg",
-      nameShop: "Ăn ngon ngon",
-      rate: "4.8",
-      rate_number: "80",
-      quantity: 1,
-      categoryId: 1),
-        Product(
-      urlImage:
-          "http://bizweb.dktcdn.net/thumb/grande/100/414/432/articles/xu-huong-thoi-trang-tre-em-8.jpg?v=1611625283600",
-      name: "Váy đuôi cá xanh đen bé gái",
-      description: "váy đuôi cá dành cho bé gái từ 7 - 10 tuổi",
-      price: 250000,
-      imgShop: "assets/images/avtAnVat.jpg",
-      nameShop: "Kid Store",
-      rate: "4.8",
-      rate_number: "80",
-      quantity: 1,
-      categoryId: 1),
+      categoryId: 1,
+      isSale: false),
+
+
   Product(
       urlImage:
           "https://www.mrvui.vn/Data/Sites/1/Product/2356/balo-laptop-760-xam-trang-laptop-14-inch-(2).jpg?fbclid=IwAR2xBQl5V62-hRKHcZKMQ0bWshNAb4uFar3ZFCaBriODcfJsnKY7FkS6nSMg",
@@ -48,7 +53,8 @@ final productLike = <Product>[
       rate: "4.8",
       rate_number: "80",
       quantity: 1,
-      categoryId: 1),
+      categoryId: 1,
+      isSale: false),
   Product(
       name: "Mít sấy Vinamit túi 100g",
       description: "Vừa ăn vừa xem phim, đọc sách rất phù hợp hoặc thưởng thức trà.",
@@ -59,7 +65,8 @@ final productLike = <Product>[
       rate: "4.9",
       rate_number: "120",
       quantity: 1,
-      categoryId: 1),
+      categoryId: 1,
+      isSale: false),
   Product(
       name: "Cá đổng tươi 500gram",
       description: "Cá đổng hay còn gọi là cá hường, cá được câu tay từ con nên chất lượng từng con rất ngon.",
@@ -71,7 +78,8 @@ final productLike = <Product>[
       rate: "4.0",
       quantity: 1,
       rate_number: "90",
-      categoryId: 1),
+      categoryId: 1,
+      isSale: false),
   Product(
       urlImage: "https://cf.shopee.vn/file/c75e14219542085594846669e96e30a9_tn",
       name: "Bánh khoai lang kén 1kg",
@@ -82,7 +90,8 @@ final productLike = <Product>[
       rate: "4.3",
       rate_number: "115",
       quantity: 1,
-      categoryId: 1),
+      categoryId: 1,
+      isSale: false),
   Product(
       urlImage:
           "https://betimum.vn/wp-content/uploads/2020/05/la-bap-cai.jpg",
@@ -94,7 +103,8 @@ final productLike = <Product>[
       rate: "3.9",
       rate_number: "144",
       quantity: 1,
-      categoryId: 1),
+      categoryId: 1,
+      isSale: false),
   
   Product(
       urlImage:
@@ -107,5 +117,6 @@ final productLike = <Product>[
       rate: "4",
       rate_number: "102",
       quantity: 1,
-      categoryId: 1),
+      categoryId: 1,
+      isSale: false),
 ];

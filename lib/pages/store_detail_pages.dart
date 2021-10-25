@@ -35,6 +35,19 @@ class _StoreDetailPageState extends State<StoreDetailPage> {
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(240, 103, 103, 1),
         elevation: 0,
+        title: Container(
+          width: double.infinity,
+          height: 40,
+          color: Colors.white,
+          child: Center(
+            child: TextField(
+              decoration: InputDecoration(
+                  hintText: 'Tìm kiếm...',
+                  prefixIcon: Icon(Icons.search),
+                  suffixIcon: Icon(Icons.camera_alt)),
+            ),
+          ),
+        ),
         actions: [
           Padding(
             padding: const EdgeInsets.all(10.0),
@@ -156,7 +169,7 @@ class _StoreDetailPageState extends State<StoreDetailPage> {
                   height: 250,
                   child: Image(
                     image: NetworkImage(widget.product.urlImage),
-                    fit: BoxFit.cover,
+                    fit: BoxFit.contain,
                   ),
                 ),
               ],
