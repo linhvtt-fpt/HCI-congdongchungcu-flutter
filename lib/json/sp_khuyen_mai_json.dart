@@ -3,42 +3,6 @@ import 'package:test_flutter_template/json/product_model.dart';
 final productSale = <Product>[
     Product(
       urlImage:
-          "https://f19-zpg.zdn.vn/1774453824866563078/56d469136e649e3ac775.jpg?fbclid=IwAR2rymCV1bWOvD1vDtB-u8zXsqlhEEvVOOyVk-7tBZlar-FAyUB9Ppx9SFU",
-      name: "Áo nỉ tay dài màu trắng",
-      description: "Áo nỉ tay dài màu trắng chất vải siêu đẹp",
-      price: 210000,
-      imgShop: "assets/images/avtAnVat.jpg",
-      nameShop: "Women Fashion",
-      rate: "4.7",
-      rate_number: "70",
-      quantity: 1,
-      categoryId: 1),
-        Product(
-      urlImage:
-          "https://cf.shopee.vn/file/09e9dea5d18e1a4fd554b7c61fffe29b?fbclid=IwAR0PWICjTQmHNIYJ61FOoSPjrU1KKD9kfELzyh5zBb8Bu_ofq2S06mXNLEo",
-      name: "Combo bánh kẹo Thái Lan",
-      description: "Combo bánh kẹo Thái Lan siêu ngon",
-      price: 180000,
-      imgShop: "assets/images/avtAnVat.jpg",
-      nameShop: "Ăn ngon ngon",
-      rate: "4.9",
-      rate_number: "110",
-      quantity: 1,
-      categoryId: 1),
-        Product(
-      urlImage:
-          "https://salt.tikicdn.com/ts/tmp/d3/2c/0c/c0c4e89bfbf23efe3b18d9b10883a7ee.jpg",
-      name: "Váy công chúa bé gái",
-      description: "váy công chúa dành cho bé gái từ 7 - 10 tuổi",
-      price: 250000,
-      imgShop: "assets/images/avtAnVat.jpg",
-      nameShop: "Kid Store",
-      rate: "4.8",
-      rate_number: "80",
-      quantity: 1,
-      categoryId: 1),
-  Product(
-      urlImage:
           "https://papishop.vn/wp-content/uploads/2020/07/TR401riMsee1tk6nThkXJA_355305939-600x600.jpg",
       name: "Balo hồng dễ thương",
       description: "Balo hồng chống nước, đựng vừa laptop 15inch",
@@ -48,7 +12,8 @@ final productSale = <Product>[
       rate: "4.8",
       rate_number: "90",
       quantity: 1,
-      categoryId: 1),
+      categoryId: 1,
+      isSale: true),
   Product(
       name: "Nui chiên giòn túi 100g",
       description: "Vừa ăn vừa xem phim, đọc sách rất phù hợp hoặc thưởng thức trà.",
@@ -59,7 +24,8 @@ final productSale = <Product>[
       rate: "4.9",
       rate_number: "100",
       quantity: 1,
-      categoryId: 1),
+      categoryId: 1,
+      isSale: true),
   Product(
       name: "Mực tươi 1kg",
       description: "Mực tươi nên chất lượng từng con rất ngon.",
@@ -71,7 +37,48 @@ final productSale = <Product>[
       rate: "4.0",
       quantity: 1,
       rate_number: "90",
-      categoryId: 1),
+      categoryId: 1,
+      isSale: true),
+    Product(
+      urlImage:
+          "https://f19-zpg.zdn.vn/1774453824866563078/56d469136e649e3ac775.jpg?fbclid=IwAR2rymCV1bWOvD1vDtB-u8zXsqlhEEvVOOyVk-7tBZlar-FAyUB9Ppx9SFU",
+      name: "Áo nỉ tay dài màu trắng",
+      description: "Áo nỉ tay dài màu trắng chất vải siêu đẹp",
+      price: 210000,
+      imgShop: "assets/images/avtAnVat.jpg",
+      nameShop: "Women Fashion",
+      rate: "4.7",
+      rate_number: "70",
+      quantity: 1,
+      categoryId: 1,
+      isSale: true),
+        Product(
+      urlImage:
+          "https://cf.shopee.vn/file/09e9dea5d18e1a4fd554b7c61fffe29b?fbclid=IwAR0PWICjTQmHNIYJ61FOoSPjrU1KKD9kfELzyh5zBb8Bu_ofq2S06mXNLEo",
+      name: "Combo bánh kẹo Thái Lan",
+      description: "Combo bánh kẹo Thái Lan siêu ngon",
+      price: 180000,
+      imgShop: "assets/images/avtAnVat.jpg",
+      nameShop: "Ăn ngon ngon",
+      rate: "4.9",
+      rate_number: "110",
+      quantity: 1,
+      categoryId: 1,
+      isSale: true),
+        Product(
+      urlImage:
+          "https://salt.tikicdn.com/ts/tmp/d3/2c/0c/c0c4e89bfbf23efe3b18d9b10883a7ee.jpg",
+      name: "Váy công chúa bé gái",
+      description: "váy công chúa dành cho bé gái từ 7 - 10 tuổi",
+      price: 250000,
+      imgShop: "assets/images/avtAnVat.jpg",
+      nameShop: "Kid Store",
+      rate: "4.8",
+      rate_number: "80",
+      quantity: 1,
+      categoryId: 1,
+      isSale: true),
+
   Product(
       urlImage: "https://lh3.googleusercontent.com/proxy/a9HkqYPM0AsHzkLVp7nBelhMme3EuFRle3bqmRcfviVl-EYB5uSmLyROj4xbZ8KEKCWgINd8pTfVRcEE7s0UEq1tQvL2MkPd717Bqa-HR-6GkVbILau7gbj4UvhEG8FrWEJ0ybl2ZbKA",
       name: "Bánh tráng trộn",
@@ -82,7 +89,8 @@ final productSale = <Product>[
       rate: "4.3",
       rate_number: "50",
       quantity: 1,
-      categoryId: 1),
+      categoryId: 1,
+      isSale: true),
   Product(
       urlImage:
           "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQJr2a_FmMV7vuoPO1EhNDB43hw6USu9iS2g3PZxL-crak1tARho0pOx65sMAk5oEGLHD3GtokIXjF7_2UrYxqqIY52tOw-RvG9vrDL8KPC2uR_JiEk7UWr9g&usqp=CAE",
@@ -94,7 +102,8 @@ final productSale = <Product>[
       rate: "3.9",
       rate_number: "144",
       quantity: 1,
-      categoryId: 1),
+      categoryId: 1,
+      isSale: true),
   
   Product(
       urlImage:
@@ -107,5 +116,6 @@ final productSale = <Product>[
       rate: "4",
       rate_number: "102",
       quantity: 1,
-      categoryId: 1),
+      categoryId: 1,
+      isSale: true),
 ];

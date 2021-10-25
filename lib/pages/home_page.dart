@@ -138,8 +138,7 @@ class _HomePageState extends State<HomePage> {
                           MaterialPageRoute(
                               builder: (context) => GridViewListItemPage(
                                   categoryId: categories[index]['id'],
-                                  categoryName: categories[index]['name'])
-                                  ));
+                                  categoryName: categories[index]['name'])));
                     },
                     child: Padding(
                       padding: const EdgeInsets.only(right: 30),
@@ -178,7 +177,9 @@ class _HomePageState extends State<HomePage> {
         Container(
           width: size.width,
           margin: EdgeInsets.only(left: 15, right: 15, bottom: 30),
-          decoration: BoxDecoration(color: Colors.grey[100],),
+          decoration: BoxDecoration(
+            color: Colors.grey[100],
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -193,137 +194,160 @@ class _HomePageState extends State<HomePage> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                     children: List.generate(productSale.length, (index) {
-                      return Padding(
-                        padding: const EdgeInsets.only(left: 5, top: 5, bottom: 5, right: 10),
-                        child: Container(
-                          width: 180,
-                          height: 240,
-                          decoration: BoxDecoration(
-                            borderRadius:
-                            BorderRadius.circular(10),
-                            color: Colors.white,
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                  return Padding(
+                    padding: const EdgeInsets.only(
+                        left: 5, top: 5, bottom: 5, right: 10),
+                    child: Container(
+                      width: 180,
+                      height: 240,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.white,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Stack(
                             children: [
-                              Stack(
-                                children: [
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (_) => StoreDetailPage(
-                                                  product: productSale[index], isSale: true)));
-                                    },
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      child: Image(
-                                        image:
-                                        NetworkImage(productSale[index].urlImage),
-                                        width: 180,
-                                        height: 120,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (_) => StoreDetailPage(
+                                              product: productSale[index],
+                                              isSale: true)));
+                                },
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: Image(
+                                    image: NetworkImage(
+                                        productSale[index].urlImage),
+                                    width: 180,
+                                    height: 120,
+                                    fit: BoxFit.cover,
                                   ),
-                                ],
+                                ),
                               ),
-                              SizedBox(
-                                height: 15,
-                              ),
-                              Text(
-                                productSale[index].name,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                    fontSize: 17, fontWeight: FontWeight.bold),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Row(
+                              Align(
+                                alignment: Alignment.topRight,
+                                child: Container(
+                                  width: 50,
+                                  height: 50,
+                                  child: Image.asset("assets/images/sale.png"),
+                                ),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Text(
+                            productSale[index].name,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                                fontSize: 17, fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                         Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Container(
-                                      child: Row(
-                                        children: [
-                                          Text(
-                                            'đ' + NumberFormat.decimalPattern()
-                                                .format(productSale[index].price * 1.1),
-                                            style: TextStyle(
-                                                fontSize: 15,
-                                                decoration: TextDecoration.lineThrough,
-                                                color: Colors.grey,
-                                                fontWeight: FontWeight.w600),
-                                          ),
-                                          Image.asset(
-                                            "assets/images/vietnamese-dong.png",
-                                            width: 15,
-                                            color: Colors.red,
-                                          ),
-                                          Text(
-                                            NumberFormat.decimalPattern()
-                                                .format(productSale[index].price),
-                                            style: TextStyle(
-                                                fontSize: 20,
-                                                color: Colors.red,
-                                                fontWeight: FontWeight.w600),
-                                          ),
-                                        ],
-                                      )),
-
-                                ],
-
+                            children: [
+                              Text(
+                                'đ' +
+                                    NumberFormat.decimalPattern().format(
+                                        productSale[index].price * 1.1),
+                                style: TextStyle(
+                                    fontSize: 17,
+                                    decoration: TextDecoration.lineThrough,
+                                    color: Colors.grey,
+                                    fontWeight: FontWeight.w600),
                               ),
-                              SizedBox(height: 7,),
                               Container(
                                 padding: EdgeInsets.only(right: 10),
-                                child: Column(
+                                child: Row(
                                   children: [
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        Text(
-                                          productSale[index].rate,
-                                          style: TextStyle(fontSize: 13),
-                                        ),
-                                        SizedBox(
-                                          width: 3,
-                                        ),
-                                        Icon(
-                                          Icons.star,
-                                          color: Colors.orange[300],
-                                          size: 17,
-                                        ),
-                                        Text("|"),
-                                        SizedBox(
-                                          width: 3,
-                                        ),
-                                        Text("Đã bán", style: TextStyle(fontSize: 13),),
-                                        SizedBox(
-                                          width: 3,
-                                        ),
-                                        Text(
-                                          productSale[index].rate_number,
-                                          style: TextStyle(fontSize: 13),
-                                        )
-                                      ],
+                                    Image.asset(
+                                      "assets/images/vietnamese-dong.png",
+                                      width: 15,
+                                      color: Colors.red,
                                     ),
-                                    SizedBox(height: 10,),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        Text("Shop "+productSale[index].nameShop, style: TextStyle(color: Colors.grey),)
-                                      ],
+                                    Text(
+                                      NumberFormat.decimalPattern()
+                                          .format(productSale[index].price),
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          color: Colors.red,
+                                          fontWeight: FontWeight.w600),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: 7,
+                          ),
+                          Container(
+                            padding: EdgeInsets.only(right: 10),
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      productSale[index].rate,
+                                      style: TextStyle(fontSize: 13),
+                                    ),
+                                    SizedBox(
+                                      width: 3,
+                                    ),
+                                    Icon(
+                                      Icons.star,
+                                      color: Colors.orange[300],
+                                      size: 17,
+                                    ),
+                                    Text("|"),
+                                    SizedBox(
+                                      width: 3,
+                                    ),
+                                    Text(
+                                      "Đã bán",
+                                      style: TextStyle(fontSize: 13),
+                                    ),
+                                    SizedBox(
+                                      width: 3,
+                                    ),
+                                    Text(
+                                      productSale[index].rate_number,
+                                      style: TextStyle(fontSize: 13),
                                     )
                                   ],
                                 ),
-                              ),
-                            ],
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      "Shop " + productSale[index].nameShop,
+                                      style: TextStyle(color: Colors.grey),
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
                           ),
-                        ),
-                      );
-                    })),
+                        ],
+                      ),
+                    ),
+                  );
+                })),
+              ),
+              SizedBox(
+                height: 20,
               ),
               Text(
                 "CÓ THỂ BẠN SẼ THÍCH",
@@ -337,15 +361,15 @@ class _HomePageState extends State<HomePage> {
                 child: Row(
                     children: List.generate(productLike.length, (index) {
                   return Padding(
-                    padding: const EdgeInsets.only(left: 5, top: 5, bottom: 5, right: 10),
+                    padding: const EdgeInsets.only(
+                        left: 5, top: 5, bottom: 5, right: 10),
                     child: Container(
                       width: 180,
                       height: 240,
                       decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          color: Colors.white,
-                                          ),
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.white,
+                      ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -357,7 +381,8 @@ class _HomePageState extends State<HomePage> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (_) => StoreDetailPage(
-                                              product: productLike[index], isSale: false)));
+                                              product: productLike[index],
+                                              isSale: false)));
                                 },
                                 child: ClipRRect(
                                   // width: 200,
@@ -369,11 +394,11 @@ class _HomePageState extends State<HomePage> {
                                   //         border: Border.all(color: Colors.black12)),
                                   borderRadius: BorderRadius.circular(8.0),
                                   child: Image(
-                                    image:
-                                        NetworkImage(productLike[index].urlImage),
+                                    image: NetworkImage(
+                                        productLike[index].urlImage),
                                     width: 180,
-                                  height: 120,
-                                  fit: BoxFit.cover,
+                                    height: 120,
+                                    fit: BoxFit.cover,
                                   ),
                                 ),
                               ),
@@ -412,60 +437,70 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ],
                               )),
-                              
                             ],
-                            
                           ),
-                          SizedBox(height: 7,),
-                           Container(
-                             padding: EdgeInsets.only(right: 10),
-                                child: Column(
+                          SizedBox(
+                            height: 7,
+                          ),
+                          Container(
+                            padding: EdgeInsets.only(right: 10),
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        Text(
-                                          productLike[index].rate,
-                                          style: TextStyle(fontSize: 13),
-                                        ),
-                                        SizedBox(
-                                          width: 3,
-                                        ),
-                                        Icon(
-                                          Icons.star,
-                                          color: Colors.orange[300],
-                                          size: 17,
-                                        ),
-                                        Text("|"),
-                                        SizedBox(
-                                          width: 3,
-                                        ),
-                                        Text("Đã bán", style: TextStyle(fontSize: 13),),
-                                        SizedBox(
-                                          width: 3,
-                                        ),
-                                        Text(
-                                          productLike[index].rate_number,
-                                          style: TextStyle(fontSize: 13),
-                                        )
-                                      ],
+                                    Text(
+                                      productLike[index].rate,
+                                      style: TextStyle(fontSize: 13),
                                     ),
-                                     SizedBox(height: 10,),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Text("Shop "+productLike[index].nameShop, style: TextStyle(color: Colors.grey),)
-                                ],
-                              )
+                                    SizedBox(
+                                      width: 3,
+                                    ),
+                                    Icon(
+                                      Icons.star,
+                                      color: Colors.orange[300],
+                                      size: 17,
+                                    ),
+                                    Text("|"),
+                                    SizedBox(
+                                      width: 3,
+                                    ),
+                                    Text(
+                                      "Đã bán",
+                                      style: TextStyle(fontSize: 13),
+                                    ),
+                                    SizedBox(
+                                      width: 3,
+                                    ),
+                                    Text(
+                                      productLike[index].rate_number,
+                                      style: TextStyle(fontSize: 13),
+                                    )
                                   ],
                                 ),
-                              ),
-                             
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      "Shop " + productLike[index].nameShop,
+                                      style: TextStyle(color: Colors.grey),
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
                         ],
                       ),
                     ),
                   );
                 })),
+              ),
+              SizedBox(
+                height: 20,
               ),
               Text(
                 "BẠN MỚI XEM GẦN ĐÂY",
@@ -479,15 +514,15 @@ class _HomePageState extends State<HomePage> {
                 child: Row(
                     children: List.generate(productBanChay.length, (index) {
                   return Padding(
-                    padding: const EdgeInsets.only(left: 5, top: 5, bottom: 5, right: 10),
+                    padding: const EdgeInsets.only(
+                        left: 5, top: 5, bottom: 5, right: 10),
                     child: Container(
                       width: 180,
                       height: 240,
                       decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          color: Colors.white,
-                                          ),
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.white,
+                      ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -499,16 +534,17 @@ class _HomePageState extends State<HomePage> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (_) => StoreDetailPage(
-                                              product: productBanChay[index], isSale: false)));
+                                              product: productBanChay[index],
+                                              isSale: false)));
                                 },
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
                                   child: Image(
-                                    image:
-                                        NetworkImage(productBanChay[index].urlImage),
+                                    image: NetworkImage(
+                                        productBanChay[index].urlImage),
                                     width: 180,
-                                  height: 120,
-                                  fit: BoxFit.cover,
+                                    height: 120,
+                                    fit: BoxFit.cover,
                                   ),
                                 ),
                               ),
@@ -547,65 +583,79 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ],
                               )),
-                              
                             ],
-                            
                           ),
-                          SizedBox(height: 7,),
-                           Container(
-                             padding: EdgeInsets.only(right: 10),
-                                child: Column(
+                          SizedBox(
+                            height: 7,
+                          ),
+                          Container(
+                            padding: EdgeInsets.only(right: 10),
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        Text(
-                                          productBanChay[index].rate,
-                                          style: TextStyle(fontSize: 13),
-                                        ),
-                                        SizedBox(
-                                          width: 3,
-                                        ),
-                                        Icon(
-                                          Icons.star,
-                                          color: Colors.orange[300],
-                                          size: 17,
-                                        ),
-                                        Text("|"),
-                                        SizedBox(
-                                          width: 3,
-                                        ),
-                                        Text("Đã bán", style: TextStyle(fontSize: 13),),
-                                        SizedBox(
-                                          width: 3,
-                                        ),
-                                        Text(
-                                          productBanChay[index].rate_number,
-                                          style: TextStyle(fontSize: 13),
-                                        )
-                                      ],
+                                    Text(
+                                      productBanChay[index].rate,
+                                      style: TextStyle(fontSize: 13),
                                     ),
-                                     SizedBox(height: 10,),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Text("Shop "+productBanChay[index].nameShop, style: TextStyle(color: Colors.grey),)
-                                ],
-                              )
+                                    SizedBox(
+                                      width: 3,
+                                    ),
+                                    Icon(
+                                      Icons.star,
+                                      color: Colors.orange[300],
+                                      size: 17,
+                                    ),
+                                    Text("|"),
+                                    SizedBox(
+                                      width: 3,
+                                    ),
+                                    Text(
+                                      "Đã bán",
+                                      style: TextStyle(fontSize: 13),
+                                    ),
+                                    SizedBox(
+                                      width: 3,
+                                    ),
+                                    Text(
+                                      productBanChay[index].rate_number,
+                                      style: TextStyle(fontSize: 13),
+                                    )
                                   ],
                                 ),
-                              ),
-                             
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      "Shop " + productBanChay[index].nameShop,
+                                      style: TextStyle(color: Colors.grey),
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
                         ],
                       ),
                     ),
                   );
                 })),
               ),
-            SizedBox(height: 10,),
-            Text("SẢN PHẨM BÁN CHẠY", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),),
-            SizedBox(height: 10,),
-            SingleChildScrollView(
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                "SẢN PHẨM BÁN CHẠY",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              SingleChildScrollView(
                 child: Column(
                     children: List.generate(allProduct.length, (index) {
                   return Padding(
@@ -614,10 +664,9 @@ class _HomePageState extends State<HomePage> {
                       width: size.width,
                       height: 150,
                       decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          color: Colors.white,
-                                          ),
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.white,
+                      ),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -629,18 +678,20 @@ class _HomePageState extends State<HomePage> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (_) => StoreDetailPage(
-                                              product: allProduct[index], isSale: false)));
+                                              product: allProduct[index],
+                                              isSale: false)));
                                 },
                                 child: Padding(
-                                  padding: const EdgeInsets.only(left: 8, right: 8, bottom: 8, top: 15),
+                                  padding: const EdgeInsets.only(
+                                      left: 8, right: 4, bottom: 8, top: 15),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(8.0),
                                     child: Image(
-                                      image:
-                                          NetworkImage(allProduct[index].urlImage),
+                                      image: NetworkImage(
+                                          allProduct[index].urlImage),
                                       width: 110,
-                                    height: 110,
-                                    fit: BoxFit.cover,
+                                      height: 110,
+                                      fit: BoxFit.cover,
                                     ),
                                   ),
                                 ),
@@ -652,24 +703,32 @@ class _HomePageState extends State<HomePage> {
                           // ),
                           Expanded(
                             child: Padding(
-                              padding: const EdgeInsets.only(left: 8, right: 8, bottom: 8, top: 15),
+                              padding: const EdgeInsets.only(
+                                  left: 8, right: 4, bottom: 8, top: 15),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                              Text(
-                                allProduct[index].name,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                    fontSize: 19, fontWeight: FontWeight.bold),
-                              ),
-                              SizedBox(height: 5,),
-                              Text(allProduct[index].description, overflow: TextOverflow.ellipsis,style: TextStyle(fontSize: 15.5),),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Row(
-                                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
+                                  Text(
+                                    allProduct[index].name,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                        fontSize: 19,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text(
+                                    allProduct[index].description,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(fontSize: 15.5),
+                                  ),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Row(
+                                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
                                       Image.asset(
                                         "assets/images/vietnamese-dong.png",
                                         width: 18,
@@ -683,49 +742,58 @@ class _HomePageState extends State<HomePage> {
                                             color: Colors.red,
                                             fontWeight: FontWeight.w600),
                                       ),
-                                      SizedBox(width: 17,),
-                                       
-                                ],
-                              ),
-                              SizedBox(height: 10,),
-                                      Row(
-                                        mainAxisAlignment: MainAxisAlignment.start,
-                                        children: [
-                                          Text("Shop "+allProduct[index].nameShop, style: TextStyle(color: Colors.grey),),
-                                        ],
+                                      SizedBox(
+                                        width: 17,
                                       ),
-                                  SizedBox(height: 10,),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "Shop " + allProduct[index].nameShop,
+                                        style: TextStyle(color: Colors.grey),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
-                                       Text(
-                                          allProduct[index].rate,
-                                          style: TextStyle(fontSize: 13),
-                                        ),
-                                        SizedBox(
-                                          width: 3,
-                                        ),
-                                        Icon(
-                                          Icons.star,
-                                          color: Colors.orange[300],
-                                          size: 17,
-                                        ),
-                                        Text("|"),
-                                        SizedBox(
-                                          width: 3,
-                                        ),
-                                        Text("Đã bán", style: TextStyle(fontSize: 13),),
-                                        SizedBox(
-                                          width: 3,
-                                        ),
-                                        Text(
-                                          allProduct[index].rate_number,
-                                          style: TextStyle(fontSize: 13),
-                                        ),
+                                      Text(
+                                        allProduct[index].rate,
+                                        style: TextStyle(fontSize: 13),
+                                      ),
+                                      SizedBox(
+                                        width: 3,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        color: Colors.orange[300],
+                                        size: 17,
+                                      ),
+                                      Text("|"),
+                                      SizedBox(
+                                        width: 3,
+                                      ),
+                                      Text(
+                                        "Đã bán",
+                                        style: TextStyle(fontSize: 13),
+                                      ),
+                                      SizedBox(
+                                        width: 3,
+                                      ),
+                                      Text(
+                                        allProduct[index].rate_number,
+                                        style: TextStyle(fontSize: 13),
+                                      ),
                                     ],
                                   ),
-                                  
-
                                 ],
                               ),
                             ),
@@ -737,7 +805,7 @@ class _HomePageState extends State<HomePage> {
                 })),
               )
             ],
-          ),    
+          ),
         ),
 
         //],

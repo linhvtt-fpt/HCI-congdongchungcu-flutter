@@ -15,7 +15,8 @@ List<Bill> listBill = [
         rate: "3.5",
         rate_number: "155",
         quantity: 1,
-        categoryId: 2),
+        categoryId: 2,
+        isSale: false),
     Product(
         name: "Khoai tây chiên phô mai túi 200g",
         description: "Khoai tây chiên truyền thống, lắc phô mai",
@@ -27,7 +28,8 @@ List<Bill> listBill = [
         rate: "4.0",
         quantity: 1,
         rate_number: "155",
-        categoryId: 1),
+        categoryId: 1,
+        isSale: false),
     Product(
         urlImage: "https://toplist.vn/images/800px/cau-dat-farm-375871.jpg",
         name: "Trái cây sấy thập cẩm mít, xoài túi 150g",
@@ -38,7 +40,8 @@ List<Bill> listBill = [
         rate: "4.3",
         rate_number: "155",
         quantity: 1,
-        categoryId: 3),
+        categoryId: 3,
+        isSale: false),
   ]),
   Bill(status: "Đã xác nhận", buyer: user[0], isRating: false, listProduct: [
     Product(
@@ -51,7 +54,8 @@ List<Bill> listBill = [
         rate: "4.3",
         rate_number: "155",
         quantity: 1,
-        categoryId: 3),
+        categoryId: 3,
+        isSale: false),
     Product(
         name: "Khoai tây chiên phô mai túi 200g",
         description: "Khoai tây chiên truyền thống, lắc phô mai",
@@ -63,7 +67,8 @@ List<Bill> listBill = [
         rate: "4.0",
         quantity: 1,
         rate_number: "155",
-        categoryId: 1),
+        categoryId: 1,
+        isSale: false),
     Product(
         name: "Set nguyên liệu pha trà sữa",
         description: "Trà sữa trân châu, thái xanh, truyền thống",
@@ -75,7 +80,8 @@ List<Bill> listBill = [
         rate: "3.5",
         rate_number: "155",
         quantity: 1,
-        categoryId: 2),
+        categoryId: 2,
+        isSale: false),
   ]),
   Bill(status: "Chưa xác nhận", buyer: user[0], isRating: false, listProduct: [
     Product(
@@ -89,7 +95,8 @@ List<Bill> listBill = [
         rate: "3.5",
         rate_number: "155",
         quantity: 1,
-        categoryId: 2),
+        categoryId: 2,
+        isSale: false),
     Product(
         name: "Khoai tây chiên phô mai túi 200g",
         description: "Khoai tây chiên truyền thống, lắc phô mai",
@@ -101,7 +108,8 @@ List<Bill> listBill = [
         rate: "4.0",
         quantity: 1,
         rate_number: "155",
-        categoryId: 1),
+        categoryId: 1,
+        isSale: false),
     Product(
         urlImage: "https://toplist.vn/images/800px/cau-dat-farm-375871.jpg",
         name: "Trái cây sấy thập cẩm mít, xoài túi 150g",
@@ -112,7 +120,8 @@ List<Bill> listBill = [
         rate: "4.3",
         rate_number: "155",
         quantity: 1,
-        categoryId: 3),
+        categoryId: 3,
+        isSale: false),
   ]),
   Bill(status: "Đã hoàn thành", buyer: user[0], isRating: false, listProduct: [
     Product(
@@ -126,7 +135,8 @@ List<Bill> listBill = [
         rate: "3.5",
         rate_number: "155",
         quantity: 1,
-        categoryId: 2),
+        categoryId: 2,
+        isSale: false),
     Product(
         name: "Khoai tây chiên phô mai túi 200g",
         description: "Khoai tây chiên truyền thống, lắc phô mai",
@@ -138,7 +148,8 @@ List<Bill> listBill = [
         rate: "4.0",
         quantity: 1,
         rate_number: "155",
-        categoryId: 1),
+        categoryId: 1,
+        isSale: false),
     Product(
         urlImage: "https://toplist.vn/images/800px/cau-dat-farm-375871.jpg",
         name: "Trái cây sấy thập cẩm mít, xoài túi 150g",
@@ -149,7 +160,8 @@ List<Bill> listBill = [
         rate: "4.3",
         rate_number: "155",
         quantity: 1,
-        categoryId: 3),
+        categoryId: 3,
+        isSale: false),
   ]),
   Bill(
      status: "Đã hoàn thành",
@@ -166,7 +178,8 @@ List<Bill> listBill = [
       rate: "3.5",
       rate_number: "155",
       quantity: 1,
-      categoryId: 2),
+      categoryId: 2,
+        isSale: false),
        Product(
       urlImage: "https://toplist.vn/images/800px/cau-dat-farm-375871.jpg",
       name: "Trái cây sấy thập cẩm mít, xoài túi 150g",
@@ -177,7 +190,8 @@ List<Bill> listBill = [
       rate: "4.3",
       rate_number: "155",
       quantity: 1,
-      categoryId: 3),
+      categoryId: 3,
+        isSale: false),
   Product(
       name: "Khoai tây chiên phô mai túi 200g",
       description: "Khoai tây chiên truyền thống, lắc phô mai",
@@ -189,7 +203,8 @@ List<Bill> listBill = [
       rate: "4.0",
       quantity: 1,
       rate_number: "155",
-      categoryId: 1),
+      categoryId: 1,
+        isSale: false),
  
      ]
    ),
@@ -209,7 +224,8 @@ List<Bill> listBill = [
       rate: "3.5",
       rate_number: "155",
       quantity: 1,
-      categoryId: 2),
+      categoryId: 2,
+        isSale: false),
   Product(
       name: "Khoai tây chiên phô mai túi 200g",
       description: "Khoai tây chiên truyền thống, lắc phô mai",
@@ -221,7 +237,8 @@ List<Bill> listBill = [
       rate: "4.0",
       quantity: 1,
       rate_number: "155",
-      categoryId: 1),
+      categoryId: 1,
+        isSale: false),
   Product(
       urlImage: "https://toplist.vn/images/800px/cau-dat-farm-375871.jpg",
       name: "Trái cây sấy thập cẩm mít, xoài túi 150g",
@@ -232,7 +249,8 @@ List<Bill> listBill = [
       rate: "4.3",
       rate_number: "155",
       quantity: 1,
-      categoryId: 3),
+      categoryId: 3,
+        isSale: false),
      ]
    ),
    Bill(
@@ -250,7 +268,8 @@ List<Bill> listBill = [
       rate: "3.5",
       rate_number: "155",
       quantity: 1,
-      categoryId: 2),
+      categoryId: 2,
+      isSale: false),
   Product(
       name: "Khoai tây chiên phô mai túi 200g",
       description: "Khoai tây chiên truyền thống, lắc phô mai",
@@ -262,7 +281,8 @@ List<Bill> listBill = [
       rate: "4.0",
       quantity: 1,
       rate_number: "155",
-      categoryId: 1),
+      categoryId: 1,
+      isSale: false),
   Product(
       urlImage: "https://toplist.vn/images/800px/cau-dat-farm-375871.jpg",
       name: "Trái cây sấy thập cẩm mít, xoài túi 150g",
@@ -273,7 +293,8 @@ List<Bill> listBill = [
       rate: "4.3",
       rate_number: "155",
       quantity: 1,
-      categoryId: 3),
+      categoryId: 3,
+      isSale: false),
      ]
    )
  ];
@@ -291,7 +312,8 @@ List<Bill> listBillShop = [
         rate: "3.5",
         rate_number: "155",
         quantity: 1,
-        categoryId: 2),
+        categoryId: 2,
+      isSale: false),
     Product(
         name: "Pizza viền phô mai 2 loại cỡ vừa",
         description: "Pizza bò, heo, phô mai",
@@ -303,7 +325,8 @@ List<Bill> listBillShop = [
         rate: "4.0",
         quantity: 1,
         rate_number: "155",
-        categoryId: 1),
+        categoryId: 1,
+      isSale: false),
     Product(
         urlImage: "https://vinmec-prod.s3.amazonaws.com/images/20190425_063710_470758_rau_xanh.max-800x800.jpg",
         name: "Rau củ thập cẩm các loại ngẫu nhiên",
@@ -314,7 +337,8 @@ List<Bill> listBillShop = [
         rate: "4.3",
         rate_number: "155",
         quantity: 1,
-        categoryId: 3),
+        categoryId: 3,
+      isSale: false),
   ]),
    Bill(status: "Chưa xác nhận", buyer: user[0], isRating: false, listProduct: [
     Product(
@@ -328,7 +352,8 @@ List<Bill> listBillShop = [
         rate: "3.5",
         rate_number: "155",
         quantity: 1,
-        categoryId: 2),
+        categoryId: 2,
+      isSale: false),
     Product(
         name: "Pizza viền phô mai 2 loại cỡ vừa",
         description: "Pizza bò, heo, phô mai",
@@ -340,7 +365,8 @@ List<Bill> listBillShop = [
         rate: "4.0",
         quantity: 1,
         rate_number: "155",
-        categoryId: 1),
+        categoryId: 1,
+      isSale: false),
     Product(
         urlImage: "https://vinmec-prod.s3.amazonaws.com/images/20190425_063710_470758_rau_xanh.max-800x800.jpg",
         name: "Rau củ thập cẩm các loại ngẫu nhiên",
@@ -351,7 +377,8 @@ List<Bill> listBillShop = [
         rate: "4.3",
         rate_number: "155",
         quantity: 1,
-        categoryId: 3),
+        categoryId: 3,
+      isSale: false),
   ]),
   Bill(status: "Đã xác nhận", buyer: user[0], isRating: false, listProduct: [
     Product(
@@ -365,7 +392,8 @@ List<Bill> listBillShop = [
         rate: "3.5",
         rate_number: "155",
         quantity: 1,
-        categoryId: 2),
+        categoryId: 2,
+      isSale: false),
     Product(
         urlImage: "https://vinmec-prod.s3.amazonaws.com/images/20190425_063710_470758_rau_xanh.max-800x800.jpg",
         name: "Rau củ thập cẩm các loại ngẫu nhiên",
@@ -376,7 +404,8 @@ List<Bill> listBillShop = [
         rate: "4.3",
         rate_number: "155",
         quantity: 1,
-        categoryId: 3),
+        categoryId: 3,
+      isSale: false),
     Product(
         name: "Pizza viền phô mai 2 loại cỡ vừa",
         description: "Pizza bò, heo, phô mai",
@@ -388,7 +417,8 @@ List<Bill> listBillShop = [
         rate: "4.0",
         quantity: 1,
         rate_number: "155",
-        categoryId: 1),
+        categoryId: 1,
+      isSale: false),
   ]),
   Bill(status: "Đã hủy", buyer: user[0], isRating: false, listProduct: [
     Product(
@@ -402,7 +432,8 @@ List<Bill> listBillShop = [
         rate: "4.0",
         quantity: 1,
         rate_number: "155",
-        categoryId: 1),
+        categoryId: 1,
+      isSale: false),
     Product(
         name: "Set bánh trung thu hiện đại hộp 500gr",
         description: "Gồm 4 loại bánh khác nhau",
@@ -414,7 +445,8 @@ List<Bill> listBillShop = [
         rate: "3.5",
         rate_number: "155",
         quantity: 1,
-        categoryId: 2),
+        categoryId: 2,
+      isSale: false),
     Product(
         urlImage: "https://vinmec-prod.s3.amazonaws.com/images/20190425_063710_470758_rau_xanh.max-800x800.jpg",
         name: "Rau củ thập cẩm các loại ngẫu nhiên",
@@ -425,7 +457,8 @@ List<Bill> listBillShop = [
         rate: "4.3",
         rate_number: "155",
         quantity: 1,
-        categoryId: 3),
+        categoryId: 3,
+      isSale: false),
   ]),
   Bill(status: "Đã hoàn thành", buyer: user[0], isRating: false, listProduct: [
     Product(
@@ -438,7 +471,8 @@ List<Bill> listBillShop = [
         rate: "4.3",
         rate_number: "155",
         quantity: 1,
-        categoryId: 3),
+        categoryId: 3,
+      isSale: false),
     Product(
         name: "Pizza viền phô mai 2 loại cỡ vừa",
         description: "Pizza bò, heo, phô mai",
@@ -450,7 +484,8 @@ List<Bill> listBillShop = [
         rate: "4.0",
         quantity: 1,
         rate_number: "155",
-        categoryId: 1),
+        categoryId: 1,
+      isSale: false),
     Product(
         name: "Set bánh trung thu hiện đại hộp 500gr",
         description: "Gồm 4 loại bánh khác nhau",
@@ -462,7 +497,8 @@ List<Bill> listBillShop = [
         rate: "3.5",
         rate_number: "155",
         quantity: 1,
-        categoryId: 2),
+        categoryId: 2,
+      isSale: false),
   ]),
   Bill(status: "Đã hoàn thành", buyer: user[0], isRating: true, listProduct: [
     Product(
@@ -476,7 +512,8 @@ List<Bill> listBillShop = [
         rate: "3.5",
         rate_number: "155",
         quantity: 1,
-        categoryId: 2),
+        categoryId: 2,
+      isSale: false),
     Product(
         urlImage: "https://vinmec-prod.s3.amazonaws.com/images/20190425_063710_470758_rau_xanh.max-800x800.jpg",
         name: "Rau củ thập cẩm các loại ngẫu nhiên",
@@ -487,7 +524,8 @@ List<Bill> listBillShop = [
         rate: "4.3",
         rate_number: "155",
         quantity: 1,
-        categoryId: 3),
+        categoryId: 3,
+      isSale: false),
     Product(
         name: "Pizza viền phô mai 2 loại cỡ vừa",
         description: "Pizza bò, heo, phô mai",
@@ -499,7 +537,8 @@ List<Bill> listBillShop = [
         rate: "4.0",
         quantity: 1,
         rate_number: "155",
-        categoryId: 1),
+        categoryId: 1,
+      isSale: false),
 
   ])
 ];

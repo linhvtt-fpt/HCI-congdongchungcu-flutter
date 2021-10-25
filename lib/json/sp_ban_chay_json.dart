@@ -11,7 +11,8 @@ final productBanChay = <Product>[
       rate: "4.8",
       rate_number: "155",
       quantity: 1,
-      categoryId: 1),
+      categoryId: 1,
+      isSale: false),
   Product(
       name: "Khô gà lá chanh 500gr",
       description: "Khô gà lá chanh cay, không cay",
@@ -23,7 +24,8 @@ final productBanChay = <Product>[
       rate: "4.0",
       quantity: 1,
       rate_number: "155",
-      categoryId: 1),
+      categoryId: 1,
+      isSale: false),
   Product(
       urlImage: "https://cf.shopee.vn/file/236755dfd600895146a49c37546734ca",
       name: "Măng khô nấu liền bịch 200gr",
@@ -34,7 +36,8 @@ final productBanChay = <Product>[
       rate: "4.3",
       rate_number: "155",
       quantity: 1,
-      categoryId: 1),
+      categoryId: 1,
+      isSale: false),
   Product(
       urlImage:
       "https://cdn.muabannhanh.com/asset/frontend/img/gallery/2020/05/20/5ec4a8706419f_1589946480.jpg?fbclid=IwAR38KIj-74EiGr_y_tkvCLrf_151iIXlWsFqb-lHc6C9hMdEywW8zXaLns4",
@@ -46,7 +49,8 @@ final productBanChay = <Product>[
       rate: "3.9",
       rate_number: "155",
       quantity: 1,
-      categoryId: 1),
+      categoryId: 1,
+      isSale: false),
   Product(
       urlImage:
       "https://cdn.tgdd.vn/Files/2019/11/21/1220850/may-lanh-comfee-cua-nuoc-nao-co-tot-khong-.jpg",
@@ -58,7 +62,8 @@ final productBanChay = <Product>[
       rate: "4.5",
       rate_number: "155",
       quantity: 1,
-      categoryId: 1),
+      categoryId: 1,
+      isSale: false),
   Product(
       urlImage:
       "https://img.websosanh.vn/v10/users/review/images/rhixemfsljm9w/1562209370237_3765946.jpg?compress=85",
@@ -70,5 +75,6 @@ final productBanChay = <Product>[
       rate: "4",
       rate_number: "155",
       quantity: 1,
-      categoryId: 1),
+      categoryId: 1,
+      isSale: false),
 ];
