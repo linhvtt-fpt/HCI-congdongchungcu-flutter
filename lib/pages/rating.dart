@@ -86,7 +86,7 @@ class _RatingBill extends State<RatingBill> {
                             ),
                             Divider(color: Colors.grey),
                             RatingBar.builder(
-                              initialRating: 3,
+                              initialRating: 5,
                               minRating: 1,
                               direction: Axis.horizontal,
                               allowHalfRating: true,

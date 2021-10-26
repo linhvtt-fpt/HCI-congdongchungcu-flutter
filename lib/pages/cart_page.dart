@@ -100,9 +100,10 @@ class _CartState extends State<Cart> {
                               Container(
                                 // padding: EdgeInsets.only(right: 60),
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(
-                                    5,
-                                  ),
+                                  border: Border.all(color: Colors.black26),
+                                  // borderRadius: BorderRadius.circular(
+                                  //   10,
+                                  // ),
                                 ),
                                 child: Row(
                                   children: [
@@ -126,14 +127,14 @@ class _CartState extends State<Cart> {
                                       },
                                     ),
                                     Container(
-                                      margin:
-                                          EdgeInsets.symmetric(horizontal: 3),
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal: 3, vertical: 2),
+                                      // margin:
+                                      //     EdgeInsets.symmetric(horizontal: ),
+                                      padding:
+                                          EdgeInsets.symmetric(horizontal: 10),
                                       decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(3),
-                                          color: Colors.white),
+                                        border: Border.symmetric(
+                                            vertical: BorderSide(color: black)),
+                                      ),
                                       child: Text(
                                         item.quantity.toString(),
                                         style: TextStyle(
@@ -157,11 +158,13 @@ class _CartState extends State<Cart> {
                                   ],
                                 ),
                               ),
+                              SizedBox(
+                                width: 50,
+                              ),
                               Container(
-                                width: 80,
                                 child: GestureDetector(
                                     child: Icon(
-                                      Icons.remove_circle,
+                                      Icons.delete_forever,
                                       color: Colors.red,
                                     ),
                                     onTap: () {
