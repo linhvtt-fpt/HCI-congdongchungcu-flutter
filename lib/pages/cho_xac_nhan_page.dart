@@ -265,7 +265,7 @@ class _WaitAcceptPageState extends State<WaitAcceptPage> {
 
                           if(widget.buyer == true && widget.status.contains("Chưa xác nhận"))
                           //truyền là Buyer và đang ở trang chưa xác nhận
-                            _btnProcess("Đang xử lý", Colors.grey.shade300),
+                            _btnProcess("Đang xử lý", Colors.grey),
 
                           // if(widget.buyer == true && widget.status.contains("Đã xác nhận"))
                           // //truyền là Buyer và đang ở trang Đã xác nhận

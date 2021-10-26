@@ -55,7 +55,7 @@ class ListViewNotification extends StatelessWidget {
                           child: Text(
                             list[index].fromApartment,
                             style: TextStyle(
-                              color: Colors.black26,
+                              color: Colors.black54,
                               fontSize: 15,
                             ),
                           ),
