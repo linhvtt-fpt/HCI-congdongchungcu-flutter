@@ -10,6 +10,7 @@ import 'package:test_flutter_template/json/product_myshop.dart';
 import 'package:test_flutter_template/json/sp_ban_chay_myshop.dart';
 import 'package:test_flutter_template/json/sp_yeu_thich_json.dart';
 import 'package:test_flutter_template/pages/cho_xac_nhan_page.dart';
+import 'package:test_flutter_template/pages/saleoff/create_sale_off.dart';
 import 'package:test_flutter_template/pages/store_detail_pages.dart';
 import 'package:test_flutter_template/theme/colors.dart';
 import 'package:test_flutter_template/theme/styles.dart';
@@ -240,6 +241,10 @@ class _MyShopPageState extends State<MyShopPage> {
               height: 5,
             ),
             _btnCreateNewProduct(),
+            SizedBox(
+              height: 5,
+            ),
+            _btnCreateNewSale(),
             SizedBox(
               height: 5,
             ),
@@ -584,6 +589,51 @@ class _MyShopPageState extends State<MyShopPage> {
           )),
     );
   }
+
+    Widget _btnCreateNewSale() {
+      return InkWell(
+        onTap: () {
+        },
+        child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(0)),
+              color: Colors.white,
+            ),
+            // margin: EdgeInsets.symmetric(horizontal: 12),
+            margin: EdgeInsets.only(left: 10),
+            padding: EdgeInsets.all(10),
+            child: Row(
+              // mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 25),
+                  child: Icon(
+                    Icons.attach_money,
+                  ),
+                ),
+                SizedBox(width: 5),
+                Expanded(
+                  child:
+                  Row(
+                    children: [
+                      Text(
+                        "Chương trình khuyến mãi",
+                        style: TextStyle(color: Colors.black87, fontSize: 16),
+                      ),
+                      SizedBox(
+                        width: 130,
+                      ),
+                      Icon(
+                        Icons.arrow_forward_ios,
+                        size: 18,
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            )),
+      );
+    }
 
   Widget _btnNotificationMyshop() {
     return InkWell(
