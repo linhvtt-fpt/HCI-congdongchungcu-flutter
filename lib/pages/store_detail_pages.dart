@@ -182,9 +182,17 @@ class _StoreDetailPageState extends State<StoreDetailPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    widget.product.name,
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        widget.product.name,
+                        style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                      ),
+                      if(widget.product.isSale)
+                      Text("Giảm "+widget.product.saleNum.toString()+"%",
+                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.red),)
+                    ],
                   ),
                   SizedBox(
                     height: 15,
@@ -328,7 +336,7 @@ class _StoreDetailPageState extends State<StoreDetailPage> {
                           child: ElevatedButton(
                             onPressed: () {
                               Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => YourShopPage()));
+                                  builder: (context) => YourShopPage(widget.product.nameShop)));
                             },
                             style: ButtonStyle(
                                 backgroundColor:

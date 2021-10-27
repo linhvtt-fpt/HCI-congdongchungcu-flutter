@@ -13,7 +13,8 @@ final productSale = <Product>[
       rate_number: "90",
       quantity: 1,
       categoryId: 1,
-      isSale: true),
+      isSale: true,
+      saleNum: 10),
   Product(
       name: "Nui chiên giòn túi 100g",
       description: "Vừa ăn vừa xem phim, đọc sách rất phù hợp hoặc thưởng thức trà.",
@@ -25,7 +26,8 @@ final productSale = <Product>[
       rate_number: "100",
       quantity: 1,
       categoryId: 1,
-      isSale: true),
+      isSale: true,
+      saleNum: 20),
   Product(
       name: "Mực tươi 1kg",
       description: "Mực tươi nên chất lượng từng con rất ngon.",
@@ -38,7 +40,8 @@ final productSale = <Product>[
       quantity: 1,
       rate_number: "90",
       categoryId: 1,
-      isSale: true),
+      isSale: true,
+      saleNum: 25),
     Product(
       urlImage:
           "https://f19-zpg.zdn.vn/1774453824866563078/56d469136e649e3ac775.jpg?fbclid=IwAR2rymCV1bWOvD1vDtB-u8zXsqlhEEvVOOyVk-7tBZlar-FAyUB9Ppx9SFU",
@@ -51,7 +54,8 @@ final productSale = <Product>[
       rate_number: "70",
       quantity: 1,
       categoryId: 1,
-      isSale: true),
+      isSale: true,
+      saleNum: 30),
         Product(
       urlImage:
           "https://cf.shopee.vn/file/09e9dea5d18e1a4fd554b7c61fffe29b?fbclid=IwAR0PWICjTQmHNIYJ61FOoSPjrU1KKD9kfELzyh5zBb8Bu_ofq2S06mXNLEo",
@@ -64,7 +68,8 @@ final productSale = <Product>[
       rate_number: "110",
       quantity: 1,
       categoryId: 1,
-      isSale: true),
+      isSale: true,
+      saleNum: 30),
         Product(
       urlImage:
           "https://salt.tikicdn.com/ts/tmp/d3/2c/0c/c0c4e89bfbf23efe3b18d9b10883a7ee.jpg",
@@ -77,7 +82,8 @@ final productSale = <Product>[
       rate_number: "80",
       quantity: 1,
       categoryId: 1,
-      isSale: true),
+      isSale: true,
+      saleNum: 30),
 
   Product(
       urlImage: "https://lh3.googleusercontent.com/proxy/a9HkqYPM0AsHzkLVp7nBelhMme3EuFRle3bqmRcfviVl-EYB5uSmLyROj4xbZ8KEKCWgINd8pTfVRcEE7s0UEq1tQvL2MkPd717Bqa-HR-6GkVbILau7gbj4UvhEG8FrWEJ0ybl2ZbKA",
@@ -90,7 +96,8 @@ final productSale = <Product>[
       rate_number: "50",
       quantity: 1,
       categoryId: 1,
-      isSale: true),
+      isSale: true,
+      saleNum: 30),
   Product(
       urlImage:
           "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQJr2a_FmMV7vuoPO1EhNDB43hw6USu9iS2g3PZxL-crak1tARho0pOx65sMAk5oEGLHD3GtokIXjF7_2UrYxqqIY52tOw-RvG9vrDL8KPC2uR_JiEk7UWr9g&usqp=CAE",
@@ -103,7 +110,8 @@ final productSale = <Product>[
       rate_number: "144",
       quantity: 1,
       categoryId: 1,
-      isSale: true),
+      isSale: true,
+      saleNum: 20),
   
   Product(
       urlImage:
@@ -117,5 +125,6 @@ final productSale = <Product>[
       rate_number: "102",
       quantity: 1,
       categoryId: 1,
-      isSale: true),
+      isSale: true,
+      saleNum: 15),
 ];

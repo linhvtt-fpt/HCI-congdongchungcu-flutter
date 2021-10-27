@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_countdown_timer/index.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 import 'package:test_flutter_template/json/home_page_json.dart';
@@ -183,9 +184,23 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "KHUYẾN MÃI",
-                style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+              Row(
+                children: [
+                  Text(
+                    "KHUYẾN MÃI",
+                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(width: 10,),
+                  CountdownTimer(
+                endTime: DateTime.now().millisecondsSinceEpoch + 1000 * 3000,
+                widgetBuilder: (_, CurrentRemainingTime? time) {
+                  if (time == null) {
+                    return Text('Game over');
+                  }
+                  return Text('[${time.min}] : [${time.sec}]');
+                },
+              ),
+                ],
               ),
               SizedBox(
                 height: 5,
@@ -242,12 +257,23 @@ class _HomePageState extends State<HomePage> {
                           SizedBox(
                             height: 15,
                           ),
-                          Text(
-                            productSale[index].name,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                                fontSize: 17, fontWeight: FontWeight.bold),
-                          ),
+                           Row(
+                                children: [
+                                  Expanded(
+                                    child: Text(
+                                      productSale[index].name,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                          fontSize: 17, fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                  Text(
+                                     " Giảm "+ productSale[index].saleNum.toString() + "%",
+                                      style: TextStyle(
+                                          fontSize: 17, fontWeight: FontWeight.bold, color: Colors.red),
+                                    ),
+                                ],
+                              ),
                           SizedBox(
                             height: 5,
                           ),

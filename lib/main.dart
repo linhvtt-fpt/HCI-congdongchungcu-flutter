@@ -4,6 +4,7 @@ import 'package:test_flutter_template/pages/myshop_add_new_product.dart';
 import 'package:test_flutter_template/pages/root_app.dart';
 import 'package:test_flutter_template/pages/myshop_page.dart';
 
+import 'pages/chuong_trinh_khuyen_mai_page.dart';
 import 'pages/login_page.dart';
 import 'pages/reason_cancel_bill.dart';
 import 'pages/yourshop_page.dart';
