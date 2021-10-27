@@ -1,30 +1,21 @@
 import 'dart:ui';
-
-import 'package:animate_do/animate_do.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_countdown_timer/index.dart';
 import 'package:intl/intl.dart';
-import 'package:test_flutter_template/Fake_Data/notification_myshop_json.dart';
-import 'package:test_flutter_template/json/home_page_json.dart';
 import 'package:test_flutter_template/json/product_data_json.dart';
-import 'package:test_flutter_template/json/product_model.dart';
 import 'package:test_flutter_template/json/sp_ban_chay_json.dart';
 import 'package:test_flutter_template/json/sp_khuyen_mai_json.dart';
-import 'package:test_flutter_template/list_view/girdViewListItemPage.dart';
-import 'package:test_flutter_template/list_view/listViewNotification_myshop.dart';
-import 'package:test_flutter_template/model/notification_detail_myshop.dart';
-import 'package:test_flutter_template/pages/cart_page.dart';
 import 'package:test_flutter_template/pages/store_detail_pages.dart';
 import 'package:test_flutter_template/pages/xem_danh_gia_cua_shop_khac_page.dart';
 import 'package:test_flutter_template/theme/colors.dart';
-import 'package:test_flutter_template/theme/styles.dart';
 import 'package:test_flutter_template/widgets/custom_slider.dart';
-import 'package:test_flutter_template/json/cart_product_json.dart';
 
 class YourShopPage extends StatefulWidget {
+  final String nameShop;
+  YourShopPage(this.nameShop);
   @override
   _YourShopPageState createState() => _YourShopPageState();
 }
@@ -56,158 +47,201 @@ class _YourShopPageState extends State<YourShopPage> {
             SizedBox(
               height: 20,
             ),
-            Text(
-                "KHUYẾN MÃI",
-                style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(
-                height: 5,
-              ),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                    children: List.generate(productSale.length, (index) {
-                      return Padding(
-                        padding: const EdgeInsets.only(left: 5, top: 5, bottom: 5, right: 10),
-                        child: Container(
-                          width: 180,
-                          height: 240,
-                          decoration: BoxDecoration(
-                            borderRadius:
-                            BorderRadius.circular(10),
-                            color: Colors.white,
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Stack(
-                                children: [
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (_) => StoreDetailPage(
-                                                  product: productSale[index], isSale: true)));
-                                    },
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      child: Image(
-                                        image:
-                                        NetworkImage(productSale[index].urlImage),
-                                        width: 180,
-                                        height: 120,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  ),
-                                  Align(
-                                    alignment: Alignment.topRight,
-                                    child: Container(
-                                      width: 50,
-                                      height: 50,
-                                      child: Image.asset("assets/images/sale.png"),
-                                    ),
-                                  )
-                                ],
+            Row(
+              children: [
+                Text(
+                  "KHUYẾN MÃI",
+                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                CountdownTimer(
+                  endTime: DateTime.now().millisecondsSinceEpoch + 1000 * 3000,
+                  widgetBuilder: (_, CurrentRemainingTime? time) {
+                    if (time == null) {
+                      return Text('Game over');
+                    }
+                    return Text('[${time.min}] : [${time.sec}]');
+                  },
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                  children: List.generate(productSale.length, (index) {
+                return Padding(
+                  padding: const EdgeInsets.only(
+                      left: 5, top: 5, bottom: 5, right: 10),
+                  child: Container(
+                    width: 180,
+                    height: 240,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Stack(
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (_) => StoreDetailPage(
+                                            product: productSale[index],
+                                            isSale: true)));
+                              },
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: Image(
+                                  image:
+                                      NetworkImage(productSale[index].urlImage),
+                                  width: 180,
+                                  height: 120,
+                                  fit: BoxFit.cover,
+                                ),
                               ),
-                              SizedBox(
-                                height: 15,
+                            ),
+                            Align(
+                              alignment: Alignment.topRight,
+                              child: Container(
+                                width: 50,
+                                height: 50,
+                                child: Image.asset("assets/images/sale.png"),
                               ),
-                              Text(
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Text(
                                 productSale[index].name,
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
                                     fontSize: 17, fontWeight: FontWeight.bold),
                               ),
+                            ),
+                            Text(
+                              "Giảm " +
+                                  productSale[index].saleNum.toString() +
+                                  "%",
+                              style: TextStyle(
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.red),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                                child: Row(
+                              children: [
+                                Text(
+                                  'đ' +
+                                      NumberFormat.decimalPattern().format(
+                                          productSale[index].price * 1.1),
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      decoration: TextDecoration.lineThrough,
+                                      color: Colors.grey,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                Image.asset(
+                                  "assets/images/vietnamese-dong.png",
+                                  width: 15,
+                                  color: Colors.red,
+                                ),
+                                Text(
+                                  NumberFormat.decimalPattern()
+                                      .format(productSale[index].price),
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                              ],
+                            )),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 7,
+                        ),
+                        Container(
+                          padding: EdgeInsets.only(right: 10),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Text(
+                                    productSale[index].rate,
+                                    style: TextStyle(fontSize: 13),
+                                  ),
+                                  SizedBox(
+                                    width: 3,
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    color: Colors.orange[300],
+                                    size: 17,
+                                  ),
+                                  Text("|"),
+                                  SizedBox(
+                                    width: 3,
+                                  ),
+                                  Text(
+                                    "Đã bán",
+                                    style: TextStyle(fontSize: 13),
+                                  ),
+                                  SizedBox(
+                                    width: 3,
+                                  ),
+                                  Text(
+                                    productSale[index].rate_number,
+                                    style: TextStyle(fontSize: 13),
+                                  )
+                                ],
+                              ),
                               SizedBox(
-                                height: 5,
+                                height: 10,
                               ),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  Container(
-                                      child: Row(
-                                        children: [
-                                          Text(
-                                            'đ' + NumberFormat.decimalPattern()
-                                                .format(productSale[index].price * 1.1),
-                                            style: TextStyle(
-                                                fontSize: 15,
-                                                decoration: TextDecoration.lineThrough,
-                                                color: Colors.grey,
-                                                fontWeight: FontWeight.w600),
-                                          ),
-                                          Image.asset(
-                                            "assets/images/vietnamese-dong.png",
-                                            width: 15,
-                                            color: Colors.red,
-                                          ),
-                                          Text(
-                                            NumberFormat.decimalPattern()
-                                                .format(productSale[index].price),
-                                            style: TextStyle(
-                                                fontSize: 20,
-                                                color: Colors.red,
-                                                fontWeight: FontWeight.w600),
-                                          ),
-                                        ],
-                                      )),
-
+                                  Text(
+                                    "Shop " + productSale[index].nameShop,
+                                    style: TextStyle(color: Colors.grey),
+                                  )
                                 ],
-
-                              ),
-                              SizedBox(height: 7,),
-                              Container(
-                                padding: EdgeInsets.only(right: 10),
-                                child: Column(
-                                  children: [
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        Text(
-                                          productSale[index].rate,
-                                          style: TextStyle(fontSize: 13),
-                                        ),
-                                        SizedBox(
-                                          width: 3,
-                                        ),
-                                        Icon(
-                                          Icons.star,
-                                          color: Colors.orange[300],
-                                          size: 17,
-                                        ),
-                                        Text("|"),
-                                        SizedBox(
-                                          width: 3,
-                                        ),
-                                        Text("Đã bán", style: TextStyle(fontSize: 13),),
-                                        SizedBox(
-                                          width: 3,
-                                        ),
-                                        Text(
-                                          productSale[index].rate_number,
-                                          style: TextStyle(fontSize: 13),
-                                        )
-                                      ],
-                                    ),
-                                    SizedBox(height: 10,),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        Text("Shop "+productSale[index].nameShop, style: TextStyle(color: Colors.grey),)
-                                      ],
-                                    )
-                                  ],
-                                ),
-                              ),
+                              )
                             ],
                           ),
                         ),
-                      );
-                    })),
-              ),
-              SizedBox(height: 20,),
+                      ],
+                    ),
+                  ),
+                );
+              })),
+            ),
+            SizedBox(
+              height: 20,
+            ),
             Text(
               "SẢN PHẨM BÁN CHẠY",
               style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
@@ -240,7 +274,8 @@ class _YourShopPageState extends State<YourShopPage> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (_) => StoreDetailPage(
-                                            product: productBanChay[index], isSale: false)));
+                                            product: productBanChay[index],
+                                            isSale: false)));
                               },
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
@@ -471,7 +506,8 @@ class _YourShopPageState extends State<YourShopPage> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (_) => StoreDetailPage(
-                                            product: allProduct[index], isSale: false)));
+                                            product: allProduct[index],
+                                            isSale: false)));
                               },
                               child: Padding(
                                 padding: const EdgeInsets.only(
@@ -643,31 +679,44 @@ class _YourShopPageState extends State<YourShopPage> {
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 15),
                           child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Container(
-                                width: 50,
-                                height: 50,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                ),
-                                child: CircleAvatar(
-                                  backgroundImage:
-                                      AssetImage("assets/images/3.jpg"),
-                                ),
+                              Row(
+                                children: [
+                                  Container(
+                                    width: 50,
+                                    height: 50,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: CircleAvatar(
+                                      backgroundImage:
+                                          AssetImage("assets/images/3.jpg"),
+                                    ),
+                                  ),
+                                  SizedBox(width: 10,),
+                                  Text(
+                                    widget.nameShop,
+                                    style: TextStyle(
+                                        color: white,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20),
+                                  ),
+                                ],
                               ),
-                              SizedBox(
-                                width: 20,
-                              ),
-                              Text(
-                                "Baba Tea",
-                                style: TextStyle(
-                                    color: white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20),
-                              ),
-                              SizedBox(
-                                width: 120,
-                              ),
+                              // SizedBox(
+                              //   width: 20,
+                              // ),
+                              // Text(
+                              //   widget.nameShop,
+                              //   style: TextStyle(
+                              //       color: white,
+                              //       fontWeight: FontWeight.bold,
+                              //       fontSize: 20),
+                              // ),
+                              // SizedBox(
+                              //   width: 120,
+                              // ),
                               Container(
                                 width: 90,
                                 height: 40,
@@ -733,12 +782,14 @@ class _YourShopPageState extends State<YourShopPage> {
                             ),
                             Container(
                                 child: InkWell(
-                                  onTap: (){
-                                    Navigator.push(context,
-                                  MaterialPageRoute(
-                                    builder: (context) => ViewListFeedbackPage(),
-                                  ) );
-                                  },
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          ViewListFeedbackPage(),
+                                    ));
+                              },
                               child: Row(
                                 children: [
                                   Icon(
