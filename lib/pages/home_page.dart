@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Color.fromRGBO(240, 103, 103, 1),
         actions: <Widget>[
           Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.only(top: 8, right: 20.0),
             child: Container(
               height: 150.0,
               width: 30.0,
