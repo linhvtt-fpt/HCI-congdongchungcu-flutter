@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:test_flutter_template/json/khuyen_mai_json.dart';
-import 'package:test_flutter_template/json/khuyen_mai_model.dart';
+import 'package:test_flutter_template/pages/saleoff/create_sale_off.dart';
 import 'package:test_flutter_template/theme/colors.dart';
 
 class ChuongTrinhKhuyenMaiPage extends StatefulWidget {
@@ -20,7 +20,8 @@ class _ChuongTrinhKhuyenMaiPageState extends State<ChuongTrinhKhuyenMaiPage> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(title: Text("Chương trình khuyến mãi")),
+      appBar: AppBar(title: Text("Chương trình khuyến mãi"),
+        backgroundColor: Color.fromRGBO(240, 103, 103, 1),),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(8),
         child: Column(
@@ -174,7 +175,10 @@ class _ChuongTrinhKhuyenMaiPageState extends State<ChuongTrinhKhuyenMaiPage> {
                   const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               onPrimary: Colors.white,
               primary: Colors.red),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => AddNewSaleOff()));
+          },
           child: const Text('Tạo chương trình khuyến mãi'),
         ),
       ),

@@ -15,6 +15,7 @@ import 'package:test_flutter_template/pages/store_detail_pages.dart';
 import 'package:test_flutter_template/theme/colors.dart';
 import 'package:test_flutter_template/theme/styles.dart';
 
+import 'chuong_trinh_khuyen_mai_page.dart';
 import 'da_huy_seller_page.dart';
 import 'da_xac_nhan_shop.dart';
 import 'danh_gia_shop.dart';
@@ -593,6 +594,8 @@ class _MyShopPageState extends State<MyShopPage> {
     Widget _btnCreateNewSale() {
       return InkWell(
         onTap: () {
+          Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => ChuongTrinhKhuyenMaiPage()));
         },
         child: Container(
             decoration: BoxDecoration(

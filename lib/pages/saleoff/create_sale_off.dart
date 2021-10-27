@@ -10,6 +10,7 @@ import 'package:test_flutter_template/widgets/textfield_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../chuong_trinh_khuyen_mai_page.dart';
 import '../myshop_page.dart';
 import 'choose_sale_product.dart';
 
@@ -224,7 +225,9 @@ List<bool?> showValue = List.filled(allProductMyShop.length, false);
                               child: Row(children: [
                                 Checkbox(
                                   value: showValue[index],
-                                  onChanged: (bool? value) {
+                                  onChanged: (index == 2) ? null : (index == 3) ? null :
+                                    (index == 5) ? null :
+                                      (bool? value) {
                                     setState(() {
                                       showValue[index] = value;
                                     });
@@ -254,22 +257,35 @@ List<bool?> showValue = List.filled(allProductMyShop.length, false);
                                       ),
                                       Row(
                                         children: [
-                                          SizedBox(
-                                            width: 15,
-                                            height: 15,
-                                            child: Image.asset(
-                                              "assets/images/vietnamese-dong.png",
-                                              width: 5,
-                                              color: Colors.red,
+                                          Expanded(
+                                            flex: 1,
+                                            child: SizedBox(
+                                              width: 15,
+                                              height: 15,
+                                              child: Image.asset(
+                                                "assets/images/vietnamese-dong.png",
+                                                width: 5,
+                                                color: Colors.red,
+                                              ),
                                             ),
                                           ),
-                                          Text(
-                                            NumberFormat.decimalPattern()
-                                                .format(allProductMyShop[index].price),
-                                            style: TextStyle(
-                                                fontSize: 15,
-                                                color: Colors.red,
-                                                fontWeight: FontWeight.w600),
+                                          Expanded(
+                                            flex: 8,
+                                            child: Text(
+                                              NumberFormat.decimalPattern()
+                                                  .format(allProductMyShop[index].price),
+                                              style: TextStyle(
+                                                  fontSize: 15,
+                                                  color: Colors.red,
+                                                  fontWeight: FontWeight.w600),
+                                            ),
+                                          ),
+                                          Expanded(
+                                              flex: 1,
+                                              child: (index == 2) ? Icon(Icons.warning_amber_outlined, color: Colors.red,) :
+                                              (index == 3) ? Icon(Icons.warning_amber_outlined, color: Colors.red,) :
+                                              (index == 5) ? Icon(Icons.warning_amber_outlined, color: Colors.red,) :
+                                              SizedBox()
                                           ),
                                         ],
                                       ),
@@ -359,7 +375,7 @@ List<bool?> showValue = List.filled(allProductMyShop.length, false);
     return InkWell(
       onTap: () {
         Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => MyShopPage()));
+            .push(MaterialPageRoute(builder: (context) => ChuongTrinhKhuyenMaiPage()));
       },
       child: Container(
           decoration: BoxDecoration(
