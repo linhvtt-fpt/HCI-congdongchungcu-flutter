@@ -50,7 +50,7 @@ class _StoreDetailPageState extends State<StoreDetailPage> {
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.only(top: 8, right: 20.0),
             child: Container(
               height: 150.0,
               width: 30.0,
