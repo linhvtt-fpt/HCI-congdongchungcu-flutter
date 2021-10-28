@@ -29,10 +29,18 @@ class MyShopPage extends StatefulWidget {
 }
 
 class _MyShopPageState extends State<MyShopPage> {
-    final List<Bill> listbillChuaXacNhan = listBillShop.where((element) => element.status.contains("Chưa xác nhận")).toList();
-  final List<Bill> listbillDaXacNhan = listBillShop.where((element) => element.status.contains("Đã xác nhận")).toList(); 
-  final List<Bill> listbillDaHuy = listBillShop.where((element) => element.status.contains("Đã hủy")).toList(); 
-    final List<Bill> listbillDaHoanThanh = listBillShop.where((element) => element.status.contains("Đã hoàn thành")).toList(); 
+  final List<Bill> listbillChuaXacNhan = listBillShop
+      .where((element) => element.status.contains("Chưa xác nhận"))
+      .toList();
+  final List<Bill> listbillDaXacNhan = listBillShop
+      .where((element) => element.status.contains("Đã xác nhận"))
+      .toList();
+  final List<Bill> listbillDaHuy = listBillShop
+      .where((element) => element.status.contains("Đã hủy"))
+      .toList();
+  final List<Bill> listbillDaHoanThanh = listBillShop
+      .where((element) => element.status.contains("Đã hoàn thành"))
+      .toList();
   int pageIndex = 0;
 
   @override
@@ -41,7 +49,7 @@ class _MyShopPageState extends State<MyShopPage> {
       Icons.my_library_books_sharp,
       Icons.card_giftcard,
       Icons.stars,
-       Icons.delete_forever
+      Icons.delete_forever
     ];
     List textItems = ["Chờ xác nhận", "Đã xác nhận", "Đánh giá", "Đã hủy"];
 
@@ -106,9 +114,9 @@ class _MyShopPageState extends State<MyShopPage> {
                         ),
                         Expanded(
                             child: Text(
-                              "Đơn hàng",
-                              style: TextStyle(fontSize: 16),
-                            )),
+                          "Đơn hàng",
+                          style: TextStyle(fontSize: 16),
+                        )),
                         SizedBox(
                           width: 10,
                         ),
@@ -133,7 +141,7 @@ class _MyShopPageState extends State<MyShopPage> {
                     decoration: BoxDecoration(
                         color: white,
                         border: Border(
-                          // top: BorderSide(width: 2, color: black.withOpacity(0.06)),
+                            // top: BorderSide(width: 2, color: black.withOpacity(0.06)),
                             bottom: BorderSide(
                                 width: 8, color: black.withOpacity(0.06)))),
                     child: Padding(
@@ -152,85 +160,94 @@ class _MyShopPageState extends State<MyShopPage> {
                                   Stack(
                                     children: [
                                       Icon(bottomItems[index],
-                                      size: 22, 
-                                      color: Colors.black),
-                                       if (index == 0 && listbillChuaXacNhan.length > 0)
-                      Padding(
-                        padding: const EdgeInsets.only(right: 3),
-                        child: CircleAvatar(
-                          radius: 8.0,
-                          backgroundColor: Colors.red,
-                          foregroundColor: Colors.white,
-                          child: Text(
-                            listbillChuaXacNhan.length.toString(),
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 12.0,
-                            ),
-                          ),
-                        ),
-                      ),
-                        if(index == 1 && listbillDaXacNhan.length > 0)
-                        Padding(
-                        padding: const EdgeInsets.only(right: 3),
-                        child: CircleAvatar(
-                          radius: 8.0,
-                          backgroundColor: Colors.red,
-                          foregroundColor: Colors.white,
-                          child: Text(
-                            listbillDaXacNhan.length.toString(),
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 12.0,
-                            ),
-                          ),
-                        ),
-                      ),
-                      if( index == 3 && listbillDaHuy.length > 0)
-                      Padding(
-                        padding: const EdgeInsets.only(right: 3),
-                        child: CircleAvatar(
-                          radius: 8.0,
-                          backgroundColor: Colors.red,
-                          foregroundColor: Colors.white,
-                          child: Text(
-                            listbillDaHuy.length.toString(),
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 12.0,
-                            ),
-                          ),
-                        ),
-                      ),
-                      if(index == 2 && listbillDaHoanThanh.length > 0)
-                        Padding(
-                        padding: const EdgeInsets.only(right: 3),
-                        child: CircleAvatar(
-                          radius: 8.0,
-                          backgroundColor: Colors.red,
-                          foregroundColor: Colors.white,
-                          child: Text(
-                            listbillDaHoanThanh.length.toString(),
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 12.0,
-                            ),
-                          ),
-                        ),
-                      ),
+                                          size: 22, color: Colors.black),
+                                      if (index == 0 &&
+                                          listbillChuaXacNhan.length > 0)
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(right: 3),
+                                          child: CircleAvatar(
+                                            radius: 8.0,
+                                            backgroundColor: Colors.red,
+                                            foregroundColor: Colors.white,
+                                            child: Text(
+                                              listbillChuaXacNhan.length
+                                                  .toString(),
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 12.0,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      if (index == 1 &&
+                                          listbillDaXacNhan.length > 0)
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(right: 3),
+                                          child: CircleAvatar(
+                                            radius: 8.0,
+                                            backgroundColor: Colors.red,
+                                            foregroundColor: Colors.white,
+                                            child: Text(
+                                              listbillDaXacNhan.length
+                                                  .toString(),
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 12.0,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      if (index == 3 &&
+                                          listbillDaHuy.length > 0)
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(right: 3),
+                                          child: CircleAvatar(
+                                            radius: 8.0,
+                                            backgroundColor: Colors.red,
+                                            foregroundColor: Colors.white,
+                                            child: Text(
+                                              listbillDaHuy.length.toString(),
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 12.0,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      if (index == 2 &&
+                                          listbillDaHoanThanh.length > 0)
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(right: 3),
+                                          child: CircleAvatar(
+                                            radius: 8.0,
+                                            backgroundColor: Colors.red,
+                                            foregroundColor: Colors.white,
+                                            child: Text(
+                                              listbillDaHoanThanh.length
+                                                  .toString(),
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 12.0,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
                                     ],
                                   ),
-                                 SizedBox(
+                                  SizedBox(
                                     height: 5,
                                   ),
                                   Text(
                                     textItems[index],
                                     style:
-                                    TextStyle(fontSize: 13, color: black),
+                                        TextStyle(fontSize: 13, color: black),
                                   ),
                                 ],
-                              )
-                              );
+                              ));
                         }),
                       ),
                     ),
@@ -284,138 +301,145 @@ class _MyShopPageState extends State<MyShopPage> {
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                    children: List.generate(popularProductMyShop.length, (index) {
-                      return Padding(
-                        padding: const EdgeInsets.only(left: 5, top: 5, bottom: 5, right: 10),
-                        child: Container(
-                          width: 180,
-                          height: 240,
-                          decoration: BoxDecoration(
-                            borderRadius:
-                            BorderRadius.circular(10),
-                            color: Colors.white,
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                    children:
+                        List.generate(popularProductMyShop.length, (index) {
+                  return Padding(
+                    padding: const EdgeInsets.only(
+                        left: 5, top: 5, bottom: 5, right: 10),
+                    child: Container(
+                      width: 180,
+                      height: 240,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.white,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Stack(
                             children: [
-                              Stack(
-                                children: [
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (_) => MyShopDetailPage(
-                                                  product: popularProductMyShop[index])));
-                                    },
-                                    child: ClipRRect(
-                                      // width: 200,
-                                      // height: 120,
-                                      // decoration: BoxDecoration(
-                                      //         borderRadius:
-                                      //             BorderRadius.circular(30),
-                                      //         color: Colors.grey[100],
-                                      //         border: Border.all(color: Colors.black12)),
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      child: Image(
-                                        image:
-                                        NetworkImage(popularProductMyShop[index].urlImage),
-                                        width: 180,
-                                        height: 120,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (_) => MyShopDetailPage(
+                                              product: popularProductMyShop[
+                                                  index])));
+                                },
+                                child: ClipRRect(
+                                  // width: 200,
+                                  // height: 120,
+                                  // decoration: BoxDecoration(
+                                  //         borderRadius:
+                                  //             BorderRadius.circular(30),
+                                  //         color: Colors.grey[100],
+                                  //         border: Border.all(color: Colors.black12)),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: Image(
+                                    image: NetworkImage(
+                                        popularProductMyShop[index].urlImage),
+                                    width: 180,
+                                    height: 120,
+                                    fit: BoxFit.cover,
                                   ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: 15,
-                              ),
-                              Text(
-                                popularProductMyShop[index].name,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                    fontSize: 17, fontWeight: FontWeight.bold),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Container(
-                                      child: Row(
-                                        children: [
-                                          Image.asset(
-                                            "assets/images/vietnamese-dong.png",
-                                            width: 15,
-                                            color: Colors.red,
-                                          ),
-                                          Text(
-                                            NumberFormat.decimalPattern()
-                                                .format(popularProductMyShop[index].price),
-                                            style: TextStyle(
-                                                fontSize: 20,
-                                                color: Colors.red,
-                                                fontWeight: FontWeight.w600),
-                                          ),
-                                        ],
-                                      )),
-
-                                ],
-
-                              ),
-                              SizedBox(height: 7,),
-                              Container(
-                                padding: EdgeInsets.only(right: 10),
-                                child: Column(
-                                  children: [
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        Text(
-                                          popularProductMyShop[index].rate,
-                                          style: TextStyle(fontSize: 13),
-                                        ),
-                                        SizedBox(
-                                          width: 3,
-                                        ),
-                                        Icon(
-                                          Icons.star,
-                                          color: Colors.orange[300],
-                                          size: 17,
-                                        ),
-                                        Text("|"),
-                                        SizedBox(
-                                          width: 3,
-                                        ),
-                                        Text("Đã bán", style: TextStyle(fontSize: 13),),
-                                        SizedBox(
-                                          width: 3,
-                                        ),
-                                        Text(
-                                            NumberFormat.decimalPattern()
-                                                .format(popularProductMyShop[index].quantitySold),
-                                          style: TextStyle(fontSize: 13),
-                                        )
-                                      ],
-                                    ),
-                                    SizedBox(height: 10,),
-                                    // Row(
-                                    //   mainAxisAlignment: MainAxisAlignment.end,
-                                    //   children: [
-                                    //     Text(popularProductMyShop[index].shopName, style: TextStyle(color: Colors.grey),)
-                                    //   ],
-                                    // )
-                                  ],
                                 ),
                               ),
-
                             ],
                           ),
-                        ),
-                      );
-                    })),
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Text(
+                            popularProductMyShop[index].name,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                                fontSize: 17, fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                  child: Row(
+                                children: [
+                                  Image.asset(
+                                    "assets/images/vietnamese-dong.png",
+                                    width: 15,
+                                    color: Colors.red,
+                                  ),
+                                  Text(
+                                    NumberFormat.decimalPattern().format(
+                                        popularProductMyShop[index].price),
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                ],
+                              )),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 7,
+                          ),
+                          Container(
+                            padding: EdgeInsets.only(right: 10),
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      popularProductMyShop[index].rate,
+                                      style: TextStyle(fontSize: 13),
+                                    ),
+                                    SizedBox(
+                                      width: 3,
+                                    ),
+                                    Icon(
+                                      Icons.star,
+                                      color: Colors.orange[300],
+                                      size: 17,
+                                    ),
+                                    Text("|"),
+                                    SizedBox(
+                                      width: 3,
+                                    ),
+                                    Text(
+                                      "Đã bán",
+                                      style: TextStyle(fontSize: 13),
+                                    ),
+                                    SizedBox(
+                                      width: 3,
+                                    ),
+                                    Text(
+                                      NumberFormat.decimalPattern().format(
+                                          popularProductMyShop[index]
+                                              .quantitySold),
+                                      style: TextStyle(fontSize: 13),
+                                    )
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                // Row(
+                                //   mainAxisAlignment: MainAxisAlignment.end,
+                                //   children: [
+                                //     Text(popularProductMyShop[index].shopName, style: TextStyle(color: Colors.grey),)
+                                //   ],
+                                // )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                })),
               ),
               Text(
                 "CÁC MẶT HÀNG ĐANG BÁN",
@@ -428,114 +452,114 @@ class _MyShopPageState extends State<MyShopPage> {
                 // scrollDirection: Axis.horizontal,
                 child: Column(
                     children: List.generate(allProductMyShop.length, (index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(5),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                  return Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Stack(
                           children: [
-                            Stack(
-                              children: [
-                                GestureDetector(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (_) => MyShopDetailPage(
-                                                product: allProductMyShop[index])));
-                                  },
-                                  child: Container(
-                                    width: size.width,
-                                    height: 160,
-                                    child: Image(
-                                      image: NetworkImage(
-                                          allProductMyShop[index].urlImage),
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (_) => MyShopDetailPage(
+                                            product: allProductMyShop[index])));
+                              },
+                              child: Container(
+                                width: size.width,
+                                height: 160,
+                                child: Image(
+                                  image: NetworkImage(
+                                      allProductMyShop[index].urlImage),
+                                  fit: BoxFit.cover,
                                 ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            Row(
-                              children: [
-                                Expanded(
-                                  child: Text(
-                                    allProductMyShop[index].name,
-                                    style: TextStyle(
-                                        fontSize: 18, fontWeight: FontWeight.w400),
-                                  ),
-                                ),
-                                Icon(
-                                  Icons.star,
-                                  color: Colors.orange[300],
-                                  size: 17,
-                                ),
-                                Text(
-                                  allProductMyShop[index].rate,
-                                ),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Container(
-                                    child: Row(
-                                      children: [
-                                        Image.asset(
-                                          "assets/images/vietnamese-dong.png",
-                                          width: 13,
-                                          color: Colors.red,
-                                        ),
-                                        Text(
-                                          NumberFormat.decimalPattern()
-                                              .format(allProductMyShop[index].price),
-                                          style: TextStyle(
-                                              fontSize: 16,
-                                              color: Colors.red,
-                                              fontWeight: FontWeight.w600),
-                                        ),
-                                      ],
-                                    )),
-                                Container(
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      Text(
-                                        allProductMyShop[index].category,
-                                        style: TextStyle(fontSize: 14),
-                                      ),
-                                      SizedBox(
-                                        width: 3,
-                                      ),
-                                      // Icon(
-                                      //   Icons.star,
-                                      //   color: Colors.orange[300],
-                                      //   size: 17,
-                                      // ),
-                                      Text("|"),
-                                      SizedBox(
-                                        width: 3,
-                                      ),
-                                      Text("Đã bán"),
-                                      SizedBox(
-                                        width: 3,
-                                      ),
-                                      Text(
-                                        NumberFormat.decimalPattern().format(
-                                            allProductMyShop[index].quantitySold),
-                                        style: TextStyle(fontSize: 14),
-                                      )
-                                    ],
-                                  ),
-                                )
-                              ],
+                              ),
                             ),
                           ],
                         ),
-                      );
-                    })),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                allProductMyShop[index].name,
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.w400),
+                              ),
+                            ),
+                            Icon(
+                              Icons.star,
+                              color: Colors.orange[300],
+                              size: 17,
+                            ),
+                            Text(
+                              allProductMyShop[index].rate,
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                                child: Row(
+                              children: [
+                                Image.asset(
+                                  "assets/images/vietnamese-dong.png",
+                                  width: 13,
+                                  color: Colors.red,
+                                ),
+                                Text(
+                                  NumberFormat.decimalPattern()
+                                      .format(allProductMyShop[index].price),
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                              ],
+                            )),
+                            Container(
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Text(
+                                    allProductMyShop[index].category,
+                                    style: TextStyle(fontSize: 14),
+                                  ),
+                                  SizedBox(
+                                    width: 3,
+                                  ),
+                                  // Icon(
+                                  //   Icons.star,
+                                  //   color: Colors.orange[300],
+                                  //   size: 17,
+                                  // ),
+                                  Text("|"),
+                                  SizedBox(
+                                    width: 3,
+                                  ),
+                                  Text("Đã bán"),
+                                  SizedBox(
+                                    width: 3,
+                                  ),
+                                  Text(
+                                    NumberFormat.decimalPattern().format(
+                                        allProductMyShop[index].quantitySold),
+                                    style: TextStyle(fontSize: 14),
+                                  )
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  );
+                })),
               )
             ],
           ),
@@ -569,8 +593,7 @@ class _MyShopPageState extends State<MyShopPage> {
               ),
               SizedBox(width: 5),
               Expanded(
-                child:
-                Row(
+                child: Row(
                   children: [
                     Text(
                       "Thêm sản phẩm mới",
@@ -614,29 +637,28 @@ class _MyShopPageState extends State<MyShopPage> {
                     Icons.attach_money,
                   ),
                 ),
-                SizedBox(width: 5),
-                Expanded(
-                  child:
-                  Row(
-                    children: [
-                      Text(
-                        "Chương trình khuyến mãi",
-                        style: TextStyle(color: Colors.black87, fontSize: 16),
-                      ),
-                      SizedBox(
-                        width: 130,
-                      ),
-                      Icon(
-                        Icons.arrow_forward_ios,
-                        size: 18,
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            )),
-      );
-    }
+              SizedBox(width: 5),
+              Expanded(
+                child: Row(
+                  children: [
+                    Text(
+                      "Chương trình khuyến mãi",
+                      style: TextStyle(color: Colors.black87, fontSize: 16),
+                    ),
+                    SizedBox(
+                      width: 130,
+                    ),
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      size: 18,
+                    ),
+                  ],
+                ),
+              )
+            ],
+          )),
+    );
+  }
 
   Widget _btnNotificationMyshop() {
     return InkWell(
@@ -689,15 +711,18 @@ class _MyShopPageState extends State<MyShopPage> {
       pageIndex = index;
       if (pageIndex == 0) {
         Navigator.push(
-            context, MaterialPageRoute(builder: (_) => WaitAcceptPage(buyer: false, status: "Chưa xác nhận")));
-      } else if (pageIndex == 1){
+            context,
+            MaterialPageRoute(
+                builder: (_) =>
+                    WaitAcceptPage(buyer: false, status: "Chưa xác nhận")));
+      } else if (pageIndex == 1) {
         Navigator.push(
             context, MaterialPageRoute(builder: (_) => AcceptedShop()));
-      } else if (pageIndex == 2){
+      } else if (pageIndex == 2) {
         Navigator.push(
             context, MaterialPageRoute(builder: (_) => RatingShop()));
-      } else if(pageIndex == 3){
-         Navigator.push(
+      } else if (pageIndex == 3) {
+        Navigator.push(
             context, MaterialPageRoute(builder: (_) => HistorySellerPage()));
       }
     });

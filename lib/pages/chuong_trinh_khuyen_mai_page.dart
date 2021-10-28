@@ -3,9 +3,12 @@ import 'dart:ffi';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter/rendering.dart';
 import 'package:test_flutter_template/json/khuyen_mai_json.dart';
 import 'package:test_flutter_template/pages/saleoff/create_sale_off.dart';
 import 'package:test_flutter_template/theme/colors.dart';
+
+import 'saleoff/create_sale_off.dart';
 
 class ChuongTrinhKhuyenMaiPage extends StatefulWidget {
   const ChuongTrinhKhuyenMaiPage({Key? key}) : super(key: key);
@@ -20,8 +23,10 @@ class _ChuongTrinhKhuyenMaiPageState extends State<ChuongTrinhKhuyenMaiPage> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(title: Text("Chương trình khuyến mãi"),
-        backgroundColor: Color.fromRGBO(240, 103, 103, 1),),
+      appBar: AppBar(
+        title: Text("Chương trình khuyến mãi"),
+        backgroundColor: Color.fromRGBO(240, 103, 103, 1),
+      ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(8),
         child: Column(
@@ -151,7 +156,7 @@ class _ChuongTrinhKhuyenMaiPageState extends State<ChuongTrinhKhuyenMaiPage> {
                       ),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                           fixedSize: const Size(100, 30),
+                          fixedSize: const Size(100, 30),
                           primary: Colors.red[200], // background
                           onPrimary: Colors.black, // foreground
                         ),
@@ -166,22 +171,32 @@ class _ChuongTrinhKhuyenMaiPageState extends State<ChuongTrinhKhuyenMaiPage> {
           }),
         ),
       ),
-      bottomNavigationBar: Container(
-        width: 100,
-        height: 50,
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-              textStyle:
-                  const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              onPrimary: Colors.white,
-              primary: Colors.red),
-          onPressed: () {
-            Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => AddNewSaleOff()));
-          },
-          child: const Text('Tạo chương trình khuyến mãi'),
-        ),
-      ),
+
+      bottomNavigationBar: InkWell(
+      onTap: () {
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => AddNewSaleOff()));
+      },
+      child: Container(
+          decoration: BoxDecoration(
+            // borderRadius: BorderRadius.all(Radius.circular(3)),
+            color: Color.fromRGBO(240, 103, 103, 1),
+          ),
+          // margin: EdgeInsets.symmetric(horizontal: 15),
+          child: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(width: 5),
+                Text(
+                  "Tạo chương trình khuyến mãi",
+                  style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+                )
+              ],
+            ),
+          )),
+    )
     );
   }
 }

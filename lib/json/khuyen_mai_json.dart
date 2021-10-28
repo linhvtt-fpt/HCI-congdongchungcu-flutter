@@ -92,6 +92,6 @@ List<Sale> listSale = [
       ],
       start_date_time: "28-10-2021 10:00",
       end_date_time: "28-10-2021 18:00",
-      name: "Khuyến mãi đồ ăn vặt",
+      name: "Khuyến mãi ",
       saleNum: 20)
 ];
