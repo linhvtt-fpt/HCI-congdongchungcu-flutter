@@ -41,103 +41,105 @@ class _CancelBillReasonState extends State<CancelBillReason> {
         ),
         title: Text("Bạn muốn hủy vì lý do gì?"),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-          if(widget.buyer)
-          RadioListTile<int>(
-            value: 1,
-            groupValue: selectedRadio,
-            title: Text(listReason[0]['1']),
-            onChanged: (int? val) {
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            if(widget.buyer)
+            RadioListTile<int>(
+              value: 1,
+              groupValue: selectedRadio,
+              title: Text(listReason[0]['1']),
+              onChanged: (int? val) {
+                  setSelectedRadio(val);
+              },
+              activeColor: Colors.red,
+            ),
+            if(!widget.buyer)
+            RadioListTile<int>(
+              value: 1,
+              groupValue: selectedRadio,
+              title: Text(listReason[1]['1']),
+              onChanged: (int? val) {
+                  setSelectedRadio(val);
+              },
+              activeColor: Colors.red,
+            ),
+      
+            if(widget.buyer)
+            RadioListTile(
+              value: 2,
+              groupValue: selectedRadio,
+              title: Text(listReason[0]['2']),
+              onChanged: (int? val) {
                 setSelectedRadio(val);
-            },
-            activeColor: Colors.red,
-          ),
-          if(!widget.buyer)
-          RadioListTile<int>(
-            value: 1,
-            groupValue: selectedRadio,
-            title: Text(listReason[1]['1']),
-            onChanged: (int? val) {
+              },
+              activeColor: Colors.red,
+            ),
+            if(!widget.buyer)
+            RadioListTile(
+              value: 2,
+              groupValue: selectedRadio,
+              title: Text(listReason[1]['2']),
+              onChanged: (int? val) {
                 setSelectedRadio(val);
-            },
-            activeColor: Colors.red,
-          ),
-
-          if(widget.buyer)
-          RadioListTile(
-            value: 2,
-            groupValue: selectedRadio,
-            title: Text(listReason[0]['2']),
-            onChanged: (int? val) {
-              setSelectedRadio(val);
-            },
-            activeColor: Colors.red,
-          ),
-          if(!widget.buyer)
-          RadioListTile(
-            value: 2,
-            groupValue: selectedRadio,
-            title: Text(listReason[1]['2']),
-            onChanged: (int? val) {
-              setSelectedRadio(val);
-            },
-            activeColor: Colors.red,
-          ),
-
-          if(widget.buyer)
-          RadioListTile(
-            value: 3,
-            groupValue: selectedRadio,
-            title: Text(listReason[0]['3']),
-            onChanged: (int? val) {
-              setSelectedRadio(val);
-            },
-            activeColor: Colors.red,
-          ),
-          if(!widget.buyer)
-          RadioListTile(
-            value: 3,
-            groupValue: selectedRadio,
-            title: Text(listReason[1]['3']),
-            onChanged: (int? val) {
-              setSelectedRadio(val);
-            },
-            activeColor: Colors.red,
-          ),
-
-          if(widget.buyer)
-          RadioListTile(
-            value: 4,
-            groupValue: selectedRadio,
-            title: Text(listReason[0]['4']),
-            onChanged: (int? val) {
-              setSelectedRadio(val);
-            },
-            activeColor: Colors.red,
-          ),
-          if(!widget.buyer)
-          RadioListTile(
-            value: 4,
-            groupValue: selectedRadio,
-            title: Text(listReason[1]['4']),
-            onChanged: (int? val) {
-              setSelectedRadio(val);
-            },
-            activeColor: Colors.red,
-          ),
-
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextFieldWidget(
-                label: "Khác",
-                text: "",
-                maxLines: 5,
-                onChanged: (other){}),
-          ),
-          _btnAcceptCancel(context, widget.buyer),
-        ],
+              },
+              activeColor: Colors.red,
+            ),
+      
+            if(widget.buyer)
+            RadioListTile(
+              value: 3,
+              groupValue: selectedRadio,
+              title: Text(listReason[0]['3']),
+              onChanged: (int? val) {
+                setSelectedRadio(val);
+              },
+              activeColor: Colors.red,
+            ),
+            if(!widget.buyer)
+            RadioListTile(
+              value: 3,
+              groupValue: selectedRadio,
+              title: Text(listReason[1]['3']),
+              onChanged: (int? val) {
+                setSelectedRadio(val);
+              },
+              activeColor: Colors.red,
+            ),
+      
+            if(widget.buyer)
+            RadioListTile(
+              value: 4,
+              groupValue: selectedRadio,
+              title: Text(listReason[0]['4']),
+              onChanged: (int? val) {
+                setSelectedRadio(val);
+              },
+              activeColor: Colors.red,
+            ),
+            if(!widget.buyer)
+            RadioListTile(
+              value: 4,
+              groupValue: selectedRadio,
+              title: Text(listReason[1]['4']),
+              onChanged: (int? val) {
+                setSelectedRadio(val);
+              },
+              activeColor: Colors.red,
+            ),
+      
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextFieldWidget(
+                  label: "Khác",
+                  text: "",
+                  maxLines: 5,
+                  onChanged: (other){}),
+            ),
+            _btnAcceptCancel(context, widget.buyer),
+          ],
+        ),
       ),
     );
   }

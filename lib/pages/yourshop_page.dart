@@ -218,18 +218,18 @@ class _YourShopPageState extends State<YourShopPage> {
                                   )
                                 ],
                               ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Text(
-                                    "Shop " + productSale[index].nameShop,
-                                    style: TextStyle(color: Colors.grey),
-                                  )
-                                ],
-                              )
+                              // SizedBox(
+                              //   height: 10,
+                              // ),
+                              // Row(
+                              //   mainAxisAlignment: MainAxisAlignment.end,
+                              //   children: [
+                              //     Text(
+                              //       "Shop " + productSale[index].nameShop,
+                              //       style: TextStyle(color: Colors.grey),
+                              //     )
+                              //   ],
+                              // )
                             ],
                           ),
                         ),
