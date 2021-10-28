@@ -19,12 +19,12 @@ List<Sale> listSale = [
         //     isSale: true,
         //     saleNum: 10),
         Product(
-            name: "Nui chiên giòn túi 100g",
+            name: "Khoai tây chiên bịch 250g",
             description:
-                "Vừa ăn vừa xem phim, đọc sách rất phù hợp hoặc thưởng thức trà.",
+                "Khoai tây chiên truyền thống, lắc phô mai",
             price: 35000,
             urlImage:
-                'https://afamilycdn.com/150157425591193600/2020/4/1/9115720610044658732819171265064230814102841n-15857137102061364901955.jpg?fbclid=IwAR1sKi1NbeZc2lIiAgA2l9UycrXwELij59Z7TW3QZXQ7D5Nodn8IUCkN3Xk',
+                'https://images.unsplash.com/photo-1552895638-f7fe08d2f7d5?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8Zm9vZCUyMG1jZG9uYWxkfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
             imgShop: "assets/images/avtAnVat.jpg",
             nameShop: "Ăn vặt ngon",
             rate: "4.9",
@@ -35,9 +35,9 @@ List<Sale> listSale = [
             saleNum: 20),
         Product(
             urlImage:
-                "https://cf.shopee.vn/file/09e9dea5d18e1a4fd554b7c61fffe29b?fbclid=IwAR0PWICjTQmHNIYJ61FOoSPjrU1KKD9kfELzyh5zBb8Bu_ofq2S06mXNLEo",
-            name: "Combo bánh kẹo Thái Lan",
-            description: "Combo bánh kẹo Thái Lan siêu ngon",
+                "https://cdn.tgdd.vn/2021/03/CookRecipe/GalleryStep/thanh-pham-1165.jpg",
+            name: "Bánh cam nhân đậu xanh 1 hộp 10 cái",
+            description: "Bánh cam nhân đậu xanh 1 hộp 10 cái ngon bổ rẻ",
             price: 180000,
             imgShop: "assets/images/avtAnVat.jpg",
             nameShop: "Ăn ngon ngon",
@@ -49,8 +49,8 @@ List<Sale> listSale = [
             saleNum: 30),
         Product(
             urlImage:
-                "https://cf.shopee.vn/file/c75e14219542085594846669e96e30a9_tn",
-            name: "Bánh khoai lang kén 1kg",
+                "https://gocgiaitri.com.vn/wp-content/uploads/2021/06/18-1.png",
+            name: "Bánh tart trứng 1 hộp 10 cái",
             description: "Khoai lang kén nhà làm ngon đảm bảo an toàn",
             price: 60000,
             imgShop: "assets/images/avtAnVat.jpg",
@@ -77,8 +77,8 @@ List<Sale> listSale = [
         //     saleNum: 30),
         Product(
             urlImage:
-                "https://lh3.googleusercontent.com/proxy/a9HkqYPM0AsHzkLVp7nBelhMme3EuFRle3bqmRcfviVl-EYB5uSmLyROj4xbZ8KEKCWgINd8pTfVRcEE7s0UEq1tQvL2MkPd717Bqa-HR-6GkVbILau7gbj4UvhEG8FrWEJ0ybl2ZbKA",
-            name: "Bánh tráng trộn",
+                "https://bizweb.dktcdn.net/100/423/207/products/a956f9a2-a6e8-4666-b109-4d6c7b502c07.jpg?v=1625458015553",
+            name: "Bánh kem trà xanh size nhỏ",
             description: "Bánh tráng trộn nhà làm ngon đảm bảo an toàn",
             price: 20000,
             imgShop: "assets/images/avtAnVat.jpg",
@@ -104,8 +104,8 @@ List<Sale> listSale = [
         //     isSale: true,
         //     saleNum: 30),
       ],
-      start_date_time: "28-10-2021 10:00",
-      end_date_time: "28-10-2021 18:00",
+      start_date_time: "28-10-2021 10:00 AM",
+      end_date_time: "28-10-2021 06:00 PM",
       name: "Khuyến mãi đồ ăn vặt",
       saleNum: 20)
 ];

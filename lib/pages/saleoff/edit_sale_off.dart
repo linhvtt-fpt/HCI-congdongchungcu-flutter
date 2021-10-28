@@ -14,23 +14,26 @@ import '../chuong_trinh_khuyen_mai_page.dart';
 import '../myshop_page.dart';
 import 'choose_sale_product.dart';
 
-class AddNewSaleOff extends StatefulWidget {
-  _AddNewSaleOffState createState() => _AddNewSaleOffState();
+class EditNewSaleOff extends StatefulWidget {
+  _EditNewSaleOff createState() => _EditNewSaleOff();
 }
 
-class _AddNewSaleOffState extends State<AddNewSaleOff> {
-  DateTime _fromDateTime = DateTime.now().add(const Duration(minutes: 30));
-  String _chosenFromDate = DateFormat('dd-MM-yyyy hh:mm a')
-      .format(DateTime.now().add(const Duration(minutes: 30)));
-  DateTime _toDateTime =
-      DateTime.now().add(const Duration(hours: 1, minutes: 30));
-  String _chosenToDate = DateFormat('dd-MM-yyyy hh:mm a')
-      .format(DateTime.now().add(const Duration(hours: 1, minutes: 30)));
+class _EditNewSaleOff extends State<EditNewSaleOff> {
+  DateTime _fromDateTime = DateFormat('dd-MM-yyyy hh:mm a').parse('28-10-2021 10:00 AM');
+  String _chosenFromDate = '28-10-2021 10:00 AM';
+  DateTime _toDateTime = DateFormat('dd-MM-yyyy hh:mm a').parse('28-10-2021 06:00 PM');
+  String _chosenToDate = '28-10-2021 06:00 PM';
 List<bool?> showValue = List.filled(allProductMyShop.length, false);
+
+
   @override
   void initState() {
     // ignore: todo
     // TODO: implement initState
+    showValue[1] = true;
+    showValue[6] = true;
+    showValue[7] = true;
+    showValue[8] = true;
     super.initState();
   }
 
@@ -46,7 +49,7 @@ List<bool?> showValue = List.filled(allProductMyShop.length, false);
           },
           icon: Icon(Icons.arrow_back),
         ),
-        title: Text("Thêm chương trình khuyến mãi"),
+        title: Text("Chỉnh sửa chương trình khuyến mãi"),
         elevation: 0,
       ),
       body: ListView(
@@ -84,6 +87,7 @@ List<bool?> showValue = List.filled(allProductMyShop.length, false);
                 children: <Widget>[
                   new Flexible(
                     child: new TextField(
+                      controller: TextEditingController()..text = 'Khuyến mãi đồ ăn vặt',
                       decoration: const InputDecoration(
                           hintText: "Nhập tên chương trình"),
                     ),
@@ -171,6 +175,7 @@ List<bool?> showValue = List.filled(allProductMyShop.length, false);
                     textAlign: TextAlign.right,
                     textInputAction: TextInputAction.next,
                     keyboardType: TextInputType.number,
+                    initialValue: '20',
                     inputFormatters: [
                       new LengthLimitingTextInputFormatter(2),
                     ],
@@ -225,8 +230,7 @@ List<bool?> showValue = List.filled(allProductMyShop.length, false);
                               child: Row(children: [
                                 Checkbox(
                                   value: showValue[index],
-                                  onChanged: (index == 1) ? null : (index == 6) ? null :
-                                    (index == 7) ? null : (index == 8) ? null :
+                                  onChanged:
                                       (bool? value) {
                                     setState(() {
                                       showValue[index] = value;
@@ -282,10 +286,7 @@ List<bool?> showValue = List.filled(allProductMyShop.length, false);
                                           ),
                                           Expanded(
                                               flex: 1,
-                                              child: (index == 1) ? Icon(Icons.warning_amber_outlined, color: Colors.red,) :
-                                              (index == 6) ? Icon(Icons.warning_amber_outlined, color: Colors.red,) :
-                                              (index == 7) ? Icon(Icons.warning_amber_outlined, color: Colors.red,) :
-                                              (index == 8) ? Icon(Icons.warning_amber_outlined, color: Colors.red,) :
+                                              child:
                                               SizedBox()
                                           ),
                                         ],

@@ -6,6 +6,7 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:test_flutter_template/json/khuyen_mai_json.dart';
 import 'package:test_flutter_template/pages/saleoff/create_sale_off.dart';
+import 'package:test_flutter_template/pages/saleoff/edit_sale_off.dart';
 import 'package:test_flutter_template/theme/colors.dart';
 
 import 'saleoff/create_sale_off.dart';
@@ -151,7 +152,10 @@ class _ChuongTrinhKhuyenMaiPageState extends State<ChuongTrinhKhuyenMaiPage> {
                           primary: Colors.red[200], // background
                           onPrimary: Colors.black, // foreground
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (context) => EditNewSaleOff()));
+                        },
                         child: const Text('Thay đổi'),
                       ),
                       ElevatedButton(
