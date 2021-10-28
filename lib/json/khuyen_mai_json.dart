@@ -4,20 +4,20 @@ import 'product_model.dart';
 List<Sale> listSale = [
   Sale(
       listProduct: [
-        Product(
-            urlImage:
-                "https://papishop.vn/wp-content/uploads/2020/07/TR401riMsee1tk6nThkXJA_355305939-600x600.jpg",
-            name: "Balo hồng dễ thương",
-            description: "Balo hồng chống nước, đựng vừa laptop 15inch",
-            price: 130000,
-            imgShop: "assets/images/avtAnVat.jpg",
-            nameShop: "Chuyên sỉ balo",
-            rate: "4.8",
-            rate_number: "90",
-            quantity: 1,
-            categoryId: 1,
-            isSale: true,
-            saleNum: 10),
+        // Product(
+        //     urlImage:
+        //         "https://papishop.vn/wp-content/uploads/2020/07/TR401riMsee1tk6nThkXJA_355305939-600x600.jpg",
+        //     name: "Balo hồng dễ thương",
+        //     description: "Balo hồng chống nước, đựng vừa laptop 15inch",
+        //     price: 130000,
+        //     imgShop: "assets/images/avtAnVat.jpg",
+        //     nameShop: "Chuyên sỉ balo",
+        //     rate: "4.8",
+        //     rate_number: "90",
+        //     quantity: 1,
+        //     categoryId: 1,
+        //     isSale: true,
+        //     saleNum: 10),
         Product(
             name: "Nui chiên giòn túi 100g",
             description:
@@ -49,32 +49,46 @@ List<Sale> listSale = [
             saleNum: 30),
         Product(
             urlImage:
-                "https://salt.tikicdn.com/ts/tmp/d3/2c/0c/c0c4e89bfbf23efe3b18d9b10883a7ee.jpg",
-            name: "Váy công chúa bé gái",
-            description: "váy công chúa dành cho bé gái từ 7 - 10 tuổi",
-            price: 250000,
+                "https://cf.shopee.vn/file/c75e14219542085594846669e96e30a9_tn",
+            name: "Bánh khoai lang kén 1kg",
+            description: "Khoai lang kén nhà làm ngon đảm bảo an toàn",
+            price: 60000,
             imgShop: "assets/images/avtAnVat.jpg",
-            nameShop: "Kid Store",
-            rate: "4.8",
-            rate_number: "80",
+            nameShop: "Ăn vặt ngon",
+            rate: "4.3",
+            rate_number: "115",
             quantity: 1,
             categoryId: 1,
-            isSale: true,
-            saleNum: 30),
+            isSale: false,
+            saleNum: 20),
         // Product(
         //     urlImage:
-        //         "https://lh3.googleusercontent.com/proxy/a9HkqYPM0AsHzkLVp7nBelhMme3EuFRle3bqmRcfviVl-EYB5uSmLyROj4xbZ8KEKCWgINd8pTfVRcEE7s0UEq1tQvL2MkPd717Bqa-HR-6GkVbILau7gbj4UvhEG8FrWEJ0ybl2ZbKA",
-        //     name: "Bánh tráng trộn",
-        //     description: "Bánh tráng trộn nhà làm ngon đảm bảo an toàn",
-        //     price: 20000,
+        //         "https://salt.tikicdn.com/ts/tmp/d3/2c/0c/c0c4e89bfbf23efe3b18d9b10883a7ee.jpg",
+        //     name: "Váy công chúa bé gái",
+        //     description: "váy công chúa dành cho bé gái từ 7 - 10 tuổi",
+        //     price: 250000,
         //     imgShop: "assets/images/avtAnVat.jpg",
-        //     nameShop: "Ăn vặt ngon",
-        //     rate: "4.3",
-        //     rate_number: "50",
+        //     nameShop: "Kid Store",
+        //     rate: "4.8",
+        //     rate_number: "80",
         //     quantity: 1,
         //     categoryId: 1,
         //     isSale: true,
         //     saleNum: 30),
+        Product(
+            urlImage:
+                "https://lh3.googleusercontent.com/proxy/a9HkqYPM0AsHzkLVp7nBelhMme3EuFRle3bqmRcfviVl-EYB5uSmLyROj4xbZ8KEKCWgINd8pTfVRcEE7s0UEq1tQvL2MkPd717Bqa-HR-6GkVbILau7gbj4UvhEG8FrWEJ0ybl2ZbKA",
+            name: "Bánh tráng trộn",
+            description: "Bánh tráng trộn nhà làm ngon đảm bảo an toàn",
+            price: 20000,
+            imgShop: "assets/images/avtAnVat.jpg",
+            nameShop: "Ăn vặt ngon",
+            rate: "4.3",
+            rate_number: "50",
+            quantity: 1,
+            categoryId: 1,
+            isSale: true,
+            saleNum: 30),
         // Product(
         //     urlImage:
         //         "https://f19-zpg.zdn.vn/1774453824866563078/56d469136e649e3ac775.jpg?fbclid=IwAR2rymCV1bWOvD1vDtB-u8zXsqlhEEvVOOyVk-7tBZlar-FAyUB9Ppx9SFU",
@@ -92,6 +106,6 @@ List<Sale> listSale = [
       ],
       start_date_time: "28-10-2021 10:00",
       end_date_time: "28-10-2021 18:00",
-      name: "Khuyến mãi ",
+      name: "Khuyến mãi đồ ăn vặt",
       saleNum: 20)
 ];
