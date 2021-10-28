@@ -160,7 +160,9 @@ class _ChuongTrinhKhuyenMaiPageState extends State<ChuongTrinhKhuyenMaiPage> {
                           primary: Colors.red[200], // background
                           onPrimary: Colors.black, // foreground
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          listSale.remove(listSale[index]);
+                        },
                         child: const Text('Xóa'),
                       ),
                     ],
