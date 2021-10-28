@@ -614,29 +614,29 @@ class _MyShopPageState extends State<MyShopPage> {
     );
   }
 
-  Widget _btnCreateNewSale() {
-    return InkWell(
-      onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (_) => ChuongTrinhKhuyenMaiPage()));
-      },
-      child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(0)),
-            color: Colors.white,
-          ),
-          // margin: EdgeInsets.symmetric(horizontal: 12),
-          margin: EdgeInsets.only(left: 10),
-          padding: EdgeInsets.all(10),
-          child: Row(
-            // mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(right: 25),
-                child: Icon(
-                  Icons.attach_money,
+    Widget _btnCreateNewSale() {
+      return InkWell(
+        onTap: () {
+          Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => ChuongTrinhKhuyenMaiPage()));
+        },
+        child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(0)),
+              color: Colors.white,
+            ),
+            // margin: EdgeInsets.symmetric(horizontal: 12),
+            margin: EdgeInsets.only(left: 10),
+            padding: EdgeInsets.all(10),
+            child: Row(
+              // mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 25),
+                  child: Icon(
+                    Icons.attach_money,
+                  ),
                 ),
-              ),
               SizedBox(width: 5),
               Expanded(
                 child: Row(

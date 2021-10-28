@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:test_flutter_template/json/khuyen_mai_json.dart';
-import 'package:test_flutter_template/json/khuyen_mai_model.dart';
+import 'package:test_flutter_template/pages/saleoff/create_sale_off.dart';
 import 'package:test_flutter_template/theme/colors.dart';
 
 import 'saleoff/create_sale_off.dart';
@@ -171,6 +171,7 @@ class _ChuongTrinhKhuyenMaiPageState extends State<ChuongTrinhKhuyenMaiPage> {
           }),
         ),
       ),
+
       bottomNavigationBar: InkWell(
       onTap: () {
         Navigator.of(context)
